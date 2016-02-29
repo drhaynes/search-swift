@@ -7,4 +7,4 @@ before_install:
 install: carthage bootstrap --platform iOS --no-use-binaries --verbose
 
 script:
-  - xcodebuild -project Search.xcodeproj -scheme Search test
+  - xcodebuild -project Search.xcodeproj -scheme Search -sdk iphonesimulator test
