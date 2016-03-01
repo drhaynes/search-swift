@@ -23,17 +23,17 @@ public class Header: NSObject {
     internal let kHeaderFormatKey: String = "format"
     internal let kHeaderQueryKey: String = "query"
 
-    public let matchprecision: Int?
-    public let lr: String?
-    public let dataset: String?
-    public let maxresults: Int?
-    public let totalresults: Int?
-    public let uri: String?
-    public let outputSrs: String?
-    public let epoch: String?
-    public let offset: Int?
-    public let format: String?
-    public let query: String?
+    public let matchprecision: Int
+    public let lr: String
+    public let dataset: String
+    public let maxresults: Int
+    public let totalresults: Int
+    public let uri: String
+    public let outputSrs: String
+    public let epoch: String
+    public let offset: Int
+    public let format: String
+    public let query: String
 
     init(matchprecision: Int, lr: String, dataset: String, maxresults: Int, totalresults: Int, uri: String, outputSrs: String, epoch: String, offset: Int, format: String, query: String) {
         self.matchprecision = matchprecision

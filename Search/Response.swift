@@ -14,8 +14,8 @@ public class Response: NSObject {
     internal let kResponseResultsKey: String = "results"
     internal let kResponseHeaderKey: String = "header"
 
-    public let results: [Results]?
-    public let header: Header?
+    public let results: [Results]
+    public let header: Header
 
     init(results: [Results], header: Header) {
         self.results = results

@@ -40,34 +40,34 @@ public class Dpa: NSObject {
     internal let kDpaPostTownKey: String = "POST_TOWN"
     internal let kDpaBlpuStateDateKey: String = "BLPU_STATE_DATE"
 
-    public let language: String?
-    public let lastUpdateDate: String?
-    public let rpc: String?
-    public let buildingNumber: String?
-    public let postcode: String?
-    public let uprn: String?
-    public let matchDescription: String?
-    public let entryDate: String?
-    public let postalAddressCode: String?
-    public let localCustodianCode: Int?
-    public let status: String?
-    public let blpuStateCode: String?
-    public let organisationName: String?
-    public let postalAddressCodeDescription: String?
-    public let classificationCodeDescription: String?
-    public let xCoordinate: Int?
-    public let match: Float?
-    public let classificationCode: String?
-    public let topographyLayerToid: String?
-    public let localCustodianCodeDescription: String?
-    public let blpuStateCodeDescription: String?
-    public let dependentLocality: String?
-    public let logicalStatusCode: String?
-    public let yCoordinate: Int?
-    public let thoroughfareName: String?
-    public let address: String?
-    public let postTown: String?
-    public let blpuStateDate: String?
+    public let language: String
+    public let lastUpdateDate: String
+    public let rpc: String
+    public let buildingNumber: String
+    public let postcode: String
+    public let uprn: String
+    public let matchDescription: String
+    public let entryDate: String
+    public let postalAddressCode: String
+    public let localCustodianCode: Int
+    public let status: String
+    public let blpuStateCode: String
+    public let organisationName: String
+    public let postalAddressCodeDescription: String
+    public let classificationCodeDescription: String
+    public let xCoordinate: Int
+    public let match: Float
+    public let classificationCode: String
+    public let topographyLayerToid: String
+    public let localCustodianCodeDescription: String
+    public let blpuStateCodeDescription: String
+    public let dependentLocality: String
+    public let logicalStatusCode: String
+    public let yCoordinate: Int
+    public let thoroughfareName: String
+    public let address: String
+    public let postTown: String
+    public let blpuStateDate: String
 
     init(language: String, lastUpdateDate: String, rpc: String, buildingNumber: String, postcode: String, uprn: String, matchDescription: String, entryDate: String, postalAddressCode: String, localCustodianCode: Int, status: String, blpuStateCode: String, organisationName: String, postalAddressCodeDescription: String, classificationCodeDescription: String, xCoordinate: Int, match: Float, classificationCode: String, topographyLayerToid: String, localCustodianCodeDescription: String, blpuStateCodeDescription: String, dependentLocality: String, logicalStatusCode: String, yCoordinate: Int, thoroughfareName: String, address: String, postTown: String, blpuStateDate: String) {
         self.language = language
