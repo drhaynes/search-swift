@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0ADE161C85C97800D4FD37 /* Dpa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE121C85C97800D4FD37 /* Dpa.swift */; };
+		3D0ADE171C85C97800D4FD37 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE131C85C97800D4FD37 /* Header.swift */; };
+		3D0ADE181C85C97800D4FD37 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE141C85C97800D4FD37 /* Response.swift */; };
+		3D0ADE191C85C97800D4FD37 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE151C85C97800D4FD37 /* Results.swift */; };
 		3D5929D41C7F41E900B3CECC /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5929D31C7F41E900B3CECC /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D5929DB1C7F41E900B3CECC /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
 		3D5929E01C7F41E900B3CECC /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5929DF1C7F41E900B3CECC /* SearchTests.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D0ADE121C85C97800D4FD37 /* Dpa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dpa.swift; sourceTree = "<group>"; };
+		3D0ADE131C85C97800D4FD37 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		3D0ADE141C85C97800D4FD37 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		3D0ADE151C85C97800D4FD37 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		3D5929D01C7F41E900B3CECC /* Search.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Search.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5929D31C7F41E900B3CECC /* Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		3D5929D51C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +58,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D0ADE111C85C95F00D4FD37 /* Response Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D0ADE121C85C97800D4FD37 /* Dpa.swift */,
+				3D0ADE131C85C97800D4FD37 /* Header.swift */,
+				3D0ADE141C85C97800D4FD37 /* Response.swift */,
+				3D0ADE151C85C97800D4FD37 /* Results.swift */,
+			);
+			name = "Response Model";
+			sourceTree = "<group>";
+		};
 		3D5929C61C7F41E900B3CECC = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +90,7 @@
 		3D5929D21C7F41E900B3CECC /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				3D0ADE111C85C95F00D4FD37 /* Response Model */,
 				3D5929D31C7F41E900B3CECC /* Search.h */,
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
 			);
@@ -194,6 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0ADE181C85C97800D4FD37 /* Response.swift in Sources */,
+				3D0ADE171C85C97800D4FD37 /* Header.swift in Sources */,
+				3D0ADE191C85C97800D4FD37 /* Results.swift in Sources */,
+				3D0ADE161C85C97800D4FD37 /* Dpa.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +332,7 @@
 		3D5929E51C7F41E900B3CECC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +343,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.os.Search;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		3D5929E61C7F41E900B3CECC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
