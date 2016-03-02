@@ -17,9 +17,11 @@
 		3D0ADE301C870A0100D4FD37 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE2A1C87096600D4FD37 /* Nimble.framework */; };
 		3D0ADE311C870A0300D4FD37 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE2B1C87096600D4FD37 /* OHHTTPStubs.framework */; };
 		3D0ADE321C870A1000D4FD37 /* Fetch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */; };
+		3D0ADE361C873F6A00D4FD37 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */; };
 		3D5929D41C7F41E900B3CECC /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5929D31C7F41E900B3CECC /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D5929DB1C7F41E900B3CECC /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
-		3D5929E01C7F41E900B3CECC /* SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5929DF1C7F41E900B3CECC /* SearchTests.swift */; };
+		3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,11 +58,13 @@
 		3D0ADE221C87090900D4FD37 /* Fetch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fetch.framework; path = ../Carthage/Build/iOS/Fetch.framework; sourceTree = "<group>"; };
 		3D0ADE2A1C87096600D4FD37 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3D0ADE2B1C87096600D4FD37 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Parsing.swift"; sourceTree = "<group>"; };
+		3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		3D5929D01C7F41E900B3CECC /* Search.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Search.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5929D31C7F41E900B3CECC /* Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		3D5929D51C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D5929DA1C7F41E900B3CECC /* SearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D5929DF1C7F41E900B3CECC /* SearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
+		3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParsingTests.swift; sourceTree = "<group>"; };
 		3D5929E11C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +96,7 @@
 				3D0ADE1A1C85E3F000D4FD37 /* Dpa.swift */,
 				3D0ADE1B1C85E3F000D4FD37 /* Header.swift */,
 				3D0ADE1C1C85E3F000D4FD37 /* Response.swift */,
+				3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */,
 				3D0ADE1D1C85E3F000D4FD37 /* Results.swift */,
 			);
 			name = "Response Model";
@@ -129,7 +134,8 @@
 		3D5929DE1C7F41E900B3CECC /* SearchTests */ = {
 			isa = PBXGroup;
 			children = (
-				3D5929DF1C7F41E900B3CECC /* SearchTests.swift */,
+				3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */,
+				3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */,
 				3D5929E11C7F41E900B3CECC /* Info.plist */,
 				3D0ADE2A1C87096600D4FD37 /* Nimble.framework */,
 				3D0ADE2B1C87096600D4FD37 /* OHHTTPStubs.framework */,
@@ -246,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
 				3D0ADE1F1C85E3F000D4FD37 /* Header.swift in Sources */,
 				3D0ADE201C85E3F000D4FD37 /* Response.swift in Sources */,
 				3D0ADE211C85E3F000D4FD37 /* Results.swift in Sources */,
@@ -257,7 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D5929E01C7F41E900B3CECC /* SearchTests.swift in Sources */,
+				3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */,
+				3D0ADE361C873F6A00D4FD37 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -351,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -375,6 +383,7 @@
 				);
 				INFOPLIST_FILE = Search/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.os.Search;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,6 +406,7 @@
 				);
 				INFOPLIST_FILE = Search/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.os.Search;
 				PRODUCT_NAME = "$(TARGET_NAME)";

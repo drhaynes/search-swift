@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Response: NSObject {
+public final class Response: NSObject {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
     internal let kResponseResultsKey: String = "results"
