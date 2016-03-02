@@ -19,6 +19,7 @@
 		3D0ADE321C870A1000D4FD37 /* Fetch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */; };
 		3D0ADE361C873F6A00D4FD37 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */; };
+		3D0ADE381C87404000D4FD37 /* test-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D0ADE371C87404000D4FD37 /* test-response.json */; };
 		3D5929D41C7F41E900B3CECC /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5929D31C7F41E900B3CECC /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D5929DB1C7F41E900B3CECC /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
 		3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */; };
@@ -60,6 +61,7 @@
 		3D0ADE2B1C87096600D4FD37 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = ../Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Parsing.swift"; sourceTree = "<group>"; };
 		3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		3D0ADE371C87404000D4FD37 /* test-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response.json"; sourceTree = "<group>"; };
 		3D5929D01C7F41E900B3CECC /* Search.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Search.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5929D31C7F41E900B3CECC /* Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		3D5929D51C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */,
+				3D0ADE371C87404000D4FD37 /* test-response.json */,
 				3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */,
 				3D5929E11C7F41E900B3CECC /* Info.plist */,
 				3D0ADE2A1C87096600D4FD37 /* Nimble.framework */,
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0ADE381C87404000D4FD37 /* test-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

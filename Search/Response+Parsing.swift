@@ -8,8 +8,12 @@
 
 import Fetch
 
+public enum SearchError: ErrorType {
+    case FailedToParseJSON
+}
+
 extension Response: Parsable {
     public static func parse(fromData data: NSData?, withStatus status: Int) -> Result<Response> {
-        fatalError("Not yet implemented")
+        return .Failure(SearchError.FailedToParseJSON)
     }
 }

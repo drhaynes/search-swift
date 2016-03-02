@@ -13,8 +13,18 @@ import Nimble
 class ResponseParsingTests: XCTestCase {
 
     func testItIsPossibleToParseAResponse() {
-        let data = NSData(contentsOfURL: Bundle().URLForResource("test-respsonse", withExtension: "json")!)!
-        let respsonse = Response.parse(fromData: data, withStatus: 200)
+        let data = NSData(contentsOfURL: Bundle().URLForResource("test-response", withExtension: "json")!)!
+        let result = Response.parse(fromData: data, withStatus: 200)
+        switch result {
+        case .Success(let response):
+            validateResponse(response)
+        default:
+            fail("Unexpected result")
+        }
+    }
+
+    private func validateResponse(response: Response) {
+        fail("Not yet implemented")
     }
     
 }
