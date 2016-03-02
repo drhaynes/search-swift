@@ -20,6 +20,8 @@
 		3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */; };
 		3D0ADE361C873F6A00D4FD37 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */; };
 		3D0ADE381C87404000D4FD37 /* test-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D0ADE371C87404000D4FD37 /* test-response.json */; };
+		3D0ADE3F1C87480800D4FD37 /* OSJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D0ADE3D1C87480800D4FD37 /* OSJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D0ADE401C87480800D4FD37 /* OSJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ADE3E1C87480800D4FD37 /* OSJSON.m */; };
 		3D5929D41C7F41E900B3CECC /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5929D31C7F41E900B3CECC /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D5929DB1C7F41E900B3CECC /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
 		3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */; };
@@ -62,6 +64,8 @@
 		3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+Parsing.swift"; sourceTree = "<group>"; };
 		3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		3D0ADE371C87404000D4FD37 /* test-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response.json"; sourceTree = "<group>"; };
+		3D0ADE3D1C87480800D4FD37 /* OSJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSJSON.h; sourceTree = "<group>"; };
+		3D0ADE3E1C87480800D4FD37 /* OSJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSJSON.m; sourceTree = "<group>"; };
 		3D5929D01C7F41E900B3CECC /* Search.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Search.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5929D31C7F41E900B3CECC /* Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
 		3D5929D51C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			children = (
 				3D0ADE111C85C95F00D4FD37 /* Response Model */,
 				3D5929D31C7F41E900B3CECC /* Search.h */,
+				3D0ADE3D1C87480800D4FD37 /* OSJSON.h */,
+				3D0ADE3E1C87480800D4FD37 /* OSJSON.m */,
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
 				3D0ADE221C87090900D4FD37 /* Fetch.framework */,
 			);
@@ -153,6 +159,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0ADE3F1C87480800D4FD37 /* OSJSON.h in Headers */,
 				3D5929D41C7F41E900B3CECC /* Search.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +266,7 @@
 				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
 				3D0ADE1F1C85E3F000D4FD37 /* Header.swift in Sources */,
 				3D0ADE201C85E3F000D4FD37 /* Response.swift in Sources */,
+				3D0ADE401C87480800D4FD37 /* OSJSON.m in Sources */,
 				3D0ADE211C85E3F000D4FD37 /* Results.swift in Sources */,
 				3D0ADE1E1C85E3F000D4FD37 /* Dpa.swift in Sources */,
 			);
