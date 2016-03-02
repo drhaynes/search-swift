@@ -26,5 +26,5 @@ class ResponseParsingTests: XCTestCase {
     private func validateResponse(response: Response) {
         fail("Not yet implemented")
     }
-    
+
 }

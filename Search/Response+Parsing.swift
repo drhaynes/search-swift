@@ -10,10 +10,20 @@ import Fetch
 
 public enum SearchError: ErrorType {
     case FailedToParseJSON
+    case UnknownError
 }
 
 extension Response: Parsable {
     public static func parse(fromData data: NSData?, withStatus status: Int) -> Result<Response> {
-        return .Failure(SearchError.FailedToParseJSON)
+        switch status {
+        case 200:
+            return parseResponse(data)
+        default:
+            return .Failure(SearchError.UnknownError)
+        }
     }
+}
+
+private func parseResponse(data: NSData?) -> Result<Response> {
+    return .Failure(SearchError.FailedToParseJSON)
 }
