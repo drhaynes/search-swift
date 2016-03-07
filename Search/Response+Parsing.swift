@@ -121,5 +121,34 @@ private func dpaFromJson(json: JSON) -> Dpa? {
         return nil
     }
 
-    return Dpa(language: language, lastUpdateDate: lastUpdateDate, rpc: rpc, buildingNumber: buildingNumber, postcode: postcode, uprn: uprn, matchDescription: matchDescription, entryDate: entryDate, postalAddressCode: postalAddressCode, localCustodianCode: Int(localCustodianCode), status: status, blpuStateCode: blpuStateCode, organisationName: organisationName, postalAddressCodeDescription: postalAddressCodeDescription, classificationCodeDescription: classificationCodeDescription, xCoordinate: Int(xCoordinate), match: Float(match), classificationCode: classificationCode, topographyLayerToid: topographyLayerToid, localCustodianCodeDescription: localCustodianCodeDescription, blpuStateCodeDescription: blpuStateCodeDescription, dependentLocality: dependentLocality, logicalStatusCode: logicalStatusCode, yCoordinate: Int(yCoordinate), thoroughfareName: thoroughfareName, address: address, postTown: postTown, blpuStateDate: blpuStateDate)
+    return Dpa(
+        language: language,
+        lastUpdateDate: lastUpdateDate,
+        rpc: rpc,
+        buildingNumber: buildingNumber,
+        postcode: postcode,
+        uprn: uprn,
+        matchDescription: matchDescription,
+        entryDate: entryDate,
+        postalAddressCode: postalAddressCode,
+        localCustodianCode: Int(localCustodianCode),
+        status: status,
+        blpuStateCode: blpuStateCode,
+        organisationName: organisationName,
+        postalAddressCodeDescription: postalAddressCodeDescription,
+        classificationCodeDescription: classificationCodeDescription,
+        xCoordinate: Int(xCoordinate),
+        match: Float(match),
+        classificationCode: classificationCode,
+        topographyLayerToid: topographyLayerToid,
+        localCustodianCodeDescription: localCustodianCodeDescription,
+        blpuStateCodeDescription: blpuStateCodeDescription,
+        dependentLocality: dependentLocality,
+        logicalStatusCode: logicalStatusCode,
+        yCoordinate: Int(yCoordinate),
+        thoroughfareName: thoroughfareName,
+        address: address,
+        postTown: postTown,
+        blpuStateDate: blpuStateDate
+    )
 }
