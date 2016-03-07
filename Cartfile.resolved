@@ -1,3 +1,4 @@
 github "dhardiman/Fetch" "1.0.0"
 github "Quick/Nimble" "v3.1.0"
 github "AliSoftware/OHHTTPStubs" "4.7.1"
+github "owensd/json-swift" "fa1c2971a2b9870cc1ea85789697f5ff54b2dfd6"

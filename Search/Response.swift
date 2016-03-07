@@ -13,11 +13,12 @@ public final class Response: NSObject {
     // MARK: Declaration for string constants to be used to decode and also serialize.
     internal static let ResultsKey: String = "results"
     internal static let HeaderKey: String = "header"
+    internal static let DpaKey: String = "DPA"
 
-    public let results: Results
+    public let results: [Dpa]
     public let header: Header
 
-    init(results: Results, header: Header) {
+    init(results: [Dpa], header: Header) {
         self.results = results
         self.header = header
     }

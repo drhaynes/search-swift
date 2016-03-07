@@ -7,10 +7,12 @@
 //
 
 import Fetch
+import JSONLib
 
 public enum SearchError: ErrorType {
     case NoDataReceived
     case FailedToParseJSON
+    case FailedToDeserialiseJSON
     case UnknownError
 }
 
@@ -29,50 +31,95 @@ private func parseResponse(data: NSData?) -> Result<Response> {
     guard let data = data else {
         return .Failure(SearchError.NoDataReceived)
     }
-    let headerJson = OSJSON(data: data, initialKeyPath: Response.HeaderKey)
-    guard let header = headerFromJson(headerJson) else {
+    guard let json = JSValue.parse(data).value else {
         return .Failure(SearchError.FailedToParseJSON)
     }
-
-    let resultsJson = OSJSON(data: data, initialKeyPath: Response.ResultsKey)
-    guard let results = resultsFromJson(resultsJson) else {
-            return .Failure(SearchError.FailedToParseJSON)
+    guard let response = responseFromJson(json) else {
+        return .Failure(SearchError.FailedToDeserialiseJSON)
     }
-
-    return .Success(Response(results: results, header: header))
+    return .Success(response)
 }
 
-private func headerFromJson(json: OSJSON) -> Header? {
-    guard let uri = json.stringValueForKey(Header.UriKey),
-        lr = json.stringValueForKey(Header.LrKey),
-        dataset = json.stringValueForKey(Header.DatasetKey),
-        outputSrs = json.stringValueForKey(Header.OutputSrsKey),
-        epoch = json.stringValueForKey(Header.EpochKey),
-        format = json.stringValueForKey(Header.FormatKey),
-        query = json.stringValueForKey(Header.QueryKey)
+private func responseFromJson(json: JSON) -> Response? {
+    let headerJson = json[Response.HeaderKey]
+    guard let header = headerFromJson(headerJson) else {
+        return nil
+    }
+    let resultsJson = json[Response.ResultsKey]
+    guard let results = resultsFromJson(resultsJson) else {
+        return nil
+    }
+    return Response(results: results, header: header)
+}
+
+private func headerFromJson(json: JSON) -> Header? {
+    guard let uri = json[Header.UriKey].string,
+        lr = json[Header.LrKey].string,
+        dataset = json[Header.DatasetKey].string,
+        outputSrs = json[Header.OutputSrsKey].string,
+        epoch = json[Header.EpochKey].string,
+        format = json[Header.FormatKey].string,
+        query = json[Header.QueryKey].string,
+        matchPrecision =  json[Header.MatchprecisionKey].number,
+        maxresults = json[Header.MaxresultsKey].number,
+        totalresults = json[Header.TotalresultsKey].number,
+        offset = json[Header.OffsetKey].number
     else {
         return nil
     }
-    let matchPrecision = Int(json.intValueForKey(Header.MatchprecisionKey))
-    let maxresults = Int(json.intValueForKey(Header.MaxresultsKey))
-    let totalresults = Int(json.intValueForKey(Header.TotalresultsKey))
-    let offset = Int(json.intValueForKey(Header.OffsetKey))
 
     return Header(
-        matchprecision: matchPrecision,
+        matchprecision: Int(matchPrecision),
         lr: lr,
         dataset: dataset,
-        maxresults: maxresults,
-        totalresults: totalresults,
+        maxresults: Int(maxresults),
+        totalresults: Int(totalresults),
         uri: uri,
         outputSrs: outputSrs,
         epoch: epoch,
-        offset: offset,
+        offset: Int(offset),
         format: format,
         query: query
     )
 }
 
-private func resultsFromJson(json: OSJSON) -> Results? {
-    return Results(dpa: [Dpa(language: "Bla", lastUpdateDate: "bla", rpc: "bla", buildingNumber: "bla", postcode: "bla", uprn: "bla", matchDescription: "bla", entryDate: "bla", postalAddressCode: "bla", localCustodianCode: 666, status: "bla", blpuStateCode: "bla", organisationName: "bla", postalAddressCodeDescription: "bla", classificationCodeDescription: "bla", xCoordinate: 666, match: 666.0, classificationCode: "bla", topographyLayerToid: "bla", localCustodianCodeDescription: "bla", blpuStateCodeDescription: "bla", dependentLocality: "bla", logicalStatusCode: "bla", yCoordinate: 666, thoroughfareName: "bla", address: "bla", postTown: "bla", blpuStateDate: "bla")])
+private func resultsFromJson(json: JSON) -> [Dpa]? {
+    return json.array?.flatMap(dpaFromJson)
+}
+
+private func dpaFromJson(json: JSON) -> Dpa? {
+    let dpaJson = json[Response.DpaKey]
+    guard let language = dpaJson[Dpa.LanguageKey].string,
+        lastUpdateDate = dpaJson[Dpa.LastUpdateDateKey].string,
+        rpc = dpaJson[Dpa.RpcKey].string,
+        buildingNumber = dpaJson[Dpa.BuildingNumberKey].string,
+        postcode = dpaJson[Dpa.PostcodeKey].string,
+        uprn = dpaJson[Dpa.UprnKey].string,
+        matchDescription = dpaJson[Dpa.MatchDescriptionKey].string,
+        entryDate = dpaJson[Dpa.EntryDateKey].string,
+        postalAddressCode = dpaJson[Dpa.PostalAddressCodeKey].string,
+        localCustodianCode = dpaJson[Dpa.LocalCustodianCodeKey].number,
+        status = dpaJson[Dpa.StatusKey].string,
+        blpuStateCode = dpaJson[Dpa.BlpuStateCodeKey].string,
+        organisationName = dpaJson[Dpa.OrganisationNameKey].string,
+        postalAddressCodeDescription = dpaJson[Dpa.PostalAddressCodeDescriptionKey].string,
+        classificationCodeDescription = dpaJson[Dpa.ClassificationCodeDescriptionKey].string,
+        xCoordinate = dpaJson[Dpa.XCoordinateKey].number,
+        match = dpaJson[Dpa.MatchKey].number,
+        classificationCode = dpaJson[Dpa.ClassificationCodeKey].string,
+        topographyLayerToid = dpaJson[Dpa.TopographyLayerToidKey].string,
+        localCustodianCodeDescription = dpaJson[Dpa.LocalCustodianCodeDescriptionKey].string,
+        blpuStateCodeDescription = dpaJson[Dpa.BlpuStateCodeDescriptionKey].string,
+        dependentLocality = dpaJson[Dpa.DependentLocalityKey].string,
+        logicalStatusCode = dpaJson[Dpa.LogicalStatusCodeKey].string,
+        yCoordinate = dpaJson[Dpa.YCoordinateKey].number,
+        thoroughfareName = dpaJson[Dpa.ThoroughfareNameKey].string,
+        address = dpaJson[Dpa.AddressKey].string,
+        postTown = dpaJson[Dpa.PostTownKey].string,
+        blpuStateDate = dpaJson[Dpa.BlpuStateDateKey].string
+    else {
+        return nil
+    }
+
+    return Dpa(language: language, lastUpdateDate: lastUpdateDate, rpc: rpc, buildingNumber: buildingNumber, postcode: postcode, uprn: uprn, matchDescription: matchDescription, entryDate: entryDate, postalAddressCode: postalAddressCode, localCustodianCode: Int(localCustodianCode), status: status, blpuStateCode: blpuStateCode, organisationName: organisationName, postalAddressCodeDescription: postalAddressCodeDescription, classificationCodeDescription: classificationCodeDescription, xCoordinate: Int(xCoordinate), match: Float(match), classificationCode: classificationCode, topographyLayerToid: topographyLayerToid, localCustodianCodeDescription: localCustodianCodeDescription, blpuStateCodeDescription: blpuStateCodeDescription, dependentLocality: dependentLocality, logicalStatusCode: logicalStatusCode, yCoordinate: Int(yCoordinate), thoroughfareName: thoroughfareName, address: address, postTown: postTown, blpuStateDate: blpuStateDate)
 }

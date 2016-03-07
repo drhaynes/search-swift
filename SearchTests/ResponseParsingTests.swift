@@ -42,10 +42,10 @@ class ResponseParsingTests: XCTestCase {
         expect(header.outputSrs).to(equal("EPSG:27700"))
     }
 
-    private func validateResults(results: Results) {
-        expect(results.dpa.count).to(equal(1))
-        expect(results.dpa.first).toNot(beNil())
-        let result = results.dpa.first!
+    private func validateResults(results: [Dpa]) {
+        expect(results.count).to(equal(1))
+        expect(results.first).toNot(beNil())
+        let result = results.first!
         expect(result.language).to(equal("EN"))
         expect(result.uprn).to(equal("200010019924"))
         expect(result.address).to(equal("ORDNANCE SURVEY, 4, ADANAC DRIVE, NURSLING, SOUTHAMPTON, SO16 0AS"))
