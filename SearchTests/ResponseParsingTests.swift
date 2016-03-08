@@ -23,6 +23,87 @@ class ResponseParsingTests: XCTestCase {
         }
     }
 
+    func testNoDataReturnsCorrectError() {
+        let data: NSData? = nil
+        let result = Response.parse(fromData: data, withStatus: 200)
+        switch result {
+        case .Failure(let error as SearchError):
+            switch error {
+            case .NoDataReceived:
+                break
+            default:
+                fail("No data in response should raise correct error.")
+            }
+        default:
+            fail("No data in response should raise an error.")
+        }
+    }
+
+    func testNon200HttpResponseReturnsCorrectError() {
+        let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response", withExtension: "json")!)!
+        let result = Response.parse(fromData: data, withStatus: 404)
+        switch result {
+        case .Failure(let error as SearchError):
+            switch error {
+            case .UnknownError:
+                break
+            default:
+                fail("Non 200 response should raise correct error.")
+            }
+        default:
+            fail("Non 200 response should raise an error.")
+        }
+    }
+
+    func testInvalidHeaderJsonReturnsDeserialiseError() {
+        let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response-bad-header", withExtension: "json")!)!
+        let result = Response.parse(fromData: data, withStatus: 200)
+        switch result {
+        case .Failure(let error as SearchError):
+            switch error {
+            case .FailedToDeserialiseJSON:
+                break
+            default:
+                fail("Invalid header JSON should raise correct error.")
+            }
+        default:
+            fail("Invalid header JSON should raise an error.")
+        }
+    }
+
+    func testInvalidResultsJsonReturnsDeserialiseError() {
+        let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response-bad-results", withExtension: "json")!)!
+        let result = Response.parse(fromData: data, withStatus: 200)
+        switch result {
+        case .Failure(let error as SearchError):
+            switch error {
+            case .FailedToDeserialiseJSON:
+                break
+            default:
+                fail("Invalid results JSON should raise correct error.")
+            }
+        default:
+            fail("Invalid results JSON should raise an error.")
+        }
+    }
+
+    func testInvalidJsonReturnsParseError() {
+        let data: NSData? = NSData(base64EncodedString: "<!:@", options: .IgnoreUnknownCharacters)
+        let result = Response.parse(fromData: data, withStatus: 200)
+        switch result {
+        case .Failure(let error as SearchError):
+            switch error {
+            case .FailedToParseJSON:
+                break
+            default:
+                fail("Invalid JSON should raise correct error.")
+            }
+        default:
+            fail("Invalid JSON should raise an error.")
+        }
+    }
+
+
     private func validateResponse(response: Response) {
         validateHeader(response.header)
         validateResults(response.results)
