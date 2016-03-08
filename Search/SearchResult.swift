@@ -1,5 +1,5 @@
 //
-//  Dpa.swift
+//  SearchResult.swift
 //  Search
 //
 //  Created by David Haynes on 01/03/2016
@@ -9,37 +9,7 @@
 import Foundation
 import JSONLib
 
-public class Dpa: NSObject {
-
-    // MARK: Declaration for string constants to be used to decode and also serialize.
-    internal static let LanguageKey: String = "LANGUAGE"
-    internal static let LastUpdateDateKey: String = "LAST_UPDATE_DATE"
-    internal static let RpcKey: String = "RPC"
-    internal static let BuildingNumberKey: String = "BUILDING_NUMBER"
-    internal static let PostcodeKey: String = "POSTCODE"
-    internal static let UprnKey: String = "UPRN"
-    internal static let MatchDescriptionKey: String = "MATCH_DESCRIPTION"
-    internal static let EntryDateKey: String = "ENTRY_DATE"
-    internal static let PostalAddressCodeKey: String = "POSTAL_ADDRESS_CODE"
-    internal static let LocalCustodianCodeKey: String = "LOCAL_CUSTODIAN_CODE"
-    internal static let StatusKey: String = "STATUS"
-    internal static let BlpuStateCodeKey: String = "BLPU_STATE_CODE"
-    internal static let OrganisationNameKey: String = "ORGANISATION_NAME"
-    internal static let PostalAddressCodeDescriptionKey: String = "POSTAL_ADDRESS_CODE_DESCRIPTION"
-    internal static let ClassificationCodeDescriptionKey: String = "CLASSIFICATION_CODE_DESCRIPTION"
-    internal static let XCoordinateKey: String = "X_COORDINATE"
-    internal static let MatchKey: String = "MATCH"
-    internal static let ClassificationCodeKey: String = "CLASSIFICATION_CODE"
-    internal static let TopographyLayerToidKey: String = "TOPOGRAPHY_LAYER_TOID"
-    internal static let LocalCustodianCodeDescriptionKey: String = "LOCAL_CUSTODIAN_CODE_DESCRIPTION"
-    internal static let BlpuStateCodeDescriptionKey: String = "BLPU_STATE_CODE_DESCRIPTION"
-    internal static let DependentLocalityKey: String = "DEPENDENT_LOCALITY"
-    internal static let LogicalStatusCodeKey: String = "LOGICAL_STATUS_CODE"
-    internal static let YCoordinateKey: String = "Y_COORDINATE"
-    internal static let ThoroughfareNameKey: String = "THOROUGHFARE_NAME"
-    internal static let AddressKey: String = "ADDRESS"
-    internal static let PostTownKey: String = "POST_TOWN"
-    internal static let BlpuStateDateKey: String = "BLPU_STATE_DATE"
+public class SearchResult: NSObject {
 
     public let language: String
     public let lastUpdateDate: String
@@ -102,34 +72,34 @@ public class Dpa: NSObject {
     }
 
     convenience init?(json: JSON) {
-        guard let language = json[Dpa.LanguageKey].string,
-            lastUpdateDate = json[Dpa.LastUpdateDateKey].string,
-            rpc = json[Dpa.RpcKey].string,
-            buildingNumber = json[Dpa.BuildingNumberKey].string,
-            postcode = json[Dpa.PostcodeKey].string,
-            uprn = json[Dpa.UprnKey].string,
-            matchDescription = json[Dpa.MatchDescriptionKey].string,
-            entryDate = json[Dpa.EntryDateKey].string,
-            postalAddressCode = json[Dpa.PostalAddressCodeKey].string,
-            localCustodianCode = json[Dpa.LocalCustodianCodeKey].number,
-            status = json[Dpa.StatusKey].string,
-            blpuStateCode = json[Dpa.BlpuStateCodeKey].string,
-            organisationName = json[Dpa.OrganisationNameKey].string,
-            postalAddressCodeDescription = json[Dpa.PostalAddressCodeDescriptionKey].string,
-            classificationCodeDescription = json[Dpa.ClassificationCodeDescriptionKey].string,
-            xCoordinate = json[Dpa.XCoordinateKey].number,
-            match = json[Dpa.MatchKey].number,
-            classificationCode = json[Dpa.ClassificationCodeKey].string,
-            topographyLayerToid = json[Dpa.TopographyLayerToidKey].string,
-            localCustodianCodeDescription = json[Dpa.LocalCustodianCodeDescriptionKey].string,
-            blpuStateCodeDescription = json[Dpa.BlpuStateCodeDescriptionKey].string,
-            dependentLocality = json[Dpa.DependentLocalityKey].string,
-            logicalStatusCode = json[Dpa.LogicalStatusCodeKey].string,
-            yCoordinate = json[Dpa.YCoordinateKey].number,
-            thoroughfareName = json[Dpa.ThoroughfareNameKey].string,
-            address = json[Dpa.AddressKey].string,
-            postTown = json[Dpa.PostTownKey].string,
-            blpuStateDate = json[Dpa.BlpuStateDateKey].string
+        guard let language = json[SearchResult.LanguageKey].string,
+            lastUpdateDate = json[SearchResult.LastUpdateDateKey].string,
+            rpc = json[SearchResult.RpcKey].string,
+            buildingNumber = json[SearchResult.BuildingNumberKey].string,
+            postcode = json[SearchResult.PostcodeKey].string,
+            uprn = json[SearchResult.UprnKey].string,
+            matchDescription = json[SearchResult.MatchDescriptionKey].string,
+            entryDate = json[SearchResult.EntryDateKey].string,
+            postalAddressCode = json[SearchResult.PostalAddressCodeKey].string,
+            localCustodianCode = json[SearchResult.LocalCustodianCodeKey].number,
+            status = json[SearchResult.StatusKey].string,
+            blpuStateCode = json[SearchResult.BlpuStateCodeKey].string,
+            organisationName = json[SearchResult.OrganisationNameKey].string,
+            postalAddressCodeDescription = json[SearchResult.PostalAddressCodeDescriptionKey].string,
+            classificationCodeDescription = json[SearchResult.ClassificationCodeDescriptionKey].string,
+            xCoordinate = json[SearchResult.XCoordinateKey].number,
+            match = json[SearchResult.MatchKey].number,
+            classificationCode = json[SearchResult.ClassificationCodeKey].string,
+            topographyLayerToid = json[SearchResult.TopographyLayerToidKey].string,
+            localCustodianCodeDescription = json[SearchResult.LocalCustodianCodeDescriptionKey].string,
+            blpuStateCodeDescription = json[SearchResult.BlpuStateCodeDescriptionKey].string,
+            dependentLocality = json[SearchResult.DependentLocalityKey].string,
+            logicalStatusCode = json[SearchResult.LogicalStatusCodeKey].string,
+            yCoordinate = json[SearchResult.YCoordinateKey].number,
+            thoroughfareName = json[SearchResult.ThoroughfareNameKey].string,
+            address = json[SearchResult.AddressKey].string,
+            postTown = json[SearchResult.PostTownKey].string,
+            blpuStateDate = json[SearchResult.BlpuStateDateKey].string
             else {
                 return nil
         }

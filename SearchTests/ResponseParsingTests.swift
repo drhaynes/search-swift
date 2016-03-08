@@ -42,7 +42,7 @@ class ResponseParsingTests: XCTestCase {
         expect(header.outputSrs).to(equal("EPSG:27700"))
     }
 
-    private func validateResults(results: [Dpa]) {
+    private func validateResults(results: [SearchResult]) {
         expect(results.count).to(equal(1))
         expect(results.first).toNot(beNil())
         let result = results.first!

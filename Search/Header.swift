@@ -11,19 +11,6 @@ import JSONLib
 
 public class Header: NSObject {
 
-    // MARK: Declaration for string constants to be used to decode and also serialize.
-    internal static let MatchprecisionKey: String = "matchprecision"
-    internal static let LrKey: String = "lr"
-    internal static let DatasetKey: String = "dataset"
-    internal static let MaxresultsKey: String = "maxresults"
-    internal static let TotalresultsKey: String = "totalresults"
-    internal static let UriKey: String = "uri"
-    internal static let OutputSrsKey: String = "output_srs"
-    internal static let EpochKey: String = "epoch"
-    internal static let OffsetKey: String = "offset"
-    internal static let FormatKey: String = "format"
-    internal static let QueryKey: String = "query"
-
     public let matchprecision: Int
     public let lr: String
     public let dataset: String

@@ -9,16 +9,11 @@
 import Foundation
 
 public final class Response: NSObject {
-
-    // MARK: Declaration for string constants to be used to decode and also serialize.
-    internal static let ResultsKey: String = "results"
-    internal static let HeaderKey: String = "header"
-    internal static let DpaKey: String = "DPA"
-
-    public let results: [Dpa]
+    
+    public let results: [SearchResult]
     public let header: Header
 
-    init(results: [Dpa], header: Header) {
+    init(results: [SearchResult], header: Header) {
         self.results = results
         self.header = header
     }

@@ -52,7 +52,7 @@ private func responseFromJson(json: JSON) -> Response? {
     return Response(results: results, header: header)
 }
 
-private func dpaFromJson(json: JSON) -> Dpa? {
-    let dpaJson = json[Response.DpaKey]
-    return Dpa(json: dpaJson)
+private func dpaFromJson(json: JSON) -> SearchResult? {
+    let dpaJson = json[Response.ResultKey]
+    return SearchResult(json: dpaJson)
 }
