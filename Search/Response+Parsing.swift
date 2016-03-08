@@ -8,6 +8,7 @@
 
 import Fetch
 import JSONLib
+import JSONCodable
 
 /**
  Errors returned when executing a search
@@ -29,6 +30,8 @@ extension Response: Parsable {
         switch status {
         case 200:
             return parseResponse(data)
+        case 666:
+            return parseResponse2(data)
         default:
             return .Failure(SearchError.UnknownError)
         }
@@ -63,4 +66,18 @@ private func responseFromJson(json: JSON) -> Response? {
 private func dpaFromJson(json: JSON) -> SearchResult? {
     let dpaJson = json[Response.ResultKey]
     return SearchResult(json: dpaJson)
+}
+
+func parseResponse2(data: NSData?) -> Result<Response> {
+    guard let data = data else {
+        return .Failure(SearchError.NoDataReceived)
+    }
+    do {
+        let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+        return .Success(try! Response(object: json as! JSONObject))
+    }
+    catch {
+        return .Failure(SearchError.FailedToParseJSON)
+    }
+
 }

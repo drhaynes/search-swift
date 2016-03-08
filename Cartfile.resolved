@@ -1,4 +1,5 @@
 github "dhardiman/Fetch" "1.0.0"
+github "matthewcheok/JSONCodable" "2.1"
 github "Quick/Nimble" "v3.1.0"
 github "AliSoftware/OHHTTPStubs" "4.7.1"
-github "owensd/json-swift" "fa1c2971a2b9870cc1ea85789697f5ff54b2dfd6"
+github "owensd/json-swift" "df3300ed1270c5e9a15045b95a8619e089d6f333"

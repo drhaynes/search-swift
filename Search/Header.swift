@@ -8,8 +8,9 @@
 
 import Foundation
 import JSONLib
+import JSONCodable
 
-public class Header: NSObject {
+public class Header: NSObject, JSONDecodable {
 
     public let matchprecision: Int
     public let lr: String
@@ -63,6 +64,35 @@ public class Header: NSObject {
             outputSrs: outputSrs,
             epoch: epoch,
             offset: Int(offset),
+            format: format,
+            query: query
+        )
+    }
+
+    convenience public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        let matchprecision: Int = try decoder.decode(Header.MatchprecisionKey)
+        let lr: String = try decoder.decode(Header.LrKey)
+        let dataset: String = try decoder.decode(Header.DatasetKey)
+        let maxresults: Int = try decoder.decode(Header.MaxresultsKey)
+        let totalresults: Int = try decoder.decode(Header.TotalresultsKey)
+        let uri: String = try decoder.decode(Header.UriKey)
+        let outputSrs: String = try decoder.decode(Header.OutputSrsKey)
+        let epoch: String = try decoder.decode(Header.EpochKey)
+        let offset: Int = try decoder.decode(Header.OffsetKey)
+        let format: String = try decoder.decode(Header.FormatKey)
+        let query: String =  try decoder.decode(Header.QueryKey)
+
+        self.init(
+            matchprecision: matchprecision,
+            lr: lr,
+            dataset: dataset,
+            maxresults: maxresults,
+            totalresults: totalresults,
+            uri: uri,
+            outputSrs: outputSrs,
+            epoch: epoch,
+            offset: offset,
             format: format,
             query: query
         )

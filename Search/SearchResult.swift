@@ -8,8 +8,9 @@
 
 import Foundation
 import JSONLib
+import JSONCodable
 
-public class SearchResult: NSObject {
+public class SearchResult: NSObject, JSONDecodable {
 
     public let language: String
     public let lastUpdateDate: String
@@ -103,6 +104,69 @@ public class SearchResult: NSObject {
             else {
                 return nil
         }
+
+        self.init(
+            language: language,
+            lastUpdateDate: lastUpdateDate,
+            rpc: rpc,
+            buildingNumber: buildingNumber,
+            postcode: postcode,
+            uprn: uprn,
+            matchDescription: matchDescription,
+            entryDate: entryDate,
+            postalAddressCode: postalAddressCode,
+            localCustodianCode: Int(localCustodianCode),
+            status: status,
+            blpuStateCode: blpuStateCode,
+            organisationName: organisationName,
+            postalAddressCodeDescription: postalAddressCodeDescription,
+            classificationCodeDescription: classificationCodeDescription,
+            xCoordinate: Int(xCoordinate),
+            match: Float(match),
+            classificationCode: classificationCode,
+            topographyLayerToid: topographyLayerToid,
+            localCustodianCodeDescription: localCustodianCodeDescription,
+            blpuStateCodeDescription: blpuStateCodeDescription,
+            dependentLocality: dependentLocality,
+            logicalStatusCode: logicalStatusCode,
+            yCoordinate: Int(yCoordinate),
+            thoroughfareName: thoroughfareName,
+            address: address,
+            postTown: postTown,
+            blpuStateDate: blpuStateDate
+        )
+    }
+
+    convenience public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object[Response.ResultKey])
+        let language: String = try decoder.decode(SearchResult.LanguageKey)
+        let lastUpdateDate: String = try decoder.decode(SearchResult.LastUpdateDateKey)
+        let rpc: String = try decoder.decode(SearchResult.RpcKey)
+        let buildingNumber: String = try decoder.decode(SearchResult.BuildingNumberKey)
+        let postcode: String = try decoder.decode(SearchResult.PostcodeKey)
+        let uprn: String = try decoder.decode(SearchResult.UprnKey)
+        let matchDescription: String = try decoder.decode(SearchResult.MatchDescriptionKey)
+        let entryDate: String = try decoder.decode(SearchResult.EntryDateKey)
+        let postalAddressCode: String = try decoder.decode(SearchResult.PostalAddressCodeKey)
+        let localCustodianCode: Int = try decoder.decode(SearchResult.LocalCustodianCodeKey)
+        let status: String = try decoder.decode(SearchResult.StatusKey)
+        let blpuStateCode: String = try decoder.decode(SearchResult.BlpuStateCodeKey)
+        let organisationName: String = try decoder.decode(SearchResult.OrganisationNameKey)
+        let postalAddressCodeDescription: String = try decoder.decode(SearchResult.PostalAddressCodeDescriptionKey)
+        let classificationCodeDescription: String = try decoder.decode(SearchResult.ClassificationCodeDescriptionKey)
+        let xCoordinate: Int = try decoder.decode(SearchResult.XCoordinateKey)
+        let match: Float = try decoder.decode(SearchResult.MatchKey)
+        let classificationCode: String = try decoder.decode(SearchResult.ClassificationCodeKey)
+        let topographyLayerToid: String = try decoder.decode(SearchResult.TopographyLayerToidKey)
+        let localCustodianCodeDescription: String = try decoder.decode(SearchResult.LocalCustodianCodeDescriptionKey)
+        let blpuStateCodeDescription: String = try decoder.decode(SearchResult.BlpuStateCodeDescriptionKey)
+        let dependentLocality: String = try decoder.decode(SearchResult.DependentLocalityKey)
+        let logicalStatusCode: String = try decoder.decode(SearchResult.LogicalStatusCodeKey)
+        let yCoordinate: Int = try decoder.decode(SearchResult.YCoordinateKey)
+        let thoroughfareName: String = try decoder.decode(SearchResult.ThoroughfareNameKey)
+        let address: String = try decoder.decode(SearchResult.AddressKey)
+        let postTown: String = try decoder.decode(SearchResult.PostTownKey)
+        let blpuStateDate: String = try decoder.decode(SearchResult.BlpuStateDateKey)
 
         self.init(
             language: language,
