@@ -28,6 +28,8 @@
 		3DB366F91C8EE797000C2C7B /* SearchResult+JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB366F81C8EE797000C2C7B /* SearchResult+JsonKeys.swift */; };
 		3DB366FB1C8EEAE5000C2C7B /* Header+JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB366FA1C8EEAE5000C2C7B /* Header+JsonKeys.swift */; };
 		3DB366FD1C8EEB30000C2C7B /* Response+JsonKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB366FC1C8EEB30000C2C7B /* Response+JsonKeys.swift */; };
+		3DB366FF1C8F103E000C2C7B /* test-response-bad-header.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB366FE1C8F103E000C2C7B /* test-response-bad-header.json */; };
+		3DB367011C8F1089000C2C7B /* test-response-bad-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367001C8F1089000C2C7B /* test-response-bad-results.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		3DB366F81C8EE797000C2C7B /* SearchResult+JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchResult+JsonKeys.swift"; sourceTree = "<group>"; };
 		3DB366FA1C8EEAE5000C2C7B /* Header+JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Header+JsonKeys.swift"; sourceTree = "<group>"; };
 		3DB366FC1C8EEB30000C2C7B /* Response+JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+JsonKeys.swift"; sourceTree = "<group>"; };
+		3DB366FE1C8F103E000C2C7B /* test-response-bad-header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-bad-header.json"; sourceTree = "<group>"; };
+		3DB367001C8F1089000C2C7B /* test-response-bad-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-bad-results.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,8 @@
 			children = (
 				3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */,
 				3D0ADE371C87404000D4FD37 /* test-response.json */,
+				3DB366FE1C8F103E000C2C7B /* test-response-bad-header.json */,
+				3DB367001C8F1089000C2C7B /* test-response-bad-results.json */,
 				3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */,
 				3D5929E11C7F41E900B3CECC /* Info.plist */,
 				3D0ADE2A1C87096600D4FD37 /* Nimble.framework */,
@@ -260,6 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D0ADE381C87404000D4FD37 /* test-response.json in Resources */,
+				3DB366FF1C8F103E000C2C7B /* test-response-bad-header.json in Resources */,
+				3DB367011C8F1089000C2C7B /* test-response-bad-results.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
