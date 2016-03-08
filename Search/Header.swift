@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JSONLib
 
 public class Header: NSObject {
 
@@ -47,5 +48,36 @@ public class Header: NSObject {
         self.offset = offset
         self.format = format
         self.query = query
+    }
+
+    convenience init?(json: JSON) {
+        guard let uri = json[Header.UriKey].string,
+            lr = json[Header.LrKey].string,
+            dataset = json[Header.DatasetKey].string,
+            outputSrs = json[Header.OutputSrsKey].string,
+            epoch = json[Header.EpochKey].string,
+            format = json[Header.FormatKey].string,
+            query = json[Header.QueryKey].string,
+            matchPrecision =  json[Header.MatchprecisionKey].number,
+            maxresults = json[Header.MaxresultsKey].number,
+            totalresults = json[Header.TotalresultsKey].number,
+            offset = json[Header.OffsetKey].number
+            else {
+                return nil
+        }
+
+        self.init(
+            matchprecision: Int(matchPrecision),
+            lr: lr,
+            dataset: dataset,
+            maxresults: Int(maxresults),
+            totalresults: Int(totalresults),
+            uri: uri,
+            outputSrs: outputSrs,
+            epoch: epoch,
+            offset: Int(offset),
+            format: format,
+            query: query
+        )
     }
 }

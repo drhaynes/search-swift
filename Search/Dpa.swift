@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JSONLib
 
 public class Dpa: NSObject {
 
@@ -98,5 +99,70 @@ public class Dpa: NSObject {
         self.address = address
         self.postTown = postTown
         self.blpuStateDate = blpuStateDate
+    }
+
+    convenience init?(json: JSON) {
+        guard let language = json[Dpa.LanguageKey].string,
+            lastUpdateDate = json[Dpa.LastUpdateDateKey].string,
+            rpc = json[Dpa.RpcKey].string,
+            buildingNumber = json[Dpa.BuildingNumberKey].string,
+            postcode = json[Dpa.PostcodeKey].string,
+            uprn = json[Dpa.UprnKey].string,
+            matchDescription = json[Dpa.MatchDescriptionKey].string,
+            entryDate = json[Dpa.EntryDateKey].string,
+            postalAddressCode = json[Dpa.PostalAddressCodeKey].string,
+            localCustodianCode = json[Dpa.LocalCustodianCodeKey].number,
+            status = json[Dpa.StatusKey].string,
+            blpuStateCode = json[Dpa.BlpuStateCodeKey].string,
+            organisationName = json[Dpa.OrganisationNameKey].string,
+            postalAddressCodeDescription = json[Dpa.PostalAddressCodeDescriptionKey].string,
+            classificationCodeDescription = json[Dpa.ClassificationCodeDescriptionKey].string,
+            xCoordinate = json[Dpa.XCoordinateKey].number,
+            match = json[Dpa.MatchKey].number,
+            classificationCode = json[Dpa.ClassificationCodeKey].string,
+            topographyLayerToid = json[Dpa.TopographyLayerToidKey].string,
+            localCustodianCodeDescription = json[Dpa.LocalCustodianCodeDescriptionKey].string,
+            blpuStateCodeDescription = json[Dpa.BlpuStateCodeDescriptionKey].string,
+            dependentLocality = json[Dpa.DependentLocalityKey].string,
+            logicalStatusCode = json[Dpa.LogicalStatusCodeKey].string,
+            yCoordinate = json[Dpa.YCoordinateKey].number,
+            thoroughfareName = json[Dpa.ThoroughfareNameKey].string,
+            address = json[Dpa.AddressKey].string,
+            postTown = json[Dpa.PostTownKey].string,
+            blpuStateDate = json[Dpa.BlpuStateDateKey].string
+            else {
+                return nil
+        }
+
+        self.init(
+            language: language,
+            lastUpdateDate: lastUpdateDate,
+            rpc: rpc,
+            buildingNumber: buildingNumber,
+            postcode: postcode,
+            uprn: uprn,
+            matchDescription: matchDescription,
+            entryDate: entryDate,
+            postalAddressCode: postalAddressCode,
+            localCustodianCode: Int(localCustodianCode),
+            status: status,
+            blpuStateCode: blpuStateCode,
+            organisationName: organisationName,
+            postalAddressCodeDescription: postalAddressCodeDescription,
+            classificationCodeDescription: classificationCodeDescription,
+            xCoordinate: Int(xCoordinate),
+            match: Float(match),
+            classificationCode: classificationCode,
+            topographyLayerToid: topographyLayerToid,
+            localCustodianCodeDescription: localCustodianCodeDescription,
+            blpuStateCodeDescription: blpuStateCodeDescription,
+            dependentLocality: dependentLocality,
+            logicalStatusCode: logicalStatusCode,
+            yCoordinate: Int(yCoordinate),
+            thoroughfareName: thoroughfareName,
+            address: address,
+            postTown: postTown,
+            blpuStateDate: blpuStateDate
+        )
     }
 }
