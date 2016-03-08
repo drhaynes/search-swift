@@ -9,6 +9,14 @@
 import Fetch
 import JSONLib
 
+/**
+ Errors returned when executing a search
+
+ - NoDataReceived:          No data received from the server.
+ - FailedToParseJSON:       JSON parsing has failed, likely due to invalid JSON.
+ - FailedToDeserialiseJSON: JSON was valid, but cannot be deserialised.
+ - UnknownError:            An error has occured which is none of the above.
+ */
 public enum SearchError: ErrorType {
     case NoDataReceived
     case FailedToParseJSON
