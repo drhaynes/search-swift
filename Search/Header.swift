@@ -9,8 +9,9 @@
 import Foundation
 import JSONLib
 import JSONCodable
+import Gloss
 
-public class Header: NSObject, JSONDecodable {
+public class Header: NSObject, JSONDecodable, Gloss.Decodable {
 
     public let matchprecision: Int
     public let lr: String
@@ -38,7 +39,7 @@ public class Header: NSObject, JSONDecodable {
         self.query = query
     }
 
-    convenience init?(json: JSON) {
+    convenience init?(json: JSONLib.JSON) {
         guard let uri = json[Header.UriKey].string,
             lr = json[Header.LrKey].string,
             dataset = json[Header.DatasetKey].string,
@@ -64,6 +65,37 @@ public class Header: NSObject, JSONDecodable {
             outputSrs: outputSrs,
             epoch: epoch,
             offset: Int(offset),
+            format: format,
+            query: query
+        )
+    }
+
+    convenience public required init?(json: Gloss.JSON) {
+        guard let uri: String = Decoder.decode(Header.UriKey)(json),
+            lr: String = Decoder.decode(Header.LrKey)(json),
+            dataset: String = Decoder.decode(Header.DatasetKey)(json),
+            outputSrs: String = Decoder.decode(Header.OutputSrsKey)(json),
+            epoch: String = Decoder.decode(Header.EpochKey)(json),
+            format: String = Decoder.decode(Header.FormatKey)(json),
+            query: String = Decoder.decode(Header.QueryKey)(json),
+            matchPrecision: Int =  Decoder.decode(Header.MatchprecisionKey)(json),
+            maxresults: Int = Decoder.decode(Header.MaxresultsKey)(json),
+            totalresults: Int = Decoder.decode(Header.TotalresultsKey)(json),
+            offset: Int = Decoder.decode(Header.OffsetKey)(json)
+            else {
+                return nil
+        }
+
+        self.init(
+            matchprecision: matchPrecision,
+            lr: lr,
+            dataset: dataset,
+            maxresults: maxresults,
+            totalresults: totalresults,
+            uri: uri,
+            outputSrs: outputSrs,
+            epoch: epoch,
+            offset: offset,
             format: format,
             query: query
         )
