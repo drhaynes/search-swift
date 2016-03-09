@@ -77,7 +77,6 @@ public class SearchResult: NSObject, JSONDecodable, Gloss.Decodable {
         guard let language = json[SearchResult.LanguageKey].string,
             lastUpdateDate = json[SearchResult.LastUpdateDateKey].string,
             rpc = json[SearchResult.RpcKey].string,
-            buildingNumber = json[SearchResult.BuildingNumberKey].string,
             postcode = json[SearchResult.PostcodeKey].string,
             uprn = json[SearchResult.UprnKey].string,
             matchDescription = json[SearchResult.MatchDescriptionKey].string,
@@ -85,23 +84,17 @@ public class SearchResult: NSObject, JSONDecodable, Gloss.Decodable {
             postalAddressCode = json[SearchResult.PostalAddressCodeKey].string,
             localCustodianCode = json[SearchResult.LocalCustodianCodeKey].number,
             status = json[SearchResult.StatusKey].string,
-            blpuStateCode = json[SearchResult.BlpuStateCodeKey].string,
-            organisationName = json[SearchResult.OrganisationNameKey].string,
             postalAddressCodeDescription = json[SearchResult.PostalAddressCodeDescriptionKey].string,
             classificationCodeDescription = json[SearchResult.ClassificationCodeDescriptionKey].string,
             xCoordinate = json[SearchResult.XCoordinateKey].number,
             match = json[SearchResult.MatchKey].number,
             classificationCode = json[SearchResult.ClassificationCodeKey].string,
-            topographyLayerToid = json[SearchResult.TopographyLayerToidKey].string,
             localCustodianCodeDescription = json[SearchResult.LocalCustodianCodeDescriptionKey].string,
             blpuStateCodeDescription = json[SearchResult.BlpuStateCodeDescriptionKey].string,
-            dependentLocality = json[SearchResult.DependentLocalityKey].string,
             logicalStatusCode = json[SearchResult.LogicalStatusCodeKey].string,
             yCoordinate = json[SearchResult.YCoordinateKey].number,
-            thoroughfareName = json[SearchResult.ThoroughfareNameKey].string,
             address = json[SearchResult.AddressKey].string,
-            postTown = json[SearchResult.PostTownKey].string,
-            blpuStateDate = json[SearchResult.BlpuStateDateKey].string
+            postTown = json[SearchResult.PostTownKey].string
             else {
                 return nil
         }
@@ -110,7 +103,7 @@ public class SearchResult: NSObject, JSONDecodable, Gloss.Decodable {
             language: language,
             lastUpdateDate: lastUpdateDate,
             rpc: rpc,
-            buildingNumber: buildingNumber,
+            buildingNumber: json[SearchResult.BuildingNumberKey].string,
             postcode: postcode,
             uprn: uprn,
             matchDescription: matchDescription,
@@ -118,23 +111,23 @@ public class SearchResult: NSObject, JSONDecodable, Gloss.Decodable {
             postalAddressCode: postalAddressCode,
             localCustodianCode: Int(localCustodianCode),
             status: status,
-            blpuStateCode: blpuStateCode,
-            organisationName: organisationName,
+            blpuStateCode: json[SearchResult.BlpuStateCodeKey].string,
+            organisationName: json[SearchResult.OrganisationNameKey].string,
             postalAddressCodeDescription: postalAddressCodeDescription,
             classificationCodeDescription: classificationCodeDescription,
             xCoordinate: Int(xCoordinate),
             match: Float(match),
             classificationCode: classificationCode,
-            topographyLayerToid: topographyLayerToid,
+            topographyLayerToid: json[SearchResult.TopographyLayerToidKey].string,
             localCustodianCodeDescription: localCustodianCodeDescription,
             blpuStateCodeDescription: blpuStateCodeDescription,
-            dependentLocality: dependentLocality,
+            dependentLocality: json[SearchResult.DependentLocalityKey].string,
             logicalStatusCode: logicalStatusCode,
             yCoordinate: Int(yCoordinate),
-            thoroughfareName: thoroughfareName,
+            thoroughfareName: json[SearchResult.ThoroughfareNameKey].string,
             address: address,
             postTown: postTown,
-            blpuStateDate: blpuStateDate
+            blpuStateDate: json[SearchResult.BlpuStateDateKey].string
         )
     }
 

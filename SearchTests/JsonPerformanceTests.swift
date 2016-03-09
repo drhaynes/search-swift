@@ -29,7 +29,26 @@ class JsonPerformanceTests: XCTestCase {
     func testJSONLibPerformance() {
         measureBlock {
             let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
-            let _ = JSValue.parse(data)
+            let result = Response.parse(fromData: data, withStatus: 200)
+            switch result {
+            case .Success(_):
+                break
+            default:
+                fail("Unexpected result")
+            }
+        }
+    }
+
+    func testOSJSONPerformance() {
+        measureBlock {
+            let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
+            let result = Response.parse(fromData: data, withStatus: 666)
+            switch result {
+            case .Success(_):
+                break
+            default:
+                fail("Unexpected result")
+            }
         }
     }
 
