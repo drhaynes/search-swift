@@ -1,4 +1,4 @@
 github "dhardiman/Fetch"
 github "owensd/json-swift" "master"
 github "matthewcheok/JSONCodable"
-
+github "hkellaway/Gloss"

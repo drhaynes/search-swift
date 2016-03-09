@@ -1,4 +1,5 @@
 github "dhardiman/Fetch" "1.0.0"
+github "hkellaway/Gloss" "0.7.1"
 github "matthewcheok/JSONCodable" "2.1"
 github "Quick/Nimble" "v3.1.0"
 github "AliSoftware/OHHTTPStubs" "4.7.1"

@@ -34,6 +34,8 @@
 		3DB367051C8F1CFE000C2C7B /* JsonPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB367041C8F1CFE000C2C7B /* JsonPerformanceTests.swift */; };
 		3DB367091C8F21A2000C2C7B /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB367081C8F21A2000C2C7B /* JSONCodable.framework */; };
 		3DD1679E1C8F329C0057ED00 /* JSONCodable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB367081C8F21A2000C2C7B /* JSONCodable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4539FDBD1C901B3D004B8AE7 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4539FDBC1C901B3D004B8AE7 /* Gloss.framework */; };
+		4539FDBE1C901B4D004B8AE7 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4539FDBC1C901B3D004B8AE7 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4539FDBE1C901B4D004B8AE7 /* Gloss.framework in Embed Frameworks */,
 				3D0ADE2D1C87096600D4FD37 /* Nimble.framework in Embed Frameworks */,
 				3D0ADE2E1C87096600D4FD37 /* OHHTTPStubs.framework in Embed Frameworks */,
 				3D0ADE321C870A1000D4FD37 /* Fetch.framework in Embed Frameworks */,
@@ -89,6 +92,8 @@
 		3DB367021C8F182C000C2C7B /* 100-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "100-results.json"; sourceTree = "<group>"; };
 		3DB367041C8F1CFE000C2C7B /* JsonPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPerformanceTests.swift; sourceTree = "<group>"; };
 		3DB367081C8F21A2000C2C7B /* JSONCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONCodable.framework; path = Carthage/Build/iOS/JSONCodable.framework; sourceTree = SOURCE_ROOT; };
+		3DB3670A1C8F256E000C2C7B /* SearchResult+JsonDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchResult+JsonDecodable.swift"; sourceTree = "<group>"; };
+		4539FDBC1C901B3D004B8AE7 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 				3DB366F51C8DE943000C2C7B /* JSONLib.framework in Frameworks */,
 				3D0ADE231C87090900D4FD37 /* Fetch.framework in Frameworks */,
 				3DB367091C8F21A2000C2C7B /* JSONCodable.framework in Frameworks */,
+				4539FDBD1C901B3D004B8AE7 /* Gloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				3D5929D21C7F41E900B3CECC /* Search */,
+				4539FDBC1C901B3D004B8AE7 /* Gloss.framework */,
 				3D5929DE1C7F41E900B3CECC /* SearchTests */,
 				3D5929D11C7F41E900B3CECC /* Products */,
 			);
