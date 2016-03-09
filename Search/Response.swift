@@ -35,4 +35,13 @@ public final class Response: NSObject, JSONDecodable, Gloss.Decodable {
         }
         self.init(results: results, header: header)
     }
+
+    convenience init?(jsonDict: [String: AnyObject]) {
+        guard let headerDict = jsonDict[Response.HeaderKey] as? [String: AnyObject],
+            searchResultsArray = jsonDict[Response.ResultsKey] as? [[String: AnyObject]],
+            header = Header(jsonDict: headerDict) else {
+                return nil
+        }
+        self.init(results: searchResultsArray.flatMap({ SearchResult(jsonDict: $0) }), header: header)
+    }
 }

@@ -73,6 +73,74 @@ public class SearchResult: NSObject, JSONDecodable, Gloss.Decodable {
         self.blpuStateDate = blpuStateDate
     }
 
+    convenience init?(jsonDict: [String: AnyObject]) {
+        guard let
+            result = jsonDict[Response.ResultKey] as? [String: AnyObject],
+            language = result[SearchResult.LanguageKey] as? String,
+            lastUpdateDate = result[SearchResult.LastUpdateDateKey] as? String,
+            rpc = result[SearchResult.RpcKey] as? String,
+            postcode = result[SearchResult.PostcodeKey] as? String,
+            uprn = result[SearchResult.UprnKey] as? String,
+            matchDescription = result[SearchResult.MatchDescriptionKey] as? String,
+            entryDate = result[SearchResult.EntryDateKey] as? String,
+            postalAddressCode = result[SearchResult.PostalAddressCodeKey] as? String,
+            localCustodianCode = result[SearchResult.LocalCustodianCodeKey] as? Int,
+            status = result[SearchResult.StatusKey] as? String,
+            postalAddressCodeDescription = result[SearchResult.PostalAddressCodeDescriptionKey] as? String,
+            classificationCodeDescription = result[SearchResult.ClassificationCodeDescriptionKey] as? String,
+            xCoordinate = result[SearchResult.XCoordinateKey] as? Int,
+            match = result[SearchResult.MatchKey] as? Float,
+            classificationCode = result[SearchResult.ClassificationCodeKey] as? String,
+            localCustodianCodeDescription = result[SearchResult.LocalCustodianCodeDescriptionKey] as? String,
+            blpuStateCodeDescription = result[SearchResult.BlpuStateCodeDescriptionKey] as? String,
+            logicalStatusCode = result[SearchResult.LogicalStatusCodeKey] as? String,
+            yCoordinate = result[SearchResult.YCoordinateKey] as? Int,
+            address = result[SearchResult.AddressKey] as? String,
+            postTown = result[SearchResult.PostTownKey] as? String
+            else {
+                return nil
+        }
+
+        let buildingNumber = result[SearchResult.BuildingNumberKey] as? String
+        let blpuStateCode = result[SearchResult.BlpuStateCodeKey] as? String
+        let organisationName = result[SearchResult.OrganisationNameKey] as? String
+        let topographyLayerToid = result[SearchResult.TopographyLayerToidKey] as? String
+        let dependentLocality = result[SearchResult.DependentLocalityKey] as? String
+        let thoroughfareName = result[SearchResult.ThoroughfareNameKey] as? String
+        let blpuStateDate = result[SearchResult.BlpuStateDateKey] as? String
+
+        self.init(
+            language: language,
+            lastUpdateDate: lastUpdateDate,
+            rpc: rpc,
+            buildingNumber: buildingNumber,
+            postcode: postcode,
+            uprn: uprn,
+            matchDescription: matchDescription,
+            entryDate: entryDate,
+            postalAddressCode: postalAddressCode,
+            localCustodianCode: localCustodianCode,
+            status: status,
+            blpuStateCode: blpuStateCode,
+            organisationName: organisationName,
+            postalAddressCodeDescription: postalAddressCodeDescription,
+            classificationCodeDescription: classificationCodeDescription,
+            xCoordinate: xCoordinate,
+            match: match,
+            classificationCode: classificationCode,
+            topographyLayerToid: topographyLayerToid,
+            localCustodianCodeDescription: localCustodianCodeDescription,
+            blpuStateCodeDescription: blpuStateCodeDescription,
+            dependentLocality: dependentLocality,
+            logicalStatusCode: logicalStatusCode,
+            yCoordinate: yCoordinate,
+            thoroughfareName: thoroughfareName,
+            address: address,
+            postTown: postTown,
+            blpuStateDate: blpuStateDate
+        )
+    }
+
     convenience init?(json: JSONLib.JSON) {
         guard let language = json[SearchResult.LanguageKey].string,
             lastUpdateDate = json[SearchResult.LastUpdateDateKey].string,

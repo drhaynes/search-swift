@@ -39,6 +39,37 @@ public class Header: NSObject, JSONDecodable, Gloss.Decodable {
         self.query = query
     }
 
+    convenience init?(jsonDict: [String: AnyObject]) {
+        guard let uri = jsonDict[Header.UriKey] as? String,
+            lr = jsonDict[Header.LrKey] as? String,
+            dataset = jsonDict[Header.DatasetKey] as? String,
+            outputSrs = jsonDict[Header.OutputSrsKey] as? String,
+            epoch = jsonDict[Header.EpochKey] as? String,
+            format = jsonDict[Header.FormatKey] as? String,
+            query = jsonDict[Header.QueryKey] as? String,
+            matchPrecision =  jsonDict[Header.MatchprecisionKey] as? Int,
+            maxresults = jsonDict[Header.MaxresultsKey] as? Int,
+            totalresults = jsonDict[Header.TotalresultsKey] as? Int,
+            offset = jsonDict[Header.OffsetKey] as? Int
+            else {
+                return nil
+        }
+
+        self.init(
+            matchprecision: matchPrecision,
+            lr: lr,
+            dataset: dataset,
+            maxresults: maxresults,
+            totalresults: totalresults,
+            uri: uri,
+            outputSrs: outputSrs,
+            epoch: epoch,
+            offset: offset,
+            format: format,
+            query: query
+        )
+    }
+
     convenience init?(json: JSONLib.JSON) {
         guard let uri = json[Header.UriKey].string,
             lr = json[Header.LrKey].string,
