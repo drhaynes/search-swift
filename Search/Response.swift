@@ -29,8 +29,8 @@ public final class Response: NSObject, JSONDecodable, Gloss.Decodable {
     }
 
     convenience public init?(json: Gloss.JSON) {
-        guard let header: Header = Decoder.decode(Response.HeaderKey)(json),
-            results: [SearchResult] = Decoder.decode(Response.ResultsKey)(json) else {
+        guard let header: Header = Decoder.decodeDecodable(Response.HeaderKey)(json),
+            results: [SearchResult] = Decoder.decodeDecodableArray(Response.ResultsKey)(json) else {
                 return nil
         }
         self.init(results: results, header: header)
