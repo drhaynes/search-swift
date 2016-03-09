@@ -65,7 +65,7 @@ class JsonPerformanceTests: XCTestCase {
         measureBlock {
             let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
             do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: AnyObject]
+                let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! SomeJSON
                 let _ = Response(jsonDict: json)!
             } catch {
                 fail("Unexpected error parsing JSON")

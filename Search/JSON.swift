@@ -8,32 +8,36 @@
 
 import Foundation
 
-typealias SomeJSON = [String: AnyObject]
+typealias SomeJSON = [String: NSObject]
 
 private func cast<T>(value: AnyObject?) -> T? {
     return value as? T
 }
 
-func integer(value: AnyObject?) -> Int? {
-    return cast(value)
-}
+protocol JSONValue {}
 
-func float(value: AnyObject?) -> Float? {
-    return cast(value)
-}
+extension NSObject: JSONValue {
+    var integer: Int? {
+        return cast(self)
+    }
 
-func double(value: AnyObject?) -> Double? {
-    return cast(value)
-}
+    var float: Float? {
+        return cast(self)
+    }
 
-func string(value: AnyObject?) -> String? {
-    return cast(value)
-}
+    var double: Double? {
+        return cast(self)
+    }
 
-func json(value: AnyObject?) -> SomeJSON? {
-    return cast(value)
-}
+    var string: String? {
+        return cast(self)
+    }
 
-func jsonArray(value: AnyObject?) -> [SomeJSON]? {
-    return cast(value)
+    var json: SomeJSON? {
+        return cast(self)
+    }
+
+    var jsonArray: [SomeJSON]? {
+        return cast(self)
+    }
 }
