@@ -39,7 +39,7 @@ public class Header: NSObject, JSONDecodable, Gloss.Decodable {
         self.query = query
     }
 
-    convenience init?(jsonDict: [String: AnyObject]) {
+    convenience init?(jsonDict: SomeJSON) {
         guard let uri = jsonDict[Header.UriKey] as? String,
             lr = jsonDict[Header.LrKey] as? String,
             dataset = jsonDict[Header.DatasetKey] as? String,

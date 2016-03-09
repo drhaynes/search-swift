@@ -36,6 +36,7 @@
 		3DD1679E1C8F329C0057ED00 /* JSONCodable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB367081C8F21A2000C2C7B /* JSONCodable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4539FDBD1C901B3D004B8AE7 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4539FDBC1C901B3D004B8AE7 /* Gloss.framework */; };
 		4539FDBE1C901B4D004B8AE7 /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4539FDBC1C901B3D004B8AE7 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4539FDC31C9054B3004B8AE7 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539FDC21C9054B3004B8AE7 /* JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,8 +93,8 @@
 		3DB367021C8F182C000C2C7B /* 100-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "100-results.json"; sourceTree = "<group>"; };
 		3DB367041C8F1CFE000C2C7B /* JsonPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPerformanceTests.swift; sourceTree = "<group>"; };
 		3DB367081C8F21A2000C2C7B /* JSONCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONCodable.framework; path = Carthage/Build/iOS/JSONCodable.framework; sourceTree = SOURCE_ROOT; };
-		3DB3670A1C8F256E000C2C7B /* SearchResult+JsonDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchResult+JsonDecodable.swift"; sourceTree = "<group>"; };
 		4539FDBC1C901B3D004B8AE7 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
+		4539FDC21C9054B3004B8AE7 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +133,7 @@
 				3DB366FA1C8EEAE5000C2C7B /* Header+JsonKeys.swift */,
 				3D0ADE1A1C85E3F000D4FD37 /* SearchResult.swift */,
 				3DB366F81C8EE797000C2C7B /* SearchResult+JsonKeys.swift */,
+				4539FDC21C9054B3004B8AE7 /* JSON.swift */,
 			);
 			name = "Response Model";
 			sourceTree = "<group>";
@@ -305,6 +307,7 @@
 				3D0ADE201C85E3F000D4FD37 /* Response.swift in Sources */,
 				3D0ADE1E1C85E3F000D4FD37 /* SearchResult.swift in Sources */,
 				3DB366F91C8EE797000C2C7B /* SearchResult+JsonKeys.swift in Sources */,
+				4539FDC31C9054B3004B8AE7 /* JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

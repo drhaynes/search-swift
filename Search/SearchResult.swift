@@ -73,9 +73,9 @@ public class SearchResult: NSObject, JSONDecodable, Gloss.Decodable {
         self.blpuStateDate = blpuStateDate
     }
 
-    convenience init?(jsonDict: [String: AnyObject]) {
+    convenience init?(jsonDict: SomeJSON) {
         guard let
-            result = jsonDict[Response.ResultKey] as? [String: AnyObject],
+            result = jsonDict[Response.ResultKey] as? SomeJSON,
             language = result[SearchResult.LanguageKey] as? String,
             lastUpdateDate = result[SearchResult.LastUpdateDateKey] as? String,
             rpc = result[SearchResult.RpcKey] as? String,
