@@ -37,8 +37,8 @@ public final class Response: NSObject, JSONDecodable, Gloss.Decodable {
     }
 
     convenience init?(jsonDict: SomeJSON) {
-        guard let headerDict = jsonDict[Response.HeaderKey] as? SomeJSON,
-            searchResultsArray = jsonDict[Response.ResultsKey] as? [SomeJSON],
+        guard let headerDict = json(jsonDict[Response.HeaderKey]),
+            searchResultsArray = jsonArray(jsonDict[Response.ResultsKey]),
             header = Header(jsonDict: headerDict) else {
                 return nil
         }

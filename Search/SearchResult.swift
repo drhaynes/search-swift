@@ -76,38 +76,38 @@ public class SearchResult: NSObject, JSONDecodable, Gloss.Decodable {
     convenience init?(jsonDict: SomeJSON) {
         guard let
             result = jsonDict[Response.ResultKey] as? SomeJSON,
-            language = result[SearchResult.LanguageKey] as? String,
-            lastUpdateDate = result[SearchResult.LastUpdateDateKey] as? String,
-            rpc = result[SearchResult.RpcKey] as? String,
-            postcode = result[SearchResult.PostcodeKey] as? String,
-            uprn = result[SearchResult.UprnKey] as? String,
-            matchDescription = result[SearchResult.MatchDescriptionKey] as? String,
-            entryDate = result[SearchResult.EntryDateKey] as? String,
-            postalAddressCode = result[SearchResult.PostalAddressCodeKey] as? String,
-            localCustodianCode = result[SearchResult.LocalCustodianCodeKey] as? Int,
-            status = result[SearchResult.StatusKey] as? String,
-            postalAddressCodeDescription = result[SearchResult.PostalAddressCodeDescriptionKey] as? String,
-            classificationCodeDescription = result[SearchResult.ClassificationCodeDescriptionKey] as? String,
-            xCoordinate = result[SearchResult.XCoordinateKey] as? Int,
-            match = result[SearchResult.MatchKey] as? Float,
-            classificationCode = result[SearchResult.ClassificationCodeKey] as? String,
-            localCustodianCodeDescription = result[SearchResult.LocalCustodianCodeDescriptionKey] as? String,
-            blpuStateCodeDescription = result[SearchResult.BlpuStateCodeDescriptionKey] as? String,
-            logicalStatusCode = result[SearchResult.LogicalStatusCodeKey] as? String,
-            yCoordinate = result[SearchResult.YCoordinateKey] as? Int,
-            address = result[SearchResult.AddressKey] as? String,
-            postTown = result[SearchResult.PostTownKey] as? String
+            language = string(result[SearchResult.LanguageKey]),
+            lastUpdateDate = string(result[SearchResult.LastUpdateDateKey]),
+            rpc = string(result[SearchResult.RpcKey]),
+            postcode = string(result[SearchResult.PostcodeKey]),
+            uprn = string(result[SearchResult.UprnKey]),
+            matchDescription = string(result[SearchResult.MatchDescriptionKey]),
+            entryDate = string(result[SearchResult.EntryDateKey]),
+            postalAddressCode = string(result[SearchResult.PostalAddressCodeKey]),
+            localCustodianCode = integer(result[SearchResult.LocalCustodianCodeKey]),
+            status = string(result[SearchResult.StatusKey]),
+            postalAddressCodeDescription = string(result[SearchResult.PostalAddressCodeDescriptionKey]),
+            classificationCodeDescription = string(result[SearchResult.ClassificationCodeDescriptionKey]),
+            xCoordinate = integer(result[SearchResult.XCoordinateKey]),
+            match = float(result[SearchResult.MatchKey]),
+            classificationCode = string(result[SearchResult.ClassificationCodeKey]),
+            localCustodianCodeDescription = string(result[SearchResult.LocalCustodianCodeDescriptionKey]),
+            blpuStateCodeDescription = string(result[SearchResult.BlpuStateCodeDescriptionKey]),
+            logicalStatusCode = string(result[SearchResult.LogicalStatusCodeKey]),
+            yCoordinate = integer(result[SearchResult.YCoordinateKey]),
+            address = string(result[SearchResult.AddressKey]),
+            postTown = string(result[SearchResult.PostTownKey])
             else {
                 return nil
         }
 
-        let buildingNumber = result[SearchResult.BuildingNumberKey] as? String
-        let blpuStateCode = result[SearchResult.BlpuStateCodeKey] as? String
-        let organisationName = result[SearchResult.OrganisationNameKey] as? String
-        let topographyLayerToid = result[SearchResult.TopographyLayerToidKey] as? String
-        let dependentLocality = result[SearchResult.DependentLocalityKey] as? String
-        let thoroughfareName = result[SearchResult.ThoroughfareNameKey] as? String
-        let blpuStateDate = result[SearchResult.BlpuStateDateKey] as? String
+        let buildingNumber = string(result[SearchResult.BuildingNumberKey])
+        let blpuStateCode = string(result[SearchResult.BlpuStateCodeKey])
+        let organisationName = string(result[SearchResult.OrganisationNameKey])
+        let topographyLayerToid = string(result[SearchResult.TopographyLayerToidKey])
+        let dependentLocality = string(result[SearchResult.DependentLocalityKey])
+        let thoroughfareName = string(result[SearchResult.ThoroughfareNameKey])
+        let blpuStateDate = string(result[SearchResult.BlpuStateDateKey])
 
         self.init(
             language: language,

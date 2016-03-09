@@ -40,17 +40,17 @@ public class Header: NSObject, JSONDecodable, Gloss.Decodable {
     }
 
     convenience init?(jsonDict: SomeJSON) {
-        guard let uri = jsonDict[Header.UriKey] as? String,
-            lr = jsonDict[Header.LrKey] as? String,
-            dataset = jsonDict[Header.DatasetKey] as? String,
-            outputSrs = jsonDict[Header.OutputSrsKey] as? String,
-            epoch = jsonDict[Header.EpochKey] as? String,
-            format = jsonDict[Header.FormatKey] as? String,
-            query = jsonDict[Header.QueryKey] as? String,
-            matchPrecision =  jsonDict[Header.MatchprecisionKey] as? Int,
-            maxresults = jsonDict[Header.MaxresultsKey] as? Int,
-            totalresults = jsonDict[Header.TotalresultsKey] as? Int,
-            offset = jsonDict[Header.OffsetKey] as? Int
+        guard let uri = string(jsonDict[Header.UriKey]),
+            lr = string(jsonDict[Header.LrKey]),
+            dataset = string(jsonDict[Header.DatasetKey]),
+            outputSrs = string(jsonDict[Header.OutputSrsKey]),
+            epoch = string(jsonDict[Header.EpochKey]),
+            format = string(jsonDict[Header.FormatKey]),
+            query = string(jsonDict[Header.QueryKey]),
+            matchPrecision = integer(jsonDict[Header.MatchprecisionKey]),
+            maxresults = integer(jsonDict[Header.MaxresultsKey]),
+            totalresults = integer(jsonDict[Header.TotalresultsKey]),
+            offset = integer(jsonDict[Header.OffsetKey])
             else {
                 return nil
         }
