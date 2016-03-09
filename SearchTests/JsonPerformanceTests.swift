@@ -10,6 +10,7 @@ import XCTest
 import Nimble
 import JSONLib
 import JSONCodable
+import Gloss
 @testable import Search
 
 class JsonPerformanceTests: XCTestCase {
@@ -42,6 +43,18 @@ class JsonPerformanceTests: XCTestCase {
                 } catch {
                     fail("Unexpected error decoding JSON: \(error)")
                 }
+            } catch {
+                fail("Unexpected error parsing JSON")
+            }
+        }
+    }
+
+    func testGlossyPerformance() {
+        measureBlock {
+            let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! Gloss.JSON
+                let _ = Response(json: json)
             } catch {
                 fail("Unexpected error parsing JSON")
             }
