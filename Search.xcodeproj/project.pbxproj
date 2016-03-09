@@ -32,9 +32,7 @@
 		3DB367011C8F1089000C2C7B /* test-response-bad-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367001C8F1089000C2C7B /* test-response-bad-results.json */; };
 		3DB367031C8F182C000C2C7B /* 100-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367021C8F182C000C2C7B /* 100-results.json */; };
 		3DB367051C8F1CFE000C2C7B /* JsonPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB367041C8F1CFE000C2C7B /* JsonPerformanceTests.swift */; };
-		3DB367071C8F2170000C2C7B /* Response+JsonDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB367061C8F2170000C2C7B /* Response+JsonDecodable.swift */; };
 		3DB367091C8F21A2000C2C7B /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB367081C8F21A2000C2C7B /* JSONCodable.framework */; };
-		3DB3670B1C8F256E000C2C7B /* SearchResult+JsonDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3670A1C8F256E000C2C7B /* SearchResult+JsonDecodable.swift */; };
 		3DD1679E1C8F329C0057ED00 /* JSONCodable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB367081C8F21A2000C2C7B /* JSONCodable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -90,9 +88,7 @@
 		3DB367001C8F1089000C2C7B /* test-response-bad-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-bad-results.json"; sourceTree = "<group>"; };
 		3DB367021C8F182C000C2C7B /* 100-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "100-results.json"; sourceTree = "<group>"; };
 		3DB367041C8F1CFE000C2C7B /* JsonPerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPerformanceTests.swift; sourceTree = "<group>"; };
-		3DB367061C8F2170000C2C7B /* Response+JsonDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+JsonDecodable.swift"; sourceTree = "<group>"; };
 		3DB367081C8F21A2000C2C7B /* JSONCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONCodable.framework; path = Carthage/Build/iOS/JSONCodable.framework; sourceTree = SOURCE_ROOT; };
-		3DB3670A1C8F256E000C2C7B /* SearchResult+JsonDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchResult+JsonDecodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +121,10 @@
 			children = (
 				3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */,
 				3D0ADE1C1C85E3F000D4FD37 /* Response.swift */,
-				3DB367061C8F2170000C2C7B /* Response+JsonDecodable.swift */,
 				3DB366FC1C8EEB30000C2C7B /* Response+JsonKeys.swift */,
 				3D0ADE1B1C85E3F000D4FD37 /* Header.swift */,
 				3DB366FA1C8EEAE5000C2C7B /* Header+JsonKeys.swift */,
 				3D0ADE1A1C85E3F000D4FD37 /* SearchResult.swift */,
-				3DB3670A1C8F256E000C2C7B /* SearchResult+JsonDecodable.swift */,
 				3DB366F81C8EE797000C2C7B /* SearchResult+JsonKeys.swift */,
 			);
 			name = "Response Model";
@@ -300,11 +294,9 @@
 				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
 				3D0ADE1F1C85E3F000D4FD37 /* Header.swift in Sources */,
 				3DB366FB1C8EEAE5000C2C7B /* Header+JsonKeys.swift in Sources */,
-				3DB3670B1C8F256E000C2C7B /* SearchResult+JsonDecodable.swift in Sources */,
 				3DB366FD1C8EEB30000C2C7B /* Response+JsonKeys.swift in Sources */,
 				3D0ADE201C85E3F000D4FD37 /* Response.swift in Sources */,
 				3D0ADE1E1C85E3F000D4FD37 /* SearchResult.swift in Sources */,
-				3DB367071C8F2170000C2C7B /* Response+JsonDecodable.swift in Sources */,
 				3DB366F91C8EE797000C2C7B /* SearchResult+JsonKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
