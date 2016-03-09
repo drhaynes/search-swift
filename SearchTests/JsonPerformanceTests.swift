@@ -13,15 +13,8 @@ import JSONCodable
 @testable import Search
 
 class JsonPerformanceTests: XCTestCase {
-    
-    func testJSONLibPerformance() {
-        measureBlock {
-            let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
-            let _ = JSValue.parse(data)
-        }
-    }
 
-    func testNSJSONPerformance() {
+    func testRawNSJSONPerformance() {
         measureBlock {
             let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
             do {
@@ -29,6 +22,13 @@ class JsonPerformanceTests: XCTestCase {
             } catch {
                 fail("Unexpected error")
             }
+        }
+    }
+
+    func testJSONLibPerformance() {
+        measureBlock {
+            let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
+            let _ = JSValue.parse(data)
         }
     }
 
@@ -40,12 +40,11 @@ class JsonPerformanceTests: XCTestCase {
                 do {
                     let _ = try Response(object: json as! JSONObject)
                 } catch {
-                    fail("Unexpected error decoding JSON")
+                    fail("Unexpected error decoding JSON: \(error)")
                 }
             } catch {
                 fail("Unexpected error parsing JSON")
             }
-
         }
     }
     

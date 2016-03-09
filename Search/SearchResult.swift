@@ -15,7 +15,7 @@ public class SearchResult: NSObject, JSONDecodable {
     public let language: String
     public let lastUpdateDate: String
     public let rpc: String
-    public let buildingNumber: String
+    public let buildingNumber: String?
     public let postcode: String
     public let uprn: String
     public let matchDescription: String
@@ -23,25 +23,25 @@ public class SearchResult: NSObject, JSONDecodable {
     public let postalAddressCode: String
     public let localCustodianCode: Int
     public let status: String
-    public let blpuStateCode: String
-    public let organisationName: String
+    public let blpuStateCode: String?
+    public let organisationName: String?
     public let postalAddressCodeDescription: String
     public let classificationCodeDescription: String
     public let xCoordinate: Int
     public let match: Float
     public let classificationCode: String
-    public let topographyLayerToid: String
+    public let topographyLayerToid: String?
     public let localCustodianCodeDescription: String
     public let blpuStateCodeDescription: String
-    public let dependentLocality: String
+    public let dependentLocality: String?
     public let logicalStatusCode: String
     public let yCoordinate: Int
-    public let thoroughfareName: String
+    public let thoroughfareName: String?
     public let address: String
     public let postTown: String
-    public let blpuStateDate: String
+    public let blpuStateDate: String?
 
-    init(language: String, lastUpdateDate: String, rpc: String, buildingNumber: String, postcode: String, uprn: String, matchDescription: String, entryDate: String, postalAddressCode: String, localCustodianCode: Int, status: String, blpuStateCode: String, organisationName: String, postalAddressCodeDescription: String, classificationCodeDescription: String, xCoordinate: Int, match: Float, classificationCode: String, topographyLayerToid: String, localCustodianCodeDescription: String, blpuStateCodeDescription: String, dependentLocality: String, logicalStatusCode: String, yCoordinate: Int, thoroughfareName: String, address: String, postTown: String, blpuStateDate: String) {
+    init(language: String, lastUpdateDate: String, rpc: String, buildingNumber: String?, postcode: String, uprn: String, matchDescription: String, entryDate: String, postalAddressCode: String, localCustodianCode: Int, status: String, blpuStateCode: String?, organisationName: String?, postalAddressCodeDescription: String, classificationCodeDescription: String, xCoordinate: Int, match: Float, classificationCode: String, topographyLayerToid: String?, localCustodianCodeDescription: String, blpuStateCodeDescription: String, dependentLocality: String?, logicalStatusCode: String, yCoordinate: Int, thoroughfareName: String?, address: String, postTown: String, blpuStateDate: String?) {
         self.language = language
         self.lastUpdateDate = lastUpdateDate
         self.rpc = rpc
@@ -138,11 +138,14 @@ public class SearchResult: NSObject, JSONDecodable {
     }
 
     convenience public required init(object: JSONObject) throws {
-        let decoder = JSONDecoder(object: object[Response.ResultKey])
+        guard let nestedResultObject = object[Response.ResultKey] as? [String: AnyObject] else {
+            throw SearchError.FailedToDeserialiseJSON
+        }
+        let decoder = JSONDecoder(object: nestedResultObject)
         let language: String = try decoder.decode(SearchResult.LanguageKey)
         let lastUpdateDate: String = try decoder.decode(SearchResult.LastUpdateDateKey)
         let rpc: String = try decoder.decode(SearchResult.RpcKey)
-        let buildingNumber: String = try decoder.decode(SearchResult.BuildingNumberKey)
+        let buildingNumber: String? = try? decoder.decode(SearchResult.BuildingNumberKey)
         let postcode: String = try decoder.decode(SearchResult.PostcodeKey)
         let uprn: String = try decoder.decode(SearchResult.UprnKey)
         let matchDescription: String = try decoder.decode(SearchResult.MatchDescriptionKey)
@@ -150,23 +153,23 @@ public class SearchResult: NSObject, JSONDecodable {
         let postalAddressCode: String = try decoder.decode(SearchResult.PostalAddressCodeKey)
         let localCustodianCode: Int = try decoder.decode(SearchResult.LocalCustodianCodeKey)
         let status: String = try decoder.decode(SearchResult.StatusKey)
-        let blpuStateCode: String = try decoder.decode(SearchResult.BlpuStateCodeKey)
-        let organisationName: String = try decoder.decode(SearchResult.OrganisationNameKey)
+        let blpuStateCode: String? = try? decoder.decode(SearchResult.BlpuStateCodeKey)
+        let organisationName: String? = try? decoder.decode(SearchResult.OrganisationNameKey)
         let postalAddressCodeDescription: String = try decoder.decode(SearchResult.PostalAddressCodeDescriptionKey)
         let classificationCodeDescription: String = try decoder.decode(SearchResult.ClassificationCodeDescriptionKey)
         let xCoordinate: Int = try decoder.decode(SearchResult.XCoordinateKey)
         let match: Float = try decoder.decode(SearchResult.MatchKey)
         let classificationCode: String = try decoder.decode(SearchResult.ClassificationCodeKey)
-        let topographyLayerToid: String = try decoder.decode(SearchResult.TopographyLayerToidKey)
+        let topographyLayerToid: String? = try? decoder.decode(SearchResult.TopographyLayerToidKey)
         let localCustodianCodeDescription: String = try decoder.decode(SearchResult.LocalCustodianCodeDescriptionKey)
         let blpuStateCodeDescription: String = try decoder.decode(SearchResult.BlpuStateCodeDescriptionKey)
-        let dependentLocality: String = try decoder.decode(SearchResult.DependentLocalityKey)
+        let dependentLocality: String? = try? decoder.decode(SearchResult.DependentLocalityKey)
         let logicalStatusCode: String = try decoder.decode(SearchResult.LogicalStatusCodeKey)
         let yCoordinate: Int = try decoder.decode(SearchResult.YCoordinateKey)
-        let thoroughfareName: String = try decoder.decode(SearchResult.ThoroughfareNameKey)
+        let thoroughfareName: String? = try? decoder.decode(SearchResult.ThoroughfareNameKey)
         let address: String = try decoder.decode(SearchResult.AddressKey)
         let postTown: String = try decoder.decode(SearchResult.PostTownKey)
-        let blpuStateDate: String = try decoder.decode(SearchResult.BlpuStateDateKey)
+        let blpuStateDate: String? = try? decoder.decode(SearchResult.BlpuStateDateKey)
 
         self.init(
             language: language,
