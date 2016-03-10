@@ -24,6 +24,8 @@
 		3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */; };
 		3D69EEEE1C907086004080EA /* OSJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D69EEEC1C907086004080EA /* OSJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D69EEEF1C907086004080EA /* OSJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEED1C907086004080EA /* OSJSON.m */; };
+		3D69EEF11C91849D004080EA /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEF01C91849D004080EA /* SearchService.swift */; };
+		3D69EEF31C918595004080EA /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEF21C918595004080EA /* SearchServiceTests.swift */; };
 		3DB366F51C8DE943000C2C7B /* JSONLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB366F41C8DE943000C2C7B /* JSONLib.framework */; };
 		3DB366F61C8DE958000C2C7B /* JSONLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB366F41C8DE943000C2C7B /* JSONLib.framework */; };
 		3DB366F71C8DE95B000C2C7B /* JSONLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB366F41C8DE943000C2C7B /* JSONLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -87,6 +89,8 @@
 		3D5929E11C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D69EEEC1C907086004080EA /* OSJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSJSON.h; sourceTree = "<group>"; };
 		3D69EEED1C907086004080EA /* OSJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSJSON.m; sourceTree = "<group>"; };
+		3D69EEF01C91849D004080EA /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		3D69EEF21C918595004080EA /* SearchServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
 		3DB366F41C8DE943000C2C7B /* JSONLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONLib.framework; path = Carthage/Build/iOS/JSONLib.framework; sourceTree = SOURCE_ROOT; };
 		3DB366F81C8EE797000C2C7B /* SearchResult+JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchResult+JsonKeys.swift"; sourceTree = "<group>"; };
 		3DB366FA1C8EEAE5000C2C7B /* Header+JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Header+JsonKeys.swift"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			children = (
 				3D0ADE111C85C95F00D4FD37 /* Response Model */,
 				3D5929D31C7F41E900B3CECC /* Search.h */,
+				3D69EEF01C91849D004080EA /* SearchService.swift */,
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
 				3DB367081C8F21A2000C2C7B /* JSONCodable.framework */,
 				3DB366F41C8DE943000C2C7B /* JSONLib.framework */,
@@ -178,6 +183,7 @@
 			children = (
 				3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */,
 				3DB367041C8F1CFE000C2C7B /* JsonPerformanceTests.swift */,
+				3D69EEF21C918595004080EA /* SearchServiceTests.swift */,
 				3D0ADE371C87404000D4FD37 /* test-response.json */,
 				3DB366FE1C8F103E000C2C7B /* test-response-bad-header.json */,
 				3DB367001C8F1089000C2C7B /* test-response-bad-results.json */,
@@ -304,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D69EEF11C91849D004080EA /* SearchService.swift in Sources */,
 				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
 				3D0ADE1F1C85E3F000D4FD37 /* Header.swift in Sources */,
 				3DB366FB1C8EEAE5000C2C7B /* Header+JsonKeys.swift in Sources */,
@@ -320,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */,
+				3D69EEF31C918595004080EA /* SearchServiceTests.swift in Sources */,
 				3DB367051C8F1CFE000C2C7B /* JsonPerformanceTests.swift in Sources */,
 				3D0ADE361C873F6A00D4FD37 /* TestHelpers.swift in Sources */,
 			);

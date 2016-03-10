@@ -30,15 +30,13 @@ extension Response: Parsable {
         switch status {
         case 200:
             return parseResponse(data)
-        case 666:
-            return dirtyParseResponse(data)
         default:
             return .Failure(SearchError.UnknownError)
         }
     }
 }
 
-private func dirtyParseResponse(data: NSData?) -> Result<Response> {
+private func parseResponse(data: NSData?) -> Result<Response> {
     guard let data = data else {
         return .Failure(SearchError.NoDataReceived)
     }
@@ -160,20 +158,6 @@ private func headerFromOSJson(json: OSJSON) -> Header? {
     )
 }
 
-
-private func parseResponse(data: NSData?) -> Result<Response> {
-    guard let data = data else {
-        return .Failure(SearchError.NoDataReceived)
-    }
-    guard let json = JSValue.parse(data).value else {
-        return .Failure(SearchError.FailedToParseJSON)
-    }
-    guard let response = responseFromJson(json) else {
-        return .Failure(SearchError.FailedToDeserialiseJSON)
-    }
-    return .Success(response)
-}
-
 private func responseFromJson(json: JSON) -> Response? {
     let headerJson = json[Response.HeaderKey]
     guard let header = Header(json: headerJson) else {
@@ -189,18 +173,4 @@ private func responseFromJson(json: JSON) -> Response? {
 private func dpaFromJson(json: JSON) -> SearchResult? {
     let dpaJson = json[Response.ResultKey]
     return SearchResult(json: dpaJson)
-}
-
-func parseResponse2(data: NSData?) -> Result<Response> {
-    guard let data = data else {
-        return .Failure(SearchError.NoDataReceived)
-    }
-    do {
-        let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-        return .Success(try! Response(object: json as! JSONObject))
-    }
-    catch {
-        return .Failure(SearchError.FailedToParseJSON)
-    }
-
 }
