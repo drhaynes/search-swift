@@ -9,6 +9,7 @@
 import XCTest
 import Nimble
 import Fetch
+import OHHTTPStubs
 @testable import Search
 
 class SearchServiceTests: XCTestCase {
@@ -27,13 +28,34 @@ class SearchServiceTests: XCTestCase {
         expect(service.apiKey).to(equal(testApiKey))
     }
 
-    func testAFindQueryCallsItsCompletionBlock() {
-        var called = false
-        let completionBlock: (Result<Response> -> Void) = { _ in 
-            called = true
+    func testItSendsAFindRequestCorrectly() {
+        let testApiKey = "test-key"
+        let testQuery = "Ordnance Survey"
+        let service = SearchService(apiKey: testApiKey)
+
+        let expectation = expectationWithDescription("Request received")
+
+        stub(stubFindHttpBlock(testApiKey, query: testQuery)) { (request) -> OHHTTPStubsResponse in
+            return OHHTTPStubsResponse(error: stubError())
         }
-        let service = SearchService(apiKey: "test")
-        service.find("test", completion: completionBlock)
-        expect(called).to(equal(true))
+
+        service.find(testQuery) { (result) -> Void in
+            expectation.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(1.0, handler: nil)
+        OHHTTPStubs.removeAllStubs()
     }
+
+    func stubFindHttpBlock(apiKey: String, query: String) -> OHHTTPStubsTestBlock {
+        let match = isScheme("https") &&
+            isHost("api.ordnancesurvey.co.uk") &&
+            isPath("/places/v1/addresses/find") &&
+            containsQueryItems([
+                NSURLQueryItem(name: "key", value: apiKey),
+                NSURLQueryItem(name: "query", value: query)
+            ])
+        return match
+    }
+
 }

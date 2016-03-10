@@ -16,7 +16,23 @@ public class SearchService: Searchable {
     }
 
     public func find(query: String, completion: (Result<Response> -> Void)) {
-        completion(.Failure(SearchError.UnknownError))
+        let request = Request(url: urlForQuery(query))
+        get(request) { (result) in
+            completion(result)
+        }
+    }
+
+    private func urlForQuery(query: String) -> NSURL {
+        let components = NSURLComponents()
+        components.scheme = "https"
+        components.host = "api.ordnancesurvey.co.uk"
+        components.path = "/places/v1/addresses/find"
+        let queryItems = [
+            NSURLQueryItem(name: "key", value: apiKey),
+            NSURLQueryItem(name: "query", value: query)
+        ]
+        components.queryItems = queryItems
+        return components.URL!
     }
 }
 
