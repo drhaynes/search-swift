@@ -8,11 +8,15 @@
 
 import Fetch
 
-public class SearchService {
+public class SearchService: Searchable {
     let apiKey: String
 
     public init(apiKey: String) {
         self.apiKey = apiKey
+    }
+
+    public func find(query: String, completion: (Result<Response> -> Void)) {
+        completion(.Failure(SearchError.UnknownError))
     }
 }
 

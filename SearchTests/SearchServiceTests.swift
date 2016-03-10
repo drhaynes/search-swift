@@ -8,6 +8,7 @@
 
 import XCTest
 import Nimble
+import Fetch
 @testable import Search
 
 class SearchServiceTests: XCTestCase {
@@ -24,5 +25,15 @@ class SearchServiceTests: XCTestCase {
         let testApiKey = "test-key"
         let service = SearchService(apiKey: testApiKey)
         expect(service.apiKey).to(equal(testApiKey))
+    }
+
+    func testAFindQueryCallsItsCompletionBlock() {
+        var called = false
+        let completionBlock: (Result<Response> -> Void) = { _ in 
+            called = true
+        }
+        let service = SearchService(apiKey: "test")
+        service.find("test", completion: completionBlock)
+        expect(called).to(equal(true))
     }
 }
