@@ -37,4 +37,8 @@ class ViewController: UIViewController, UISearchResultsUpdating {
         }
     }
 
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+
 }

@@ -65,7 +65,7 @@ class ResultsViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let result = results[indexPath.row]
-        cell.textLabel?.text = result.address
+        cell.textLabel?.text = result.address.capitalizedString
         cell.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 12)
         cell.detailTextLabel?.text = "Coords: \(result.xCoordinate), \(result.yCoordinate)"
         return cell
@@ -73,6 +73,10 @@ class ResultsViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 64.0
+    }
+
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
 }
