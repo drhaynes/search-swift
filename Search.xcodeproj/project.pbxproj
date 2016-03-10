@@ -31,6 +31,18 @@
 		3D69EF001C91985A004080EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D69EEFE1C91985A004080EA /* Main.storyboard */; };
 		3D69EF021C91985A004080EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D69EF011C91985A004080EA /* Assets.xcassets */; };
 		3D69EF051C91985B004080EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D69EF031C91985B004080EA /* LaunchScreen.storyboard */; };
+		3D69EF0B1C919CC4004080EA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EF0A1C919CC4004080EA /* ResultsViewController.swift */; };
+		3D69EF0C1C919ED7004080EA /* Fetch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; };
+		3D69EF0E1C919EFD004080EA /* Fetch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D69EF111C919FFA004080EA /* APIKEY in Resources */ = {isa = PBXBuildFile; fileRef = 3D69EF101C919FFA004080EA /* APIKEY */; };
+		3D69EF121C91A044004080EA /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
+		3D69EF131C91A044004080EA /* Search.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D69EF161C91A053004080EA /* JSONCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB367081C8F21A2000C2C7B /* JSONCodable.framework */; };
+		3D69EF171C91A053004080EA /* JSONCodable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB367081C8F21A2000C2C7B /* JSONCodable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D69EF181C91A056004080EA /* JSONLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB366F41C8DE943000C2C7B /* JSONLib.framework */; };
+		3D69EF191C91A056004080EA /* JSONLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB366F41C8DE943000C2C7B /* JSONLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D69EF1A1C91A05D004080EA /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4539FDBC1C901B3D004B8AE7 /* Gloss.framework */; };
+		3D69EF1B1C91A05D004080EA /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4539FDBC1C901B3D004B8AE7 /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DB366F51C8DE943000C2C7B /* JSONLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB366F41C8DE943000C2C7B /* JSONLib.framework */; };
 		3DB366F61C8DE958000C2C7B /* JSONLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB366F41C8DE943000C2C7B /* JSONLib.framework */; };
 		3DB366F71C8DE95B000C2C7B /* JSONLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB366F41C8DE943000C2C7B /* JSONLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -55,6 +67,13 @@
 			remoteGlobalIDString = 3D5929CF1C7F41E900B3CECC;
 			remoteInfo = Search;
 		};
+		3D69EF141C91A044004080EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D5929C71C7F41E900B3CECC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D5929CF1C7F41E900B3CECC;
+			remoteInfo = Search;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +89,21 @@
 				3D0ADE321C870A1000D4FD37 /* Fetch.framework in Embed Frameworks */,
 				3DB366F71C8DE95B000C2C7B /* JSONLib.framework in Embed Frameworks */,
 				3DD1679E1C8F329C0057ED00 /* JSONCodable.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D69EF0F1C919EFD004080EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3D69EF131C91A044004080EA /* Search.framework in Embed Frameworks */,
+				3D69EF0E1C919EFD004080EA /* Fetch.framework in Embed Frameworks */,
+				3D69EF191C91A056004080EA /* JSONLib.framework in Embed Frameworks */,
+				3D69EF1B1C91A05D004080EA /* Gloss.framework in Embed Frameworks */,
+				3D69EF171C91A053004080EA /* JSONCodable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +137,8 @@
 		3D69EF011C91985A004080EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D69EF041C91985B004080EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D69EF061C91985B004080EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D69EF0A1C919CC4004080EA /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		3D69EF101C919FFA004080EA /* APIKEY */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = APIKEY; sourceTree = "<group>"; };
 		3DB366F41C8DE943000C2C7B /* JSONLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONLib.framework; path = Carthage/Build/iOS/JSONLib.framework; sourceTree = SOURCE_ROOT; };
 		3DB366F81C8EE797000C2C7B /* SearchResult+JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchResult+JsonKeys.swift"; sourceTree = "<group>"; };
 		3DB366FA1C8EEAE5000C2C7B /* Header+JsonKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Header+JsonKeys.swift"; sourceTree = "<group>"; };
@@ -142,6 +178,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D69EF121C91A044004080EA /* Search.framework in Frameworks */,
+				3D69EF0C1C919ED7004080EA /* Fetch.framework in Frameworks */,
+				3D69EF181C91A056004080EA /* JSONLib.framework in Frameworks */,
+				3D69EF1A1C91A05D004080EA /* Gloss.framework in Frameworks */,
+				3D69EF161C91A053004080EA /* JSONCodable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,10 +263,12 @@
 			children = (
 				3D69EEFA1C91985A004080EA /* AppDelegate.swift */,
 				3D69EEFC1C91985A004080EA /* ViewController.swift */,
+				3D69EF0A1C919CC4004080EA /* ResultsViewController.swift */,
 				3D69EEFE1C91985A004080EA /* Main.storyboard */,
 				3D69EF011C91985A004080EA /* Assets.xcassets */,
 				3D69EF031C91985B004080EA /* LaunchScreen.storyboard */,
 				3D69EF061C91985B004080EA /* Info.plist */,
+				3D69EF101C919FFA004080EA /* APIKEY */,
 			);
 			path = SearchExampleSwift;
 			sourceTree = "<group>";
@@ -289,10 +332,12 @@
 				3D69EEF41C91985A004080EA /* Sources */,
 				3D69EEF51C91985A004080EA /* Frameworks */,
 				3D69EEF61C91985A004080EA /* Resources */,
+				3D69EF0F1C919EFD004080EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3D69EF151C91A044004080EA /* PBXTargetDependency */,
 			);
 			name = SearchExampleSwift;
 			productName = SearchExampleSwift;
@@ -364,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D69EF051C91985B004080EA /* LaunchScreen.storyboard in Resources */,
+				3D69EF111C919FFA004080EA /* APIKEY in Resources */,
 				3D69EF021C91985A004080EA /* Assets.xcassets in Resources */,
 				3D69EF001C91985A004080EA /* Main.storyboard in Resources */,
 			);
@@ -403,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D69EF0B1C919CC4004080EA /* ResultsViewController.swift in Sources */,
 				3D69EEFD1C91985A004080EA /* ViewController.swift in Sources */,
 				3D69EEFB1C91985A004080EA /* AppDelegate.swift in Sources */,
 			);
@@ -415,6 +462,11 @@
 			isa = PBXTargetDependency;
 			target = 3D5929CF1C7F41E900B3CECC /* Search */;
 			targetProxy = 3D5929DC1C7F41E900B3CECC /* PBXContainerItemProxy */;
+		};
+		3D69EF151C91A044004080EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D5929CF1C7F41E900B3CECC /* Search */;
+			targetProxy = 3D69EF141C91A044004080EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -604,6 +656,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SearchExampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleSwift;
@@ -615,6 +672,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SearchExampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleSwift;
