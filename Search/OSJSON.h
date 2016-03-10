@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return The NSArray at the root of the object
  */
-- (NSArray<OSJSON *> *)array;
+- (nullable NSArray<OSJSON *> *)array;
 
 @end
 

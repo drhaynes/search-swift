@@ -58,7 +58,7 @@ private func responseFromOSJson(json: OSJSON) -> Response? {
     }
 
     let resultsJson = json.jsonForKey(Response.ResultsKey)
-    guard let results = resultsJson?.array().flatMap(dpaFromOSJson) else {
+    guard let results = resultsJson?.array()?.flatMap(dpaFromOSJson) else {
         return nil
     }
     return Response(results: results, header: header)

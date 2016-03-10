@@ -15,6 +15,9 @@
 @implementation OSJSON
 
 - (instancetype)initWithObject:(NSObject *)object {
+    if (object == nil) {
+        return nil;
+    }
     if ((self = [super init])) {
         _root = object;
     }
@@ -53,6 +56,9 @@
 }
 
 - (NSArray<OSJSON *> *)array {
+    if (![self.root isKindOfClass:NSArray.class]) {
+        return nil;
+    }
     NSMutableArray *results = [NSMutableArray array];
     for (NSObject *item in (NSArray *)self.root) {
         OSJSON *jsonItem = [[OSJSON alloc] initWithObject:item];
