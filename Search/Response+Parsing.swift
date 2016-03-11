@@ -9,6 +9,7 @@
 import Fetch
 import JSONLib
 import JSONCodable
+import OSJSON
 
 /**
  Errors returned when executing a search
@@ -66,7 +67,7 @@ private func responseFromOSJson(json: OSJSON) -> Response? {
 
 
 private func dpaFromOSJson(json: OSJSON) -> SearchResult? {
-    guard let nestedJson = json.jsonForKey(Response.ResultKey) else {
+    guard let nestedJson = json.jsonForKey(Results.SearchResultKey) else {
         return nil
     }
     guard let language = nestedJson.stringValueForKey(SearchResult.LanguageKey),
@@ -156,21 +157,4 @@ private func headerFromOSJson(json: OSJSON) -> Header? {
         format: format,
         query: query
     )
-}
-
-private func responseFromJson(json: JSON) -> Response? {
-    let headerJson = json[Response.HeaderKey]
-    guard let header = Header(json: headerJson) else {
-        return nil
-    }
-    let resultsJson = json[Response.ResultsKey]
-    guard let results = resultsJson.array?.flatMap(dpaFromJson) else {
-        return nil
-    }
-    return Response(results: results, header: header)
-}
-
-private func dpaFromJson(json: JSON) -> SearchResult? {
-    let dpaJson = json[Response.ResultKey]
-    return SearchResult(json: dpaJson)
 }

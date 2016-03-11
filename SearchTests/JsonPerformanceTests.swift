@@ -15,17 +15,6 @@ import Gloss
 
 class JsonPerformanceTests: XCTestCase {
 
-    func testRawNSJSONPerformance() {
-        measureBlock {
-            let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
-            do {
-                let _ = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-            } catch {
-                fail("Unexpected error")
-            }
-        }
-    }
-
     func testOSJSONPerformance() {
         measureBlock {
             let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
@@ -35,34 +24,6 @@ class JsonPerformanceTests: XCTestCase {
                 break
             default:
                 fail("Unexpected result")
-            }
-        }
-    }
-
-    func testJSONCodablePerformance() {
-        measureBlock {
-            let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-                do {
-                    let _ = try Response(object: json as! JSONObject)
-                } catch {
-                    fail("Unexpected error decoding JSON: \(error)")
-                }
-            } catch {
-                fail("Unexpected error parsing JSON")
-            }
-        }
-    }
-
-    func testGlossyPerformance() {
-        measureBlock {
-            let data = NSData(contentsOfURL: Bundle().URLForResource("100-results", withExtension: "json")!)!
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! Gloss.JSON
-                let _ = Response(json: json)
-            } catch {
-                fail("Unexpected error parsing JSON")
             }
         }
     }

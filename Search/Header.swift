@@ -1,18 +1,16 @@
 //
 //  Header.swift
-//  Search
 //
-//  Created by David Haynes on 01/03/2016
+//  Created by Dave Hardiman on 11/03/2016
 //  Copyright (c) Ordnance Survey. All rights reserved.
 //
 
 import Foundation
-import JSONLib
-import JSONCodable
-import Gloss
+import OSJSON
 
-public class Header: NSObject, JSONDecodable, Gloss.Decodable {
+public class Header: NSObject {
 
+    // MARK: Properties
     public let matchprecision: Int
     public let lr: String
     public let dataset: String
@@ -24,6 +22,7 @@ public class Header: NSObject, JSONDecodable, Gloss.Decodable {
     public let offset: Int
     public let format: String
     public let query: String
+
 
     init(matchprecision: Int, lr: String, dataset: String, maxresults: Int, totalresults: Int, uri: String, outputSrs: String, epoch: String, offset: Int, format: String, query: String) {
         self.matchprecision = matchprecision
@@ -39,94 +38,58 @@ public class Header: NSObject, JSONDecodable, Gloss.Decodable {
         self.query = query
     }
 
-    convenience init?(json: JSONLib.JSON) {
-        guard let uri = json[Header.UriKey].string,
-            lr = json[Header.LrKey].string,
-            dataset = json[Header.DatasetKey].string,
-            outputSrs = json[Header.OutputSrsKey].string,
-            epoch = json[Header.EpochKey].string,
-            format = json[Header.FormatKey].string,
-            query = json[Header.QueryKey].string,
-            matchPrecision =  json[Header.MatchprecisionKey].number,
-            maxresults = json[Header.MaxresultsKey].number,
-            totalresults = json[Header.TotalresultsKey].number,
-            offset = json[Header.OffsetKey].number
-            else {
-                return nil
+
+
+
+
+
+
+    //MARK: JSON initialiser
+    convenience init?(json: JSON) {
+        guard let
+lr = json.stringValueForKey(Header.LrKey),        
+dataset = json.stringValueForKey(Header.DatasetKey),        
+uri = json.stringValueForKey(Header.UriKey),
+outputSrs = json.stringValueForKey(Header.OutputSrsKey),        
+epoch = json.stringValueForKey(Header.EpochKey),
+format = json.stringValueForKey(Header.FormatKey),        
+query = json.stringValueForKey(Header.QueryKey)
+        else {
+            return nil
         }
+        let matchprecision = json.intValueForKey(Header.MatchprecisionKey)
+        let maxresults = json.intValueForKey(Header.MaxresultsKey)
+        let totalresults = json.intValueForKey(Header.TotalresultsKey)
+        let offset = json.intValueForKey(Header.OffsetKey)
 
         self.init(
-            matchprecision: Int(matchPrecision),
-            lr: lr,
-            dataset: dataset,
-            maxresults: Int(maxresults),
-            totalresults: Int(totalresults),
-            uri: uri,
-            outputSrs: outputSrs,
-            epoch: epoch,
-            offset: Int(offset),
-            format: format,
-            query: query
+            matchprecision: Int(matchprecision),            
+lr: lr,            
+dataset: dataset,            
+maxresults: Int(maxresults),            
+totalresults: Int(totalresults),            
+uri: uri,            
+outputSrs: outputSrs,            
+epoch: epoch,            
+offset: Int(offset),            
+format: format,            
+query: query
         )
     }
+}
 
-    convenience public required init?(json: Gloss.JSON) {
-        guard let uri: String = Decoder.decode(Header.UriKey)(json),
-            lr: String = Decoder.decode(Header.LrKey)(json),
-            dataset: String = Decoder.decode(Header.DatasetKey)(json),
-            outputSrs: String = Decoder.decode(Header.OutputSrsKey)(json),
-            epoch: String = Decoder.decode(Header.EpochKey)(json),
-            format: String = Decoder.decode(Header.FormatKey)(json),
-            query: String = Decoder.decode(Header.QueryKey)(json),
-            matchPrecision: Int =  Decoder.decode(Header.MatchprecisionKey)(json),
-            maxresults: Int = Decoder.decode(Header.MaxresultsKey)(json),
-            totalresults: Int = Decoder.decode(Header.TotalresultsKey)(json),
-            offset: Int = Decoder.decode(Header.OffsetKey)(json)
-            else {
-                return nil
-        }
+extension Header {
+    // MARK: Declaration for string constants to be used to decode and also serialize.
+    @nonobjc internal static let MatchprecisionKey: String = "matchprecision"
+    @nonobjc internal static let LrKey: String = "lr"
+    @nonobjc internal static let DatasetKey: String = "dataset"
+    @nonobjc internal static let MaxresultsKey: String = "maxresults"
+    @nonobjc internal static let TotalresultsKey: String = "totalresults"
+    @nonobjc internal static let UriKey: String = "uri"
+    @nonobjc internal static let OutputSrsKey: String = "output_srs"
+    @nonobjc internal static let EpochKey: String = "epoch"
+    @nonobjc internal static let OffsetKey: String = "offset"
+    @nonobjc internal static let FormatKey: String = "format"
+    @nonobjc internal static let QueryKey: String = "query"
 
-        self.init(
-            matchprecision: matchPrecision,
-            lr: lr,
-            dataset: dataset,
-            maxresults: maxresults,
-            totalresults: totalresults,
-            uri: uri,
-            outputSrs: outputSrs,
-            epoch: epoch,
-            offset: offset,
-            format: format,
-            query: query
-        )
-    }
-
-    convenience public required init(object: JSONObject) throws {
-        let decoder = JSONDecoder(object: object)
-        let matchprecision: Int = try decoder.decode(Header.MatchprecisionKey)
-        let lr: String = try decoder.decode(Header.LrKey)
-        let dataset: String = try decoder.decode(Header.DatasetKey)
-        let maxresults: Int = try decoder.decode(Header.MaxresultsKey)
-        let totalresults: Int = try decoder.decode(Header.TotalresultsKey)
-        let uri: String = try decoder.decode(Header.UriKey)
-        let outputSrs: String = try decoder.decode(Header.OutputSrsKey)
-        let epoch: String = try decoder.decode(Header.EpochKey)
-        let offset: Int = try decoder.decode(Header.OffsetKey)
-        let format: String = try decoder.decode(Header.FormatKey)
-        let query: String =  try decoder.decode(Header.QueryKey)
-
-        self.init(
-            matchprecision: matchprecision,
-            lr: lr,
-            dataset: dataset,
-            maxresults: maxresults,
-            totalresults: totalresults,
-            uri: uri,
-            outputSrs: outputSrs,
-            epoch: epoch,
-            offset: offset,
-            format: format,
-            query: query
-        )
-    }
 }
