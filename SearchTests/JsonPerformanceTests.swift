@@ -8,9 +8,6 @@
 
 import XCTest
 import Nimble
-import JSONLib
-import JSONCodable
-import Gloss
 @testable import Search
 
 class JsonPerformanceTests: XCTestCase {
