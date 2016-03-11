@@ -23,7 +23,6 @@ public class Header: NSObject {
     public let format: String
     public let query: String
 
-
     init(matchprecision: Int, lr: String, dataset: String, maxresults: Int, totalresults: Int, uri: String, outputSrs: String, epoch: String, offset: Int, format: String, query: String) {
         self.matchprecision = matchprecision
         self.lr = lr
@@ -38,22 +37,16 @@ public class Header: NSObject {
         self.query = query
     }
 
-
-
-
-
-
-
     //MARK: JSON initialiser
     convenience init?(json: JSON) {
         guard let
-lr = json.stringValueForKey(Header.LrKey),        
-dataset = json.stringValueForKey(Header.DatasetKey),        
-uri = json.stringValueForKey(Header.UriKey),
-outputSrs = json.stringValueForKey(Header.OutputSrsKey),        
-epoch = json.stringValueForKey(Header.EpochKey),
-format = json.stringValueForKey(Header.FormatKey),        
-query = json.stringValueForKey(Header.QueryKey)
+            lr = json.stringValueForKey(Header.LrKey),
+            dataset = json.stringValueForKey(Header.DatasetKey),        
+            uri = json.stringValueForKey(Header.UriKey),
+            outputSrs = json.stringValueForKey(Header.OutputSrsKey),        
+            epoch = json.stringValueForKey(Header.EpochKey),
+            format = json.stringValueForKey(Header.FormatKey),        
+            query = json.stringValueForKey(Header.QueryKey)
         else {
             return nil
         }
@@ -64,16 +57,16 @@ query = json.stringValueForKey(Header.QueryKey)
 
         self.init(
             matchprecision: Int(matchprecision),            
-lr: lr,            
-dataset: dataset,            
-maxresults: Int(maxresults),            
-totalresults: Int(totalresults),            
-uri: uri,            
-outputSrs: outputSrs,            
-epoch: epoch,            
-offset: Int(offset),            
-format: format,            
-query: query
+            lr: lr,
+            dataset: dataset,            
+            maxresults: Int(maxresults),            
+            totalresults: Int(totalresults),            
+            uri: uri,            
+            outputSrs: outputSrs,            
+            epoch: epoch,            
+            offset: Int(offset),            
+            format: format,            
+            query: query
         )
     }
 }
@@ -91,5 +84,4 @@ extension Header {
     @nonobjc internal static let OffsetKey: String = "offset"
     @nonobjc internal static let FormatKey: String = "format"
     @nonobjc internal static let QueryKey: String = "query"
-
 }
