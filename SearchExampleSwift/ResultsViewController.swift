@@ -22,7 +22,7 @@ class ResultsViewController: UITableViewController {
             } catch {
                 return nil
             }
-            } ?? ""
+        } ?? ""
 
         self.searchService = SearchService(apiKey: apiKey)
         self.results = [SearchResult]()
