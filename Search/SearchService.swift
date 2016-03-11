@@ -8,13 +8,26 @@
 
 import Fetch
 
+/// Service for consuming the OS Places API
 public class SearchService: Searchable {
     let apiKey: String
 
+    /**
+     Constructor
+
+     - parameter apiKey: The OS Places API key to use with the service
+     */
     public init(apiKey: String) {
         self.apiKey = apiKey
     }
 
+    /**
+     Find using the free text specificed.
+     Documentation can be found at: https://apidocs.os.uk/docs/os-places-find
+
+     - parameter query:      The query text to find
+     - parameter completion: Completion closure to execute
+     */
     public func find(query: String, completion: (Result<Response> -> Void)) {
         let request = Request(url: urlForQuery(query))
         get(request) { (result) in
