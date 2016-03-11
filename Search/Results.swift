@@ -18,16 +18,10 @@ public class Results: NSObject {
         self.dpa = dpa
     }
 
-
-
-
-
-
-
     //MARK: JSON initialiser
     convenience init?(json: JSON) {
         guard let dpaJSON = json.jsonForKey(Results.SearchResultKey),
-dpa = SearchResult(json: dpaJSON)
+            dpa = SearchResult(json: dpaJSON)
         else {
             return nil
         }
@@ -40,5 +34,4 @@ dpa = SearchResult(json: dpaJSON)
 extension Results {
     // MARK: Declaration for string constants to be used to decode and also serialize.
     @nonobjc internal static let SearchResultKey: String = "DPA"
-
 }

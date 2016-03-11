@@ -80,30 +80,30 @@ public class SearchResult: NSObject {
 
     //MARK: JSON initialiser
     convenience init?(json: JSON) {
-        guard let language = json.stringValueForKey(SearchResult.LanguageKey),        
-lastUpdateDate = json.stringValueForKey(SearchResult.LastUpdateDateKey),        
-rpc = json.stringValueForKey(SearchResult.RpcKey),        
-buildingNumber = json.stringValueForKey(SearchResult.BuildingNumberKey),        
-postcode = json.stringValueForKey(SearchResult.PostcodeKey),        
-uprn = json.stringValueForKey(SearchResult.UprnKey),        
-matchDescription = json.stringValueForKey(SearchResult.MatchDescriptionKey),        
-entryDate = json.stringValueForKey(SearchResult.EntryDateKey),        
-postalAddressCode = json.stringValueForKey(SearchResult.PostalAddressCodeKey),
-status = json.stringValueForKey(SearchResult.StatusKey),        
-blpuStateCode = json.stringValueForKey(SearchResult.BlpuStateCodeKey),        
-organisationName = json.stringValueForKey(SearchResult.OrganisationNameKey),        
-postalAddressCodeDescription = json.stringValueForKey(SearchResult.PostalAddressCodeDescriptionKey),        
-classificationCodeDescription = json.stringValueForKey(SearchResult.ClassificationCodeDescriptionKey),        
-classificationCode = json.stringValueForKey(SearchResult.ClassificationCodeKey),
-topographyLayerToid = json.stringValueForKey(SearchResult.TopographyLayerToidKey),        
-localCustodianCodeDescription = json.stringValueForKey(SearchResult.LocalCustodianCodeDescriptionKey),        
-blpuStateCodeDescription = json.stringValueForKey(SearchResult.BlpuStateCodeDescriptionKey),        
-dependentLocality = json.stringValueForKey(SearchResult.DependentLocalityKey),        
-logicalStatusCode = json.stringValueForKey(SearchResult.LogicalStatusCodeKey),
-thoroughfareName = json.stringValueForKey(SearchResult.ThoroughfareNameKey),        
-address = json.stringValueForKey(SearchResult.AddressKey),        
-postTown = json.stringValueForKey(SearchResult.PostTownKey),        
-blpuStateDate = json.stringValueForKey(SearchResult.BlpuStateDateKey)
+        guard let language = json.stringValueForKey(SearchResult.LanguageKey),
+            lastUpdateDate = json.stringValueForKey(SearchResult.LastUpdateDateKey),
+            rpc = json.stringValueForKey(SearchResult.RpcKey),
+            buildingNumber = json.stringValueForKey(SearchResult.BuildingNumberKey),
+            postcode = json.stringValueForKey(SearchResult.PostcodeKey),
+            uprn = json.stringValueForKey(SearchResult.UprnKey),
+            matchDescription = json.stringValueForKey(SearchResult.MatchDescriptionKey),
+            entryDate = json.stringValueForKey(SearchResult.EntryDateKey),
+            postalAddressCode = json.stringValueForKey(SearchResult.PostalAddressCodeKey),
+            status = json.stringValueForKey(SearchResult.StatusKey),
+            blpuStateCode = json.stringValueForKey(SearchResult.BlpuStateCodeKey),
+            organisationName = json.stringValueForKey(SearchResult.OrganisationNameKey),
+            postalAddressCodeDescription = json.stringValueForKey(SearchResult.PostalAddressCodeDescriptionKey),
+            classificationCodeDescription = json.stringValueForKey(SearchResult.ClassificationCodeDescriptionKey),
+            classificationCode = json.stringValueForKey(SearchResult.ClassificationCodeKey),
+            topographyLayerToid = json.stringValueForKey(SearchResult.TopographyLayerToidKey),
+            localCustodianCodeDescription = json.stringValueForKey(SearchResult.LocalCustodianCodeDescriptionKey),
+            blpuStateCodeDescription = json.stringValueForKey(SearchResult.BlpuStateCodeDescriptionKey),
+            dependentLocality = json.stringValueForKey(SearchResult.DependentLocalityKey),
+            logicalStatusCode = json.stringValueForKey(SearchResult.LogicalStatusCodeKey),
+            thoroughfareName = json.stringValueForKey(SearchResult.ThoroughfareNameKey),
+            address = json.stringValueForKey(SearchResult.AddressKey),
+            postTown = json.stringValueForKey(SearchResult.PostTownKey),
+            blpuStateDate = json.stringValueForKey(SearchResult.BlpuStateDateKey)
         else {
             return nil
         }
@@ -113,34 +113,34 @@ blpuStateDate = json.stringValueForKey(SearchResult.BlpuStateDateKey)
         let yCoordinate = json.intValueForKey(SearchResult.YCoordinateKey)
 
         self.init(
-            language: language,            
-lastUpdateDate: lastUpdateDate,            
-rpc: rpc,            
-buildingNumber: buildingNumber,            
-postcode: postcode,            
-uprn: uprn,            
-matchDescription: matchDescription,            
-entryDate: entryDate,            
-postalAddressCode: postalAddressCode,            
-localCustodianCode: Int(localCustodianCode),            
-status: status,            
-blpuStateCode: blpuStateCode,            
-organisationName: organisationName,            
-postalAddressCodeDescription: postalAddressCodeDescription,            
-classificationCodeDescription: classificationCodeDescription,            
-xCoordinate: Int(xCoordinate),            
-match: Float(match),            
-classificationCode: classificationCode,            
-topographyLayerToid: topographyLayerToid,            
-localCustodianCodeDescription: localCustodianCodeDescription,            
-blpuStateCodeDescription: blpuStateCodeDescription,            
-dependentLocality: dependentLocality,            
-logicalStatusCode: logicalStatusCode,            
-yCoordinate: Int(yCoordinate),            
-thoroughfareName: thoroughfareName,            
-address: address,            
-postTown: postTown,            
-blpuStateDate: blpuStateDate
+            language: language,
+            lastUpdateDate: lastUpdateDate,
+            rpc: rpc,
+            buildingNumber: buildingNumber,
+            postcode: postcode,
+            uprn: uprn,
+            matchDescription: matchDescription,
+            entryDate: entryDate,
+            postalAddressCode: postalAddressCode,
+            localCustodianCode: Int(localCustodianCode),
+            status: status,
+            blpuStateCode: blpuStateCode,
+            organisationName: organisationName,
+            postalAddressCodeDescription: postalAddressCodeDescription,
+            classificationCodeDescription: classificationCodeDescription,
+            xCoordinate: Int(xCoordinate),
+            match: Float(match),
+            classificationCode: classificationCode,
+            topographyLayerToid: topographyLayerToid,
+            localCustodianCodeDescription: localCustodianCodeDescription,
+            blpuStateCodeDescription: blpuStateCodeDescription,
+            dependentLocality: dependentLocality,
+            logicalStatusCode: logicalStatusCode,
+            yCoordinate: Int(yCoordinate),
+            thoroughfareName: thoroughfareName,
+            address: address,
+            postTown: postTown,
+            blpuStateDate: blpuStateDate
         )
     }
 }
@@ -175,5 +175,4 @@ extension SearchResult {
     @nonobjc internal static let AddressKey: String = "ADDRESS"
     @nonobjc internal static let PostTownKey: String = "POST_TOWN"
     @nonobjc internal static let BlpuStateDateKey: String = "BLPU_STATE_DATE"
-
 }

@@ -20,23 +20,17 @@ public final class Response: NSObject {
         self.header = header
     }
 
-
-
-
-
-
-
     //MARK: JSON initialiser
     convenience init?(json: JSON) {
         guard let results = json.jsonArrayForKey(Response.ResultsKey)?.flatMap({ SearchResult.init(json: $0) }),
-headerJSON = json.jsonForKey(Response.HeaderKey),        
-header = Header(json: headerJSON)
+            headerJSON = json.jsonForKey(Response.HeaderKey),
+            header = Header(json: headerJSON)
         else {
             return nil
         }
         self.init(
             results: results,            
-header: header
+            header: header
         )
     }
 }
@@ -45,5 +39,4 @@ extension Response {
     // MARK: Declaration for string constants to be used to decode and also serialize.
     @nonobjc internal static let ResultsKey: String = "results"
     @nonobjc internal static let HeaderKey: String = "header"
-
 }
