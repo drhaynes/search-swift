@@ -9,7 +9,7 @@
 import Fetch
 
 /// Service for consuming the OS Places API
-public class SearchService: Searchable {
+public class PlacesSearchService: Searchable {
     let apiKey: String
 
     /**

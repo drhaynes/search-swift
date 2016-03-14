@@ -24,14 +24,14 @@ class SearchServiceTests: XCTestCase {
 
     func testTheServiceIsConfiguredCorrectly() {
         let testApiKey = "test-key"
-        let service = SearchService(apiKey: testApiKey)
+        let service = PlacesSearchService(apiKey: testApiKey)
         expect(service.apiKey).to(equal(testApiKey))
     }
 
     func testItSendsAFindRequestCorrectly() {
         let testApiKey = "test-key"
         let testQuery = "Ordnance Survey"
-        let service = SearchService(apiKey: testApiKey)
+        let service = PlacesSearchService(apiKey: testApiKey)
 
         let expectation = expectationWithDescription("Request received")
 

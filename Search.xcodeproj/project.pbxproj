@@ -19,7 +19,7 @@
 		3D5929D41C7F41E900B3CECC /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5929D31C7F41E900B3CECC /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D5929DB1C7F41E900B3CECC /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
 		3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */; };
-		3D69EEF11C91849D004080EA /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEF01C91849D004080EA /* SearchService.swift */; };
+		3D69EEF11C91849D004080EA /* PlacesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEF01C91849D004080EA /* PlacesSearchService.swift */; };
 		3D69EEF31C918595004080EA /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEF21C918595004080EA /* SearchServiceTests.swift */; };
 		3D69EEFB1C91985A004080EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEFA1C91985A004080EA /* AppDelegate.swift */; };
 		3D69EEFD1C91985A004080EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEFC1C91985A004080EA /* ViewController.swift */; };
@@ -106,7 +106,7 @@
 		3D5929DA1C7F41E900B3CECC /* SearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParsingTests.swift; sourceTree = "<group>"; };
 		3D5929E11C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D69EEF01C91849D004080EA /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		3D69EEF01C91849D004080EA /* PlacesSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesSearchService.swift; sourceTree = "<group>"; };
 		3D69EEF21C918595004080EA /* SearchServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
 		3D69EEF81C91985A004080EA /* SearchExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D69EEFA1C91985A004080EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			children = (
 				3D0ADE111C85C95F00D4FD37 /* Response Model */,
 				3D5929D31C7F41E900B3CECC /* Search.h */,
-				3D69EEF01C91849D004080EA /* SearchService.swift */,
+				3D69EEF01C91849D004080EA /* PlacesSearchService.swift */,
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
 				3D69EF241C931B18004080EA /* OSJSON.framework */,
 				3D0ADE221C87090900D4FD37 /* Fetch.framework */,
@@ -388,7 +388,7 @@
 			files = (
 				3D69EF231C93199E004080EA /* Results.swift in Sources */,
 				3D69EF211C93199E004080EA /* Header.swift in Sources */,
-				3D69EEF11C91849D004080EA /* SearchService.swift in Sources */,
+				3D69EEF11C91849D004080EA /* PlacesSearchService.swift in Sources */,
 				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
 				3D69EF201C93199E004080EA /* SearchResult.swift in Sources */,
 				3D69EF221C93199E004080EA /* Response.swift in Sources */,
@@ -681,6 +681,7 @@
 				3D69EF091C91985B004080EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

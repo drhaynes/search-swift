@@ -12,7 +12,7 @@ import Fetch
 
 class ResultsViewController: UITableViewController {
 
-    var searchService: SearchService!
+    var searchService: PlacesSearchService!
     var results: [SearchResult]!
 
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class ResultsViewController: UITableViewController {
             }
         } ?? ""
 
-        searchService = SearchService(apiKey: apiKey)
+        searchService = PlacesSearchService(apiKey: apiKey)
         results = [SearchResult]()
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,8 +41,8 @@ class ResultsViewController: UITableViewController {
             searchService.find(text, completion: { (result) in
                 switch result {
                 case .Success(let response):
-                    results = response.results
-                    tableView.reloadData()
+                    self.results = response.results
+                    self.tableView.reloadData()
                 case .Failure(let error):
                     print("Search error: \(error)")
                 }
