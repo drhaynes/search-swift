@@ -24,10 +24,10 @@ class ResultsViewController: UITableViewController {
             }
         } ?? ""
 
-        self.searchService = SearchService(apiKey: apiKey)
-        self.results = [SearchResult]()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        searchService = SearchService(apiKey: apiKey)
+        results = [SearchResult]()
+        tableView.delegate = self
+        tableView.dataSource = self
 
         super.viewDidLoad()
     }
@@ -37,12 +37,12 @@ class ResultsViewController: UITableViewController {
     }
 
     internal func search(text: String) {
-        if(text.utf16.count > 2) {
+        if text.utf16.count > 2 {
             searchService.find(text, completion: { (result) in
                 switch result {
                 case .Success(let response):
-                    self.results = response.results
-                    self.tableView.reloadData()
+                    results = response.results
+                    tableView.reloadData()
                 case .Failure(let error):
                     print("Search error: \(error)")
                 }

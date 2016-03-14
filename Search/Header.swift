@@ -1,5 +1,6 @@
 //
 //  Header.swift
+//  Search
 //
 //  Created by Dave Hardiman on 11/03/2016
 //  Copyright (c) Ordnance Survey. All rights reserved.
@@ -56,16 +57,16 @@ public class Header: NSObject {
         let offset = json.intValueForKey(Header.OffsetKey)
 
         self.init(
-            matchprecision: Int(matchprecision),            
+            matchprecision: Int(matchprecision),
             lr: lr,
-            dataset: dataset,            
-            maxresults: Int(maxresults),            
-            totalresults: Int(totalresults),            
-            uri: uri,            
-            outputSrs: outputSrs,            
-            epoch: epoch,            
-            offset: Int(offset),            
-            format: format,            
+            dataset: dataset,
+            maxresults: Int(maxresults),
+            totalresults: Int(totalresults),
+            uri: uri,
+            outputSrs: outputSrs,
+            epoch: epoch,
+            offset: Int(offset),
+            format: format,
             query: query
         )
     }
