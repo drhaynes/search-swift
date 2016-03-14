@@ -3,5 +3,5 @@ ci_service: circleci
 xcodeproj: Search.xcodeproj
 ignore:
   - Carthage/*
-  - Example/*
+  - SearchExampleSwift/*
 
