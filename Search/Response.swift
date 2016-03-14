@@ -23,17 +23,27 @@ public final class Response: NSObject {
 
     //MARK: JSON initialiser
     convenience init?(json: JSON) {
-        guard let results = json.jsonArrayForKey(Response.ResultsKey)?.flatMap({ SearchResult.init(json: $0) }),
+        guard let results = json.jsonArrayForKey(Response.ResultsKey),
             headerJSON = json.jsonForKey(Response.HeaderKey),
             header = Header(json: headerJSON)
         else {
             return nil
         }
+
+        let nestedResults = results.flatMap(resultForJson)
+
         self.init(
-            results: results,            
+            results: nestedResults,
             header: header
         )
     }
+}
+
+func resultForJson(json: OSJSON) -> SearchResult? {
+    guard let dpaJson = json.jsonForKey(Results.SearchResultKey) else {
+        return nil
+    }
+    return SearchResult.init(json: dpaJson)
 }
 
 extension Response {

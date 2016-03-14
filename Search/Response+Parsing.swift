@@ -42,28 +42,8 @@ private func parseResponse(data: NSData?) -> Result<Response> {
     guard let responseJson = OSJSON(data: data) else {
         return .Failure(SearchError.FailedToParseJSON)
     }
-    guard let response = responseFromOSJson(responseJson) else {
+    guard let response = Response(json: responseJson) else {
         return .Failure(SearchError.FailedToDeserialiseJSON)
     }
     return .Success(response)
-}
-
-private func responseFromOSJson(json: OSJSON) -> Response? {
-    guard let
-        headerJson = json.jsonForKey(Response.HeaderKey),
-        header = Header(json: headerJson),
-        resultsJson = json.jsonForKey(Response.ResultsKey) else {
-            return nil
-    }
-    guard let results = resultsJson.array()?.flatMap(dpaFromOSJson) else {
-        return nil
-    }
-    return Response(results: results, header: header)
-}
-
-private func dpaFromOSJson(json: OSJSON) -> SearchResult? {
-    guard let nestedJson = json.jsonForKey(Results.SearchResultKey) else {
-        return nil
-    }
-    return SearchResult(json: nestedJson)
 }
