@@ -7,7 +7,7 @@
 //
 
 import Fetch
-import JSONLib
+import OSJSON
 
 /**
  Errors returned when executing a search
@@ -39,28 +39,11 @@ private func parseResponse(data: NSData?) -> Result<Response> {
     guard let data = data else {
         return .Failure(SearchError.NoDataReceived)
     }
-    guard let json = JSValue.parse(data).value else {
+    guard let responseJson = OSJSON(data: data) else {
         return .Failure(SearchError.FailedToParseJSON)
     }
-    guard let response = responseFromJson(json) else {
+    guard let response = Response(json: responseJson) else {
         return .Failure(SearchError.FailedToDeserialiseJSON)
     }
     return .Success(response)
-}
-
-private func responseFromJson(json: JSON) -> Response? {
-    let headerJson = json[Response.HeaderKey]
-    guard let header = Header(json: headerJson) else {
-        return nil
-    }
-    let resultsJson = json[Response.ResultsKey]
-    guard let results = resultsJson.array?.flatMap(dpaFromJson) else {
-        return nil
-    }
-    return Response(results: results, header: header)
-}
-
-private func dpaFromJson(json: JSON) -> SearchResult? {
-    let dpaJson = json[Response.ResultKey]
-    return SearchResult(json: dpaJson)
 }
