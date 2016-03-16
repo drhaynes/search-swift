@@ -1,0 +1,92 @@
+{
+    "header" : {
+        "uri" : "https://api.ordnancesurvey.co.uk/places/v1/addresses/find?query=ord",
+        "query" : "query=ord",
+        "offset" : 0,
+        "totalresults" : 6519,
+        "format" : "JSON",
+        "dataset" : "DPA",
+        "lr" : "EN,CY",
+        "maxresults" : 100,
+        "matchprecision" : 1,
+        "epoch" : "37",
+        "output_srs" : "EPSG:27700"
+    },
+    "results" : [ {
+         "DPA" : {
+             "UPRN" : "10009172025",
+             "UDPRN" : "21362734",
+             "ADDRESS" : "ORDOLAU, LLANYBYDDER, SA40 9QA",
+             "BUILDING_NAME" : "ORDOLAU",
+             "POST_TOWN" : "LLANYBYDDER",
+             "POSTCODE" : "SA40 9QA",
+             "RPC" : "1",
+             "X_COORDINATE" : 252302.0,
+             "Y_COORDINATE" : 244164.0,
+             "STATUS" : "APPROVED",
+             "LOGICAL_STATUS_CODE" : "1",
+             "CLASSIFICATION_CODE" : "RD",
+             "CLASSIFICATION_CODE_DESCRIPTION" : "Dwelling",
+             "LOCAL_CUSTODIAN_CODE" : 6825,
+             "LOCAL_CUSTODIAN_CODE_DESCRIPTION" : "CARMARTHENSHIRE",
+             "POSTAL_ADDRESS_CODE" : "S",
+             "POSTAL_ADDRESS_CODE_DESCRIPTION" : "A single address",
+             "BLPU_STATE_CODE_DESCRIPTION" : "Unknown/Not applicable",
+             "TOPOGRAPHY_LAYER_TOID" : "osgb1000020551578",
+             "LAST_UPDATE_DATE" : "29/06/2012",
+             "ENTRY_DATE" : "24/06/2004",
+             "LANGUAGE" : "CY",
+             "MATCH" : 0.2,
+             "MATCH_DESCRIPTION" : "NO MATCH"
+         }
+       }, {
+         "DPA" : {
+             "UPRN" : "10090800152",
+             "UDPRN" : "52715047",
+             "ADDRESS" : "8, ORDNANCE DOCK PLACE, SOUTHALL, UB2 5FA",
+             "BUILDING_NUMBER" : "8",
+             "THOROUGHFARE_NAME" : "ORDNANCE DOCK PLACE",
+             "POST_TOWN" : "SOUTHALL",
+             "POSTCODE" : "UB2 5FA",
+             "RPC" : "1",
+             "X_COORDINATE" : 512018.09,
+             "Y_COORDINATE" : 178539.69,
+             "STATUS" : "APPROVED",
+             "LOGICAL_STATUS_CODE" : "1",
+             "CLASSIFICATION_CODE" : "RD06",
+             "CLASSIFICATION_CODE_DESCRIPTION" : "Self Contained Flat (Includes Maisonette / Apartment)",
+             "LOCAL_CUSTODIAN_CODE" : 5540,
+             "LOCAL_CUSTODIAN_CODE_DESCRIPTION" : "HOUNSLOW",
+             "POSTAL_ADDRESS_CODE" : "S",
+             "POSTAL_ADDRESS_CODE_DESCRIPTION" : "A single address",
+             "BLPU_STATE_CODE_DESCRIPTION" : "Unknown/Not applicable",
+             "PARENT_UPRN" : "10090800144",
+             "LAST_UPDATE_DATE" : "20/05/2015",
+             "ENTRY_DATE" : "09/04/2014",
+             "LANGUAGE" : "EN",
+             "MATCH" : 0.2,
+             "MATCH_DESCRIPTION" : "NO MATCH"
+          }
+       }, {
+         "DPA" : {
+             "UPRN" : "",
+             "UDPRN" : "11868688",
+             "ADDRESS" : "ADANA FLATS, 2 VICTORIA TERRACE, JAMES ROAD, ST. HELIER, JERSEY, JE2 4QY",
+             "SUB_BUILDING_NAME" : "ADANA FLATS",
+             "BUILDING_NAME" : "2 VICTORIA TERRACE",
+             "THOROUGHFARE_NAME" : "JAMES ROAD",
+             "DEPENDENT_LOCALITY" : "ST. HELIER",
+             "POST_TOWN" : "JERSEY",
+             "POSTCODE" : "JE2 4QY",
+             "RPC" : "0",
+             "X_COORDINATE" : 0.0,
+             "Y_COORDINATE" : 0.0,
+             "STATUS" : "",
+             "BLPU_STATE_CODE_DESCRIPTION" : "Unknown/Not applicable",
+             "LANGUAGE" : "EN",
+             "MATCH" : 0.2,
+             "MATCH_DESCRIPTION" : "NO MATCH"
+         }
+      }
+    ]
+}

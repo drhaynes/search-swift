@@ -43,7 +43,8 @@ func resultForJson(json: OSJSON) -> SearchResult? {
     guard let dpaJson = json.jsonForKey(Results.SearchResultKey) else {
         return nil
     }
-    return SearchResult.init(json: dpaJson)
+    let result = SearchResult.init(json: dpaJson)
+    return result
 }
 
 extension Response {
