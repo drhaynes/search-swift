@@ -46,5 +46,5 @@ private func nsErrorFromSearchError(error: SearchError) -> NSError {
     default:
         userInfo = nil
     }
-    return NSError(domain: "uk.os.search.error", code: 666, userInfo: userInfo)
+    return NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: userInfo)
 }
