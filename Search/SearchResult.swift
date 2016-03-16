@@ -27,7 +27,7 @@ public class SearchResult: NSObject {
     public let organisationName: String?
     public let postalAddressCodeDescription: String?
     public let classificationCodeDescription: String?
-    public let xCoordinate: Int
+    public let xCoordinate: Float
     public let match: Float
     public let classificationCode: String?
     public let topographyLayerToid: String?
@@ -35,14 +35,14 @@ public class SearchResult: NSObject {
     public let blpuStateCodeDescription: String
     public let dependentLocality: String?
     public let logicalStatusCode: String?
-    public let yCoordinate: Int
+    public let yCoordinate: Float
     public let thoroughfareName: String?
     public let address: String
     public let postTown: String
     public let blpuStateDate: String?
 
 
-    init(language: String, lastUpdateDate: String?, rpc: String, buildingNumber: String?, postcode: String, uprn: String, matchDescription: String, entryDate: String?, postalAddressCode: String?, localCustodianCode: Int?, status: String, blpuStateCode: String?, organisationName: String?, postalAddressCodeDescription: String?, classificationCodeDescription: String?, xCoordinate: Int, match: Float, classificationCode: String?, topographyLayerToid: String?, localCustodianCodeDescription: String?, blpuStateCodeDescription: String, dependentLocality: String?, logicalStatusCode: String?, yCoordinate: Int, thoroughfareName: String?, address: String, postTown: String, blpuStateDate: String?) {
+    init(language: String, lastUpdateDate: String?, rpc: String, buildingNumber: String?, postcode: String, uprn: String, matchDescription: String, entryDate: String?, postalAddressCode: String?, localCustodianCode: Int?, status: String, blpuStateCode: String?, organisationName: String?, postalAddressCodeDescription: String?, classificationCodeDescription: String?, xCoordinate: Float, match: Float, classificationCode: String?, topographyLayerToid: String?, localCustodianCodeDescription: String?, blpuStateCodeDescription: String, dependentLocality: String?, logicalStatusCode: String?, yCoordinate: Float, thoroughfareName: String?, address: String, postTown: String, blpuStateDate: String?) {
         self.language = language
         self.lastUpdateDate = lastUpdateDate
         self.rpc = rpc
@@ -106,12 +106,9 @@ public class SearchResult: NSObject {
         let blpuStateDate = json.stringValueForKey(SearchResult.BlpuStateDateKey)
         let organisationName = json.stringValueForKey(SearchResult.OrganisationNameKey)
         let localCustodianCode = json.intValueForKey(SearchResult.LocalCustodianCodeKey)
-        let xCoordinate = json.intValueForKey(SearchResult.XCoordinateKey)
+        let xCoordinate = json.floatValueForKey(SearchResult.XCoordinateKey)
         let match = json.doubleValueForKey(SearchResult.MatchKey)
-        let yCoordinate = json.intValueForKey(SearchResult.YCoordinateKey)
-        let buildingNumber = json.stringValueForKey(SearchResult.BuildingNumberKey)
-        let dependentLocality = json.stringValueForKey(SearchResult.DependentLocalityKey)
-        let thoroughfareName = json.stringValueForKey(SearchResult.ThoroughfareNameKey)
+        let yCoordinate = json.floatValueForKey(SearchResult.YCoordinateKey)
 
         self.init(
             language: language,
@@ -129,7 +126,7 @@ public class SearchResult: NSObject {
             organisationName: organisationName,
             postalAddressCodeDescription: postalAddressCodeDescription,
             classificationCodeDescription: classificationCodeDescription,
-            xCoordinate: Int(xCoordinate),
+            xCoordinate: xCoordinate,
             match: Float(match),
             classificationCode: classificationCode,
             topographyLayerToid: topographyLayerToid,
@@ -137,7 +134,7 @@ public class SearchResult: NSObject {
             blpuStateCodeDescription: blpuStateCodeDescription,
             dependentLocality: dependentLocality,
             logicalStatusCode: logicalStatusCode,
-            yCoordinate: Int(yCoordinate),
+            yCoordinate: yCoordinate,
             thoroughfareName: thoroughfareName,
             address: address,
             postTown: postTown,
