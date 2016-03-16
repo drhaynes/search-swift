@@ -14,8 +14,20 @@
 NSString *const OSSearchErrorDomain = @"uk.os.search.error";
 
 NS_ENUM(NSInteger){
+    /**
+     *  The server returned no data.
+     */
     OSSearchErrorNoDataReceived,
+    /**
+     *  The JSON was malformed and could not be parsed.
+     */
     OSSearchErrorFailedToParseJSON,
+    /**
+     *  The JSON response could not be deserialised into a response object.
+     */
     OSSearchErrorFailedToDeserialiseJSON,
+    /**
+     *  An error occurred which was none of the above.
+     */
     OSSearchErrorUnknownError
 };
