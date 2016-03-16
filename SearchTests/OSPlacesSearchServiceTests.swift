@@ -36,9 +36,23 @@ class OSPlacesSearchServiceTests: XCTestCase {
         let mockService = MockSearchService()
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
-        osPlacesService.find("testQuery", completion: { (result) in
-        })
+        osPlacesService.find("testQuery", completion: { (result) in })
         expect(mockService.query).to(equal("testQuery"))
         expect(mockService.completionHandler).notTo(beNil())
+    }
+
+    func testASuccesfulResponseIsReturned() {
+        let data = NSData(contentsOfURL: Bundle().URLForResource("test-response", withExtension: "json")!)!
+        let result = Response.parse(fromData: data, withStatus: 200)
+        let mockService = MockSearchService()
+        let osPlacesService = OSPlacesSearchService(apiKey: "test")
+        osPlacesService.searchService = mockService
+        var receivedResponse: Response?
+
+        osPlacesService.find("test") { (response, error) in
+            receivedResponse = response
+        }
+        mockService.completionHandler?(result)
+        expect(receivedResponse).notTo(beNil())
     }
 }

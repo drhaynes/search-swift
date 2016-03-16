@@ -25,8 +25,26 @@ import Fetch
         super.init()
     }
 
-    public func find(query: String, completion: (Result<Response> -> Void)) {
-        searchService.find(query, completion: completion)
+    public func find(query: String, completion: (Response?, NSError?) -> Void) {
+        searchService.find(query) { result in
+            switch result {
+            case .Success(let response):
+                completion(response, nil)
+            case .Failure(let error as SearchError):
+                completion(nil, self.nsErrorFromSearchError(error))
+            case.Failure(let error):
+                completion(nil, error as NSError)
+            }
+        }
+    }
+
+    private func nsErrorFromSearchError(error: SearchError) -> NSError {
+        let userInfo: [String: String]?
+        switch error {
+        default:
+            userInfo = nil
+        }
+        return NSError(domain: "uk.os.search.error", code: 666, userInfo: userInfo)
     }
 
 }
