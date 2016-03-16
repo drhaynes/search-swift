@@ -41,10 +41,5 @@ import Fetch
 }
 
 private func nsErrorFromSearchError(error: SearchError) -> NSError {
-    let userInfo: [String: String]?
-    switch error {
-    default:
-        userInfo = nil
-    }
-    return NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: userInfo)
+    return NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: nil)
 }

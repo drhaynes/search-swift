@@ -70,14 +70,13 @@ class OSPlacesSearchServiceTests: XCTestCase {
             SearchError.UnknownError
         ]
         errorCases.forEach { error in
-            let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: [ NSLocalizedDescriptionKey: "test"])
+            let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: nil)
             let result = Result<Response>.Failure(error)
             performErrorTestScenario(result, expectedError: expectedError)
         }
     }
 
     func performErrorTestScenario(result: Result<Response>, expectedError: NSError) {
-        let response = Result<Response>.Failure(expectedError)
         let mockService = MockSearchService()
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
@@ -86,7 +85,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
         osPlacesService.find("test") { (results, error) in
             receivedError = error
         }
-        mockService.completionHandler?(response)
+        mockService.completionHandler?(result)
         expect(receivedError).to(equal(expectedError))
     }
 
