@@ -55,4 +55,19 @@ class OSPlacesSearchServiceTests: XCTestCase {
         mockService.completionHandler?(result)
         expect(receivedResponse).notTo(beNil())
     }
+
+    func testAnNSErrorIsReturned() {
+        let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
+        let response = Result<Response>.Failure(expectedError)
+        let mockService = MockSearchService()
+        let osPlacesService = OSPlacesSearchService(apiKey: "test")
+        osPlacesService.searchService = mockService
+        var receivedError: NSError?
+
+        osPlacesService.find("test") { (results, error) in
+            receivedError = error
+        }
+        mockService.completionHandler?(response)
+        expect(receivedError).to(equal(expectedError))
+    }
 }
