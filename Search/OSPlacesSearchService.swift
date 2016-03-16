@@ -6,14 +6,14 @@
 //  Copyright © 2016 Ordnance Survey. All rights reserved.
 //
 
-import Foundation
+import Fetch
 
 /**
 *  Objective-C compatible wrapper for PlacesSearchService
 */
 @objc public class OSPlacesSearchService: NSObject {
 
-    let searchService: Searchable
+    var searchService: Searchable
 
     /**
      Initialiser
@@ -24,4 +24,9 @@ import Foundation
         searchService = PlacesSearchService(apiKey: apiKey)
         super.init()
     }
+
+    public func find(query: String, completion: (Result<Response> -> Void)) {
+        searchService.find(query, completion: completion)
+    }
+
 }

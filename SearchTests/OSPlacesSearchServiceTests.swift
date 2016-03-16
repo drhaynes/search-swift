@@ -32,5 +32,13 @@ class OSPlacesSearchServiceTests: XCTestCase {
         }
     }
 
-    
+    func testTheServiceCallsTheUnderlyingService() {
+        let mockService = MockSearchService()
+        let osPlacesService = OSPlacesSearchService(apiKey: "test")
+        osPlacesService.searchService = mockService
+        osPlacesService.find("testQuery", completion: { (result) in
+        })
+        expect(mockService.query).to(equal("testQuery"))
+        expect(mockService.completionHandler).notTo(beNil())
+    }
 }
