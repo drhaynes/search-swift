@@ -109,6 +109,9 @@ public class SearchResult: NSObject {
         let xCoordinate = json.floatValueForKey(SearchResult.XCoordinateKey)
         let match = json.doubleValueForKey(SearchResult.MatchKey)
         let yCoordinate = json.floatValueForKey(SearchResult.YCoordinateKey)
+        let buildingNumber = json.stringValueForKey(SearchResult.BuildingNumberKey)
+        let dependentLocality = json.stringValueForKey(SearchResult.DependentLocalityKey)
+        let thoroughfareName = json.stringValueForKey(SearchResult.ThoroughfareNameKey)
 
         self.init(
             language: language,
@@ -120,7 +123,7 @@ public class SearchResult: NSObject {
             matchDescription: matchDescription,
             entryDate: entryDate,
             postalAddressCode: postalAddressCode,
-            localCustodianCode: Int(localCustodianCode),
+            localCustodianCode: localCustodianCode,
             status: status,
             blpuStateCode: blpuStateCode,
             organisationName: organisationName,
