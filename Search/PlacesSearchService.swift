@@ -48,16 +48,3 @@ public class PlacesSearchService: Searchable {
         return components.URL!
     }
 }
-
-/**
- *  Searchable protocol
- */
-public protocol Searchable {
-    /**
-     Find the text specified
-
-     - parameter query:      The text to find
-     - parameter completion: Completion block to call
-     */
-    func find(query: String, completion: (Result<Response> -> Void))
-}

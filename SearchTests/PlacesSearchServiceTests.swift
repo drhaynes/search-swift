@@ -12,7 +12,7 @@ import Fetch
 import OHHTTPStubs
 @testable import Search
 
-class SearchServiceTests: XCTestCase {
+class PlacesSearchServiceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
