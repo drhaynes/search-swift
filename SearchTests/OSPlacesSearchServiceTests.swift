@@ -8,6 +8,7 @@
 
 import XCTest
 import Nimble
+import Fetch
 @testable import Search
 
 class OSPlacesSearchServiceTests: XCTestCase {
@@ -19,6 +20,16 @@ class OSPlacesSearchServiceTests: XCTestCase {
             return
         }
         expect(searchService.apiKey).to(equal("test"))
+    }
+
+    class MockSearchService: Searchable {
+        var query: String?
+        var completionHandler: (Result<Response> -> Void)?
+
+        func find(query: String, completion: (Result<Response> -> Void)) {
+            self.query = query
+            self.completionHandler = completion
+        }
     }
 
     
