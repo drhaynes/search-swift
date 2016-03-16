@@ -13,3 +13,5 @@ FOUNDATION_EXPORT double SearchVersionNumber;
 
 //! Project version string for Search.
 FOUNDATION_EXPORT const unsigned char SearchVersionString[];
+
+#import "OSSearchError.h"

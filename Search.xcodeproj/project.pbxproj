@@ -45,7 +45,7 @@
 		3D7964A81C99B0F50081C6B4 /* OSPlacesSearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7964A71C99B0F50081C6B4 /* OSPlacesSearchServiceTests.swift */; };
 		3D7964AB1C99B1B10081C6B4 /* OSPlacesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7964AA1C99B1B10081C6B4 /* OSPlacesSearchService.swift */; };
 		3D7964AD1C99B35C0081C6B4 /* Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7964AC1C99B35C0081C6B4 /* Searchable.swift */; };
-		3DA006BE1C99C6DB0029BA0A /* OSSearchError.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DA006BC1C99C6DB0029BA0A /* OSSearchError.h */; };
+		3DA006BE1C99C6DB0029BA0A /* OSSearchError.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DA006BC1C99C6DB0029BA0A /* OSSearchError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DB366FF1C8F103E000C2C7B /* test-response-bad-header.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB366FE1C8F103E000C2C7B /* test-response-bad-header.json */; };
 		3DB367011C8F1089000C2C7B /* test-response-bad-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367001C8F1089000C2C7B /* test-response-bad-results.json */; };
 		3DB367031C8F182C000C2C7B /* 100-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367021C8F182C000C2C7B /* 100-results.json */; };

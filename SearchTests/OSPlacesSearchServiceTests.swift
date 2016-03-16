@@ -71,4 +71,16 @@ class OSPlacesSearchServiceTests: XCTestCase {
         expect(receivedError).to(equal(expectedError))
     }
 
+    func testSearchServiceErrorsAreTranslatedCorrectly() {
+        let errorCases = [
+            SearchError.FailedToDeserialiseJSON,
+            SearchError.FailedToParseJSON,
+            SearchError.NoDataReceived,
+            SearchError.UnknownError
+        ]
+        errorCases.forEach { error in
+            let expectedError = NSError(domain: , code: <#T##Int#>, userInfo: <#T##[NSObject : AnyObject]?#>)
+        }
+    }
+
 }
