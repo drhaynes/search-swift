@@ -59,16 +59,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
     func testAnNSErrorIsReturned() {
         let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
         let response = Result<Response>.Failure(expectedError)
-        let mockService = MockSearchService()
-        let osPlacesService = OSPlacesSearchService(apiKey: "test")
-        osPlacesService.searchService = mockService
-        var receivedError: NSError?
-
-        osPlacesService.find("test") { (results, error) in
-            receivedError = error
-        }
-        mockService.completionHandler?(response)
-        expect(receivedError).to(equal(expectedError))
+        performErrorTestScenario(response, expectedError: expectedError)
     }
 
     func testSearchServiceErrorsAreTranslatedCorrectly() {
@@ -79,8 +70,24 @@ class OSPlacesSearchServiceTests: XCTestCase {
             SearchError.UnknownError
         ]
         errorCases.forEach { error in
-            let expectedError = NSError(domain: , code: <#T##Int#>, userInfo: <#T##[NSObject : AnyObject]?#>)
+            let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: [ NSLocalizedDescriptionKey: "test"])
+            let result = Result<Response>.Failure(error)
+            performErrorTestScenario(result, expectedError: expectedError)
         }
+    }
+
+    func performErrorTestScenario(result: Result<Response>, expectedError: NSError) {
+        let response = Result<Response>.Failure(expectedError)
+        let mockService = MockSearchService()
+        let osPlacesService = OSPlacesSearchService(apiKey: "test")
+        osPlacesService.searchService = mockService
+        var receivedError: NSError?
+
+        osPlacesService.find("test") { (results, error) in
+            receivedError = error
+        }
+        mockService.completionHandler?(response)
+        expect(receivedError).to(equal(expectedError))
     }
 
 }

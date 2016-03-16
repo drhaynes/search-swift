@@ -22,6 +22,19 @@ public enum SearchError: ErrorType {
     case FailedToParseJSON
     case FailedToDeserialiseJSON
     case UnknownError
+
+    public func rawValue() -> Int {
+        switch self {
+        case .NoDataReceived:
+            return OSSearchErrorNoDataReceived
+        case .FailedToDeserialiseJSON:
+            return OSSearchErrorFailedToDeserialiseJSON
+        case .FailedToParseJSON:
+            return OSSearchErrorFailedToParseJSON
+        case .UnknownError:
+            return OSSearchErrorUnknownError
+        }
+    }
 }
 
 extension Response: Parsable {
