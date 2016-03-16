@@ -35,7 +35,6 @@
 		3D69EF201C93199E004080EA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EF1C1C93199E004080EA /* SearchResult.swift */; };
 		3D69EF211C93199E004080EA /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EF1D1C93199E004080EA /* Header.swift */; };
 		3D69EF221C93199E004080EA /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EF1E1C93199E004080EA /* Response.swift */; };
-		3D69EF231C93199E004080EA /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EF1F1C93199E004080EA /* Results.swift */; };
 		3D69EF251C931B18004080EA /* OSJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; };
 		3D69EF261C931B29004080EA /* OSJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; };
 		3D69EF271C931B29004080EA /* OSJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -125,7 +124,6 @@
 		3D69EF1C1C93199E004080EA /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		3D69EF1D1C93199E004080EA /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		3D69EF1E1C93199E004080EA /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		3D69EF1F1C93199E004080EA /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		3D69EF241C931B18004080EA /* OSJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSJSON.framework; path = Carthage/Build/iOS/OSJSON.framework; sourceTree = SOURCE_ROOT; };
 		3D7964A51C9970CB0081C6B4 /* test-response-optional-fields.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-optional-fields.json"; sourceTree = "<group>"; };
 		3D7964A71C99B0F50081C6B4 /* OSPlacesSearchServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSPlacesSearchServiceTests.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				3D69EF1C1C93199E004080EA /* SearchResult.swift */,
 				3D69EF1D1C93199E004080EA /* Header.swift */,
 				3D69EF1E1C93199E004080EA /* Response.swift */,
-				3D69EF1F1C93199E004080EA /* Results.swift */,
 				3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */,
 			);
 			name = "Response Model";
@@ -411,7 +408,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D69EF231C93199E004080EA /* Results.swift in Sources */,
 				3D69EF211C93199E004080EA /* Header.swift in Sources */,
 				3D7964AB1C99B1B10081C6B4 /* OSPlacesSearchService.swift in Sources */,
 				3D69EEF11C91849D004080EA /* PlacesSearchService.swift in Sources */,
