@@ -70,4 +70,5 @@ class OSPlacesSearchServiceTests: XCTestCase {
         mockService.completionHandler?(response)
         expect(receivedError).to(equal(expectedError))
     }
+
 }

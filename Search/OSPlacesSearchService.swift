@@ -31,20 +31,11 @@ import Fetch
             case .Success(let response):
                 completion(response, nil)
             case .Failure(let error as SearchError):
-                completion(nil, self.nsErrorFromSearchError(error))
+                completion(nil, nil)
             case.Failure(let error):
                 completion(nil, error as NSError)
             }
         }
-    }
-
-    private func nsErrorFromSearchError(error: SearchError) -> NSError {
-        let userInfo: [String: String]?
-        switch error {
-        default:
-            userInfo = nil
-        }
-        return NSError(domain: "uk.os.search.error", code: 666, userInfo: userInfo)
     }
 
 }
