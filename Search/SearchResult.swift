@@ -13,28 +13,28 @@ public class SearchResult: NSObject {
 
     // MARK: Properties
     public let language: String
-    public let lastUpdateDate: String
+    public let lastUpdateDate: String?
     public let rpc: String
     public let buildingNumber: String?
     public let postcode: String
     public let uprn: String
     public let matchDescription: String
-    public let entryDate: String
-    public let postalAddressCode: String
-    public let localCustodianCode: Int
+    public let entryDate: String?
+    public let postalAddressCode: String?
+    public let localCustodianCode: Int?
     public let status: String
     public let blpuStateCode: String?
     public let organisationName: String?
-    public let postalAddressCodeDescription: String
-    public let classificationCodeDescription: String
+    public let postalAddressCodeDescription: String?
+    public let classificationCodeDescription: String?
     public let xCoordinate: Int
     public let match: Float
-    public let classificationCode: String
+    public let classificationCode: String?
     public let topographyLayerToid: String?
-    public let localCustodianCodeDescription: String
+    public let localCustodianCodeDescription: String?
     public let blpuStateCodeDescription: String
     public let dependentLocality: String?
-    public let logicalStatusCode: String
+    public let logicalStatusCode: String?
     public let yCoordinate: Int
     public let thoroughfareName: String?
     public let address: String
@@ -42,7 +42,7 @@ public class SearchResult: NSObject {
     public let blpuStateDate: String?
 
 
-    init(language: String, lastUpdateDate: String, rpc: String, buildingNumber: String?, postcode: String, uprn: String, matchDescription: String, entryDate: String, postalAddressCode: String, localCustodianCode: Int, status: String, blpuStateCode: String?, organisationName: String?, postalAddressCodeDescription: String, classificationCodeDescription: String, xCoordinate: Int, match: Float, classificationCode: String, topographyLayerToid: String?, localCustodianCodeDescription: String, blpuStateCodeDescription: String, dependentLocality: String?, logicalStatusCode: String, yCoordinate: Int, thoroughfareName: String?, address: String, postTown: String, blpuStateDate: String?) {
+    init(language: String, lastUpdateDate: String?, rpc: String, buildingNumber: String?, postcode: String, uprn: String, matchDescription: String, entryDate: String?, postalAddressCode: String?, localCustodianCode: Int?, status: String, blpuStateCode: String?, organisationName: String?, postalAddressCodeDescription: String?, classificationCodeDescription: String?, xCoordinate: Int, match: Float, classificationCode: String?, topographyLayerToid: String?, localCustodianCodeDescription: String?, blpuStateCodeDescription: String, dependentLocality: String?, logicalStatusCode: String?, yCoordinate: Int, thoroughfareName: String?, address: String, postTown: String, blpuStateDate: String?) {
         self.language = language
         self.lastUpdateDate = lastUpdateDate
         self.rpc = rpc
@@ -82,36 +82,36 @@ public class SearchResult: NSObject {
     //MARK: JSON initialiser
     convenience init?(json: JSON) {
         guard let language = json.stringValueForKey(SearchResult.LanguageKey),
-            lastUpdateDate = json.stringValueForKey(SearchResult.LastUpdateDateKey),
             rpc = json.stringValueForKey(SearchResult.RpcKey),
-            buildingNumber = json.stringValueForKey(SearchResult.BuildingNumberKey),
             postcode = json.stringValueForKey(SearchResult.PostcodeKey),
             uprn = json.stringValueForKey(SearchResult.UprnKey),
             matchDescription = json.stringValueForKey(SearchResult.MatchDescriptionKey),
-            entryDate = json.stringValueForKey(SearchResult.EntryDateKey),
-            postalAddressCode = json.stringValueForKey(SearchResult.PostalAddressCodeKey),
             status = json.stringValueForKey(SearchResult.StatusKey),
-            blpuStateCode = json.stringValueForKey(SearchResult.BlpuStateCodeKey),
-            organisationName = json.stringValueForKey(SearchResult.OrganisationNameKey),
-            postalAddressCodeDescription = json.stringValueForKey(SearchResult.PostalAddressCodeDescriptionKey),
-            classificationCodeDescription = json.stringValueForKey(SearchResult.ClassificationCodeDescriptionKey),
-            classificationCode = json.stringValueForKey(SearchResult.ClassificationCodeKey),
-            topographyLayerToid = json.stringValueForKey(SearchResult.TopographyLayerToidKey),
-            localCustodianCodeDescription = json.stringValueForKey(SearchResult.LocalCustodianCodeDescriptionKey),
             blpuStateCodeDescription = json.stringValueForKey(SearchResult.BlpuStateCodeDescriptionKey),
-            dependentLocality = json.stringValueForKey(SearchResult.DependentLocalityKey),
-            logicalStatusCode = json.stringValueForKey(SearchResult.LogicalStatusCodeKey),
-            thoroughfareName = json.stringValueForKey(SearchResult.ThoroughfareNameKey),
             address = json.stringValueForKey(SearchResult.AddressKey),
-            postTown = json.stringValueForKey(SearchResult.PostTownKey),
-            blpuStateDate = json.stringValueForKey(SearchResult.BlpuStateDateKey)
+            postTown = json.stringValueForKey(SearchResult.PostTownKey)
         else {
             return nil
         }
+        let logicalStatusCode = json.stringValueForKey(SearchResult.LogicalStatusCodeKey)
+        let classificationCodeDescription = json.stringValueForKey(SearchResult.ClassificationCodeDescriptionKey)
+        let classificationCode = json.stringValueForKey(SearchResult.ClassificationCodeKey)
+        let localCustodianCodeDescription = json.stringValueForKey(SearchResult.LocalCustodianCodeDescriptionKey)
+        let postalAddressCode = json.stringValueForKey(SearchResult.PostalAddressCodeKey)
+        let postalAddressCodeDescription = json.stringValueForKey(SearchResult.PostalAddressCodeDescriptionKey)
+        let entryDate = json.stringValueForKey(SearchResult.EntryDateKey)
+        let lastUpdateDate = json.stringValueForKey(SearchResult.LastUpdateDateKey)
+        let topographyLayerToid = json.stringValueForKey(SearchResult.TopographyLayerToidKey)
+        let blpuStateCode = json.stringValueForKey(SearchResult.BlpuStateCodeKey)
+        let blpuStateDate = json.stringValueForKey(SearchResult.BlpuStateDateKey)
+        let organisationName = json.stringValueForKey(SearchResult.OrganisationNameKey)
         let localCustodianCode = json.intValueForKey(SearchResult.LocalCustodianCodeKey)
         let xCoordinate = json.intValueForKey(SearchResult.XCoordinateKey)
         let match = json.doubleValueForKey(SearchResult.MatchKey)
         let yCoordinate = json.intValueForKey(SearchResult.YCoordinateKey)
+        let buildingNumber = json.stringValueForKey(SearchResult.BuildingNumberKey)
+        let dependentLocality = json.stringValueForKey(SearchResult.DependentLocalityKey)
+        let thoroughfareName = json.stringValueForKey(SearchResult.ThoroughfareNameKey)
 
         self.init(
             language: language,
