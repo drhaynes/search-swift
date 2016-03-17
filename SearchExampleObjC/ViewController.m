@@ -35,4 +35,8 @@
     [self.resultsViewController search:searchController.searchBar.text];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 @end
