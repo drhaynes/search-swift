@@ -9,6 +9,7 @@
 import Foundation
 import OSJSON
 
+@objc(OSHeader)
 public class Header: NSObject {
 
     // MARK: Properties

@@ -9,6 +9,7 @@
 import Foundation
 import OSJSON
 
+@objc(OSSearchResult)
 public class SearchResult: NSObject {
 
     // MARK: Properties

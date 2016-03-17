@@ -9,6 +9,7 @@
 import Foundation
 import OSJSON
 
+@objc(OSResponse)
 public final class Response: NSObject {
 
     // MARK: Properties
