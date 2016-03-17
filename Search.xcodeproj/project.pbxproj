@@ -55,6 +55,14 @@
 		3DC343F11C9AD649003D7F09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC343EF1C9AD649003D7F09 /* Main.storyboard */; };
 		3DC343F31C9AD649003D7F09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC343F21C9AD649003D7F09 /* Assets.xcassets */; };
 		3DC343F61C9AD649003D7F09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC343F41C9AD649003D7F09 /* LaunchScreen.storyboard */; };
+		3DC343FD1C9AD92F003D7F09 /* OSResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC343FC1C9AD92F003D7F09 /* OSResultsViewController.m */; };
+		3DC343FE1C9ADA9D003D7F09 /* APIKEY in Resources */ = {isa = PBXBuildFile; fileRef = 3D69EF101C919FFA004080EA /* APIKEY */; };
+		3DC343FF1C9ADAAF003D7F09 /* OSJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; };
+		3DC344001C9ADAB2003D7F09 /* Fetch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; };
+		3DC344011C9ADABF003D7F09 /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
+		3DC344051C9ADAF2003D7F09 /* Search.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DC344061C9ADAF6003D7F09 /* OSJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DC344071C9ADAF9003D7F09 /* Fetch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +74,13 @@
 			remoteInfo = Search;
 		};
 		3D69EF141C91A044004080EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D5929C71C7F41E900B3CECC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D5929CF1C7F41E900B3CECC;
+			remoteInfo = Search;
+		};
+		3DC344021C9ADAC4003D7F09 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3D5929C71C7F41E900B3CECC /* Project object */;
 			proxyType = 1;
@@ -98,6 +113,19 @@
 				3D69EF131C91A044004080EA /* Search.framework in Embed Frameworks */,
 				3D69EF0E1C919EFD004080EA /* Fetch.framework in Embed Frameworks */,
 				3D69EF271C931B29004080EA /* OSJSON.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DC344041C9ADADF003D7F09 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3DC344051C9ADAF2003D7F09 /* Search.framework in Embed Frameworks */,
+				3DC344071C9ADAF9003D7F09 /* Fetch.framework in Embed Frameworks */,
+				3DC344061C9ADAF6003D7F09 /* OSJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +179,8 @@
 		3DC343F21C9AD649003D7F09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC343F51C9AD649003D7F09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC343F71C9AD649003D7F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DC343FB1C9AD92F003D7F09 /* OSResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSResultsViewController.h; sourceTree = "<group>"; };
+		3DC343FC1C9AD92F003D7F09 /* OSResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSResultsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +218,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC343FF1C9ADAAF003D7F09 /* OSJSON.framework in Frameworks */,
+				3DC344001C9ADAB2003D7F09 /* Fetch.framework in Frameworks */,
+				3DC344011C9ADABF003D7F09 /* Search.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +326,8 @@
 				3DC343EA1C9AD649003D7F09 /* AppDelegate.m */,
 				3DC343EC1C9AD649003D7F09 /* ViewController.h */,
 				3DC343ED1C9AD649003D7F09 /* ViewController.m */,
+				3DC343FB1C9AD92F003D7F09 /* OSResultsViewController.h */,
+				3DC343FC1C9AD92F003D7F09 /* OSResultsViewController.m */,
 				3DC343EF1C9AD649003D7F09 /* Main.storyboard */,
 				3DC343F21C9AD649003D7F09 /* Assets.xcassets */,
 				3DC343F41C9AD649003D7F09 /* LaunchScreen.storyboard */,
@@ -388,10 +423,12 @@
 				3DC343E01C9AD648003D7F09 /* Sources */,
 				3DC343E11C9AD648003D7F09 /* Frameworks */,
 				3DC343E21C9AD648003D7F09 /* Resources */,
+				3DC344041C9ADADF003D7F09 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3DC344031C9ADAC4003D7F09 /* PBXTargetDependency */,
 			);
 			name = SearchExampleObjC;
 			productName = SearchExampleObjC;
@@ -481,6 +518,7 @@
 				3DC343F61C9AD649003D7F09 /* LaunchScreen.storyboard in Resources */,
 				3DC343F31C9AD649003D7F09 /* Assets.xcassets in Resources */,
 				3DC343F11C9AD649003D7F09 /* Main.storyboard in Resources */,
+				3DC343FE1C9ADA9D003D7F09 /* APIKEY in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +568,7 @@
 				3DC343EE1C9AD649003D7F09 /* ViewController.m in Sources */,
 				3DC343EB1C9AD649003D7F09 /* AppDelegate.m in Sources */,
 				3DC343E81C9AD649003D7F09 /* main.m in Sources */,
+				3DC343FD1C9AD92F003D7F09 /* OSResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +584,11 @@
 			isa = PBXTargetDependency;
 			target = 3D5929CF1C7F41E900B3CECC /* Search */;
 			targetProxy = 3D69EF141C91A044004080EA /* PBXContainerItemProxy */;
+		};
+		3DC344031C9ADAC4003D7F09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D5929CF1C7F41E900B3CECC /* Search */;
+			targetProxy = 3DC344021C9ADAC4003D7F09 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -782,6 +826,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SearchExampleObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleObjC;
@@ -793,6 +842,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SearchExampleObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleObjC;

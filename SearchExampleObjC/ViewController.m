@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "OSResultsViewController.h"
 
 @interface ViewController() <UISearchResultsUpdating>
 
 @property (nonatomic, strong) UISearchController *searchController;
+@property (nonatomic, strong) OSResultsViewController *resultsViewController;
 
 @end
 
@@ -18,7 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.resultsViewController = [[OSResultsViewController alloc] init];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsViewController];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = YES;
     [self.view addSubview:self.searchController.searchBar];
@@ -29,7 +32,7 @@
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSLog(@"text: %@", searchController.searchBar.text);
+    [self.resultsViewController search:searchController.searchBar.text];
 }
 
 @end
