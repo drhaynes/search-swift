@@ -11,13 +11,25 @@
 /**
  *  Error domain for use with the search framework
  */
-NSString *const OSSearchErrorDomain = @"uk.os.search.error";
+extern NSString *const OSSearchErrorDomain;
 
 NS_ENUM(NSInteger){
     /**
      *  The server returned no data.
      */
     OSSearchErrorNoDataReceived,
+    /**
+     *  Unauthorised request for this API key.
+     */
+    OSSearchErrorUnauthorised,
+    /**
+     *  Request was not properly formed, see localised desctription for detail.
+     */
+    OSSearchErrorBadRequest,
+    /**
+     *  The server has returned an error. See localised desctription for detail.
+     */
+    OSSearchErrorServerError,
     /**
      *  The JSON was malformed and could not be parsed.
      */

@@ -48,6 +48,7 @@
 		3DB366FF1C8F103E000C2C7B /* test-response-bad-header.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB366FE1C8F103E000C2C7B /* test-response-bad-header.json */; };
 		3DB367011C8F1089000C2C7B /* test-response-bad-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367001C8F1089000C2C7B /* test-response-bad-results.json */; };
 		3DB367031C8F182C000C2C7B /* 100-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367021C8F182C000C2C7B /* 100-results.json */; };
+		3DC343DF1C9AAFE5003D7F09 /* OSSearchError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC343DE1C9AAFE5003D7F09 /* OSSearchError.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		3DB366FE1C8F103E000C2C7B /* test-response-bad-header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-bad-header.json"; sourceTree = "<group>"; };
 		3DB367001C8F1089000C2C7B /* test-response-bad-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-bad-results.json"; sourceTree = "<group>"; };
 		3DB367021C8F182C000C2C7B /* 100-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "100-results.json"; sourceTree = "<group>"; };
+		3DC343DE1C9AAFE5003D7F09 /* OSSearchError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSearchError.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,12 +205,13 @@
 		3D5929D21C7F41E900B3CECC /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				3D0ADE111C85C95F00D4FD37 /* Response Model */,
 				3D5929D31C7F41E900B3CECC /* Search.h */,
 				3D69EEF01C91849D004080EA /* PlacesSearchService.swift */,
-				3D7964AC1C99B35C0081C6B4 /* Searchable.swift */,
 				3D7964AA1C99B1B10081C6B4 /* OSPlacesSearchService.swift */,
+				3D0ADE111C85C95F00D4FD37 /* Response Model */,
 				3DA006BC1C99C6DB0029BA0A /* OSSearchError.h */,
+				3DC343DE1C9AAFE5003D7F09 /* OSSearchError.m */,
+				3D7964AC1C99B35C0081C6B4 /* Searchable.swift */,
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
 				3D69EF241C931B18004080EA /* OSJSON.framework */,
 				3D0ADE221C87090900D4FD37 /* Fetch.framework */,
@@ -412,6 +415,7 @@
 				3D7964AB1C99B1B10081C6B4 /* OSPlacesSearchService.swift in Sources */,
 				3D69EEF11C91849D004080EA /* PlacesSearchService.swift in Sources */,
 				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
+				3DC343DF1C9AAFE5003D7F09 /* OSSearchError.m in Sources */,
 				3D7964AD1C99B35C0081C6B4 /* Searchable.swift in Sources */,
 				3D69EF201C93199E004080EA /* SearchResult.swift in Sources */,
 				3D69EF221C93199E004080EA /* Response.swift in Sources */,
