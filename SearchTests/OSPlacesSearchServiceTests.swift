@@ -67,10 +67,23 @@ class OSPlacesSearchServiceTests: XCTestCase {
             SearchError.FailedToDeserialiseJSON,
             SearchError.FailedToParseJSON,
             SearchError.NoDataReceived,
+            SearchError.Unauthorised,
             SearchError.UnknownError
         ]
         errorCases.forEach { error in
             let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: nil)
+            let result = Result<Response>.Failure(error)
+            performErrorTestScenario(result, expectedError: expectedError)
+        }
+    }
+
+    func testSearchServiceErrorsWithMessagesAreTranslatedCorrectly() {
+        let errorCases = [
+            SearchError.BadRequest("test description"),
+            SearchError.ServerError("test description")
+        ]
+        errorCases.forEach { error in
+            let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: [ NSLocalizedDescriptionKey: "test description" ])
             let result = Result<Response>.Failure(error)
             performErrorTestScenario(result, expectedError: expectedError)
         }
