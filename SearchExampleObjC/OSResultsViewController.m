@@ -35,7 +35,7 @@
 
 - (void)search:(NSString *)text {
     if (text.length > 2) {
-        [self.searchService find:text completion:^(Response * _Nullable response, NSError * _Nullable error) {
+        [self.searchService find:text completion:^(OSResponse * _Nullable response, NSError * _Nullable error) {
             if (error) {
                 NSLog(@"Error: %@", error.localizedDescription);
                 return;
