@@ -40,7 +40,7 @@ public final class Response: NSObject {
 }
 
 func resultForJson(json: OSJSON) -> SearchResult? {
-    guard let dpaJson = json.jsonForKey(Results.SearchResultKey) else {
+    guard let dpaJson = json.jsonForKey(Response.SearchResultKey) else {
         return nil
     }
     return SearchResult.init(json: dpaJson)
@@ -50,4 +50,5 @@ extension Response {
     // MARK: Declaration for string constants to be used to decode and also serialize.
     @nonobjc internal static let ResultsKey: String = "results"
     @nonobjc internal static let HeaderKey: String = "header"
+    @nonobjc internal static let SearchResultKey: String = "DPA"
 }

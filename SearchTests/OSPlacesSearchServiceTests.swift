@@ -59,6 +59,37 @@ class OSPlacesSearchServiceTests: XCTestCase {
     func testAnNSErrorIsReturned() {
         let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
         let response = Result<Response>.Failure(expectedError)
+        performErrorTestScenario(response, expectedError: expectedError)
+    }
+
+    func testSearchServiceErrorsAreTranslatedCorrectly() {
+        let errorCases = [
+            SearchError.FailedToDeserialiseJSON,
+            SearchError.FailedToParseJSON,
+            SearchError.NoDataReceived,
+            SearchError.Unauthorised,
+            SearchError.UnknownError
+        ]
+        errorCases.forEach { error in
+            let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: nil)
+            let result = Result<Response>.Failure(error)
+            performErrorTestScenario(result, expectedError: expectedError)
+        }
+    }
+
+    func testSearchServiceErrorsWithMessagesAreTranslatedCorrectly() {
+        let errorCases = [
+            SearchError.BadRequest("test description"),
+            SearchError.ServerError("test description")
+        ]
+        errorCases.forEach { error in
+            let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: [ NSLocalizedDescriptionKey: "test description" ])
+            let result = Result<Response>.Failure(error)
+            performErrorTestScenario(result, expectedError: expectedError)
+        }
+    }
+
+    func performErrorTestScenario(result: Result<Response>, expectedError: NSError) {
         let mockService = MockSearchService()
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
@@ -67,7 +98,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
         osPlacesService.find("test") { (results, error) in
             receivedError = error
         }
-        mockService.completionHandler?(response)
+        mockService.completionHandler?(result)
         expect(receivedError).to(equal(expectedError))
     }
 

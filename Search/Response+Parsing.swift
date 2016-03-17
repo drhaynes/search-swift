@@ -9,26 +9,17 @@
 import Fetch
 import OSJSON
 
-/**
- Errors returned when executing a search
-
- - NoDataReceived:          No data received from the server.
- - FailedToParseJSON:       JSON parsing has failed, likely due to invalid JSON.
- - FailedToDeserialiseJSON: JSON was valid, but cannot be deserialised.
- - UnknownError:            An error has occured which is none of the above.
- */
-public enum SearchError: ErrorType {
-    case NoDataReceived
-    case FailedToParseJSON
-    case FailedToDeserialiseJSON
-    case UnknownError
-}
-
 extension Response: Parsable {
     public static func parse(fromData data: NSData?, withStatus status: Int) -> Result<Response> {
         switch status {
         case 200:
             return parseResponse(data)
+        case 401:
+            return .Failure(SearchError.Unauthorised)
+        case 400:
+            return .Failure(SearchError.BadRequest(errorMessage(data)))
+        case 500:
+            return .Failure(SearchError.ServerError(errorMessage(data)))
         default:
             return .Failure(SearchError.UnknownError)
         }
@@ -46,4 +37,12 @@ private func parseResponse(data: NSData?) -> Result<Response> {
         return .Failure(SearchError.FailedToDeserialiseJSON)
     }
     return .Success(response)
+}
+
+private func errorMessage(data: NSData?) -> String {
+    guard let data = data else {
+        return ""
+    }
+    let json = JSON(data: data, initialKeyPath: "error")
+    return json.stringValueForKey("message") ?? ""
 }
