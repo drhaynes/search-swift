@@ -49,6 +49,12 @@
 		3DB367011C8F1089000C2C7B /* test-response-bad-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367001C8F1089000C2C7B /* test-response-bad-results.json */; };
 		3DB367031C8F182C000C2C7B /* 100-results.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DB367021C8F182C000C2C7B /* 100-results.json */; };
 		3DC343DF1C9AAFE5003D7F09 /* OSSearchError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC343DE1C9AAFE5003D7F09 /* OSSearchError.m */; };
+		3DC343E81C9AD649003D7F09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC343E71C9AD649003D7F09 /* main.m */; };
+		3DC343EB1C9AD649003D7F09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC343EA1C9AD649003D7F09 /* AppDelegate.m */; };
+		3DC343EE1C9AD649003D7F09 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC343ED1C9AD649003D7F09 /* ViewController.m */; };
+		3DC343F11C9AD649003D7F09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC343EF1C9AD649003D7F09 /* Main.storyboard */; };
+		3DC343F31C9AD649003D7F09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC343F21C9AD649003D7F09 /* Assets.xcassets */; };
+		3DC343F61C9AD649003D7F09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC343F41C9AD649003D7F09 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +141,16 @@
 		3DB367001C8F1089000C2C7B /* test-response-bad-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-bad-results.json"; sourceTree = "<group>"; };
 		3DB367021C8F182C000C2C7B /* 100-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "100-results.json"; sourceTree = "<group>"; };
 		3DC343DE1C9AAFE5003D7F09 /* OSSearchError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSearchError.m; sourceTree = "<group>"; };
+		3DC343E41C9AD648003D7F09 /* SearchExampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchExampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC343E71C9AD649003D7F09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3DC343E91C9AD649003D7F09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3DC343EA1C9AD649003D7F09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3DC343EC1C9AD649003D7F09 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3DC343ED1C9AD649003D7F09 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3DC343F01C9AD649003D7F09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DC343F21C9AD649003D7F09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DC343F51C9AD649003D7F09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3DC343F71C9AD649003D7F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +184,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DC343E11C9AD648003D7F09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -188,6 +211,7 @@
 				3D5929D21C7F41E900B3CECC /* Search */,
 				3D5929DE1C7F41E900B3CECC /* SearchTests */,
 				3D69EEF91C91985A004080EA /* SearchExampleSwift */,
+				3DC343E51C9AD649003D7F09 /* SearchExampleObjC */,
 				3D5929D11C7F41E900B3CECC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -198,6 +222,7 @@
 				3D5929D01C7F41E900B3CECC /* Search.framework */,
 				3D5929DA1C7F41E900B3CECC /* SearchTests.xctest */,
 				3D69EEF81C91985A004080EA /* SearchExampleSwift.app */,
+				3DC343E41C9AD648003D7F09 /* SearchExampleObjC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,6 +284,30 @@
 				3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */,
 			);
 			name = Fixtures;
+			sourceTree = "<group>";
+		};
+		3DC343E51C9AD649003D7F09 /* SearchExampleObjC */ = {
+			isa = PBXGroup;
+			children = (
+				3DC343E91C9AD649003D7F09 /* AppDelegate.h */,
+				3DC343EA1C9AD649003D7F09 /* AppDelegate.m */,
+				3DC343EC1C9AD649003D7F09 /* ViewController.h */,
+				3DC343ED1C9AD649003D7F09 /* ViewController.m */,
+				3DC343EF1C9AD649003D7F09 /* Main.storyboard */,
+				3DC343F21C9AD649003D7F09 /* Assets.xcassets */,
+				3DC343F41C9AD649003D7F09 /* LaunchScreen.storyboard */,
+				3DC343F71C9AD649003D7F09 /* Info.plist */,
+				3DC343E61C9AD649003D7F09 /* Supporting Files */,
+			);
+			path = SearchExampleObjC;
+			sourceTree = "<group>";
+		};
+		3DC343E61C9AD649003D7F09 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DC343E71C9AD649003D7F09 /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +381,23 @@
 			productReference = 3D69EEF81C91985A004080EA /* SearchExampleSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3DC343E31C9AD648003D7F09 /* SearchExampleObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DC343FA1C9AD649003D7F09 /* Build configuration list for PBXNativeTarget "SearchExampleObjC" */;
+			buildPhases = (
+				3DC343E01C9AD648003D7F09 /* Sources */,
+				3DC343E11C9AD648003D7F09 /* Frameworks */,
+				3DC343E21C9AD648003D7F09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SearchExampleObjC;
+			productName = SearchExampleObjC;
+			productReference = 3DC343E41C9AD648003D7F09 /* SearchExampleObjC.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -349,6 +415,9 @@
 						CreatedOnToolsVersion = 7.2;
 					};
 					3D69EEF71C91985A004080EA = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					3DC343E31C9AD648003D7F09 = {
 						CreatedOnToolsVersion = 7.2;
 					};
 				};
@@ -369,6 +438,7 @@
 				3D5929CF1C7F41E900B3CECC /* Search */,
 				3D5929D91C7F41E900B3CECC /* SearchTests */,
 				3D69EEF71C91985A004080EA /* SearchExampleSwift */,
+				3DC343E31C9AD648003D7F09 /* SearchExampleObjC */,
 			);
 		};
 /* End PBXProject section */
@@ -401,6 +471,16 @@
 				3D69EF111C919FFA004080EA /* APIKEY in Resources */,
 				3D69EF021C91985A004080EA /* Assets.xcassets in Resources */,
 				3D69EF001C91985A004080EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DC343E21C9AD648003D7F09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DC343F61C9AD649003D7F09 /* LaunchScreen.storyboard in Resources */,
+				3DC343F31C9AD649003D7F09 /* Assets.xcassets in Resources */,
+				3DC343F11C9AD649003D7F09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +523,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DC343E01C9AD648003D7F09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DC343EE1C9AD649003D7F09 /* ViewController.m in Sources */,
+				3DC343EB1C9AD649003D7F09 /* AppDelegate.m in Sources */,
+				3DC343E81C9AD649003D7F09 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -471,6 +561,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				3D69EF041C91985B004080EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3DC343EF1C9AD649003D7F09 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DC343F01C9AD649003D7F09 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3DC343F41C9AD649003D7F09 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DC343F51C9AD649003D7F09 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -672,6 +778,28 @@
 			};
 			name = Release;
 		};
+		3DC343F81C9AD649003D7F09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SearchExampleObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleObjC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3DC343F91C9AD649003D7F09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SearchExampleObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleObjC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -710,6 +838,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		3DC343FA1C9AD649003D7F09 /* Build configuration list for PBXNativeTarget "SearchExampleObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DC343F81C9AD649003D7F09 /* Debug */,
+				3DC343F91C9AD649003D7F09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
