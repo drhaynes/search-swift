@@ -63,6 +63,8 @@
 		3DC344051C9ADAF2003D7F09 /* Search.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DC344061C9ADAF6003D7F09 /* OSJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DC344071C9ADAF9003D7F09 /* Fetch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		458D582F1CA0487E006A9A97 /* OSTransformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458D582E1CA0487E006A9A97 /* OSTransformation.framework */; };
+		458D58301CA04887006A9A97 /* OSTransformation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 458D582E1CA0487E006A9A97 /* OSTransformation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,7 @@
 			files = (
 				3D0ADE2D1C87096600D4FD37 /* Nimble.framework in Embed Frameworks */,
 				3D69EF291C931B3B004080EA /* OSJSON.framework in Embed Frameworks */,
+				458D58301CA04887006A9A97 /* OSTransformation.framework in Embed Frameworks */,
 				3D0ADE2E1C87096600D4FD37 /* OHHTTPStubs.framework in Embed Frameworks */,
 				3D0ADE321C870A1000D4FD37 /* Fetch.framework in Embed Frameworks */,
 			);
@@ -181,6 +184,7 @@
 		3DC343F71C9AD649003D7F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DC343FB1C9AD92F003D7F09 /* OSResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSResultsViewController.h; sourceTree = "<group>"; };
 		3DC343FC1C9AD92F003D7F09 /* OSResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSResultsViewController.m; sourceTree = "<group>"; };
+		458D582E1CA0487E006A9A97 /* OSTransformation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSTransformation.framework; path = ../Carthage/Build/iOS/OSTransformation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,7 @@
 			files = (
 				3D0ADE231C87090900D4FD37 /* Fetch.framework in Frameworks */,
 				3D69EF251C931B18004080EA /* OSJSON.framework in Frameworks */,
+				458D582F1CA0487E006A9A97 /* OSTransformation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +277,7 @@
 				3D7964AC1C99B35C0081C6B4 /* Searchable.swift */,
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
 				3D69EF241C931B18004080EA /* OSJSON.framework */,
+				458D582E1CA0487E006A9A97 /* OSTransformation.framework */,
 				3D0ADE221C87090900D4FD37 /* Fetch.framework */,
 			);
 			path = Search;
@@ -900,6 +906,7 @@
 				3DC343F91C9AD649003D7F09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
