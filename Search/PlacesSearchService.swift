@@ -7,6 +7,7 @@
 //
 
 import Fetch
+import OSTransformation
 
 /**
  */
@@ -78,16 +79,26 @@ public class PlacesSearchService: Searchable {
         }
     }
 
-    private func urlForQuery(query: String) -> NSURL {
+    public func nearest(location: OSGridPoint, completion: (Result<Response> -> Void)) {
+        let request = Request(url: urlForPath("nearest", items: [NSURLQueryItem(name: "point", value: "\(location.easting) \(location.northing)")]))
+        get(request) { result in
+            completion(result)
+        }
+    }
+
+    private func urlForPath(path: String, items: [NSURLQueryItem]) -> NSURL {
         let components = NSURLComponents()
         components.scheme = "https"
         components.host = "api.ordnancesurvey.co.uk"
-        components.path = "/places/v1/addresses/find"
+        components.path = "/places/v1/addresses/\(path)"
         let queryItems = [
-            NSURLQueryItem(name: "key", value: apiKey),
-            NSURLQueryItem(name: "query", value: query)
-        ]
+            NSURLQueryItem(name: "key", value: apiKey)
+        ] + items
         components.queryItems = queryItems
         return components.URL!
+    }
+
+    private func urlForQuery(query: String) -> NSURL {
+        return urlForPath("find", items: [NSURLQueryItem(name: "query", value: query)])
     }
 }

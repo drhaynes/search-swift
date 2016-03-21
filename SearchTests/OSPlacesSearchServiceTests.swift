@@ -9,6 +9,7 @@
 import XCTest
 import Nimble
 import Fetch
+import OSTransformation
 @testable import Search
 
 class OSPlacesSearchServiceTests: XCTestCase {
@@ -29,6 +30,10 @@ class OSPlacesSearchServiceTests: XCTestCase {
         func find(query: String, completion: (Result<Response> -> Void)) {
             self.query = query
             self.completionHandler = completion
+        }
+
+        func nearest(location: OSGridPoint, completion: (Result<Response> -> Void)) {
+
         }
     }
 
