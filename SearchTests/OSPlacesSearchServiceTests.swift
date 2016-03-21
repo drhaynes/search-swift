@@ -26,6 +26,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
     class MockSearchService: Searchable {
         var query: String?
         var completionHandler: (Result<Response> -> Void)?
+        var location: OSGridPoint?
 
         func find(query: String, completion: (Result<Response> -> Void)) {
             self.query = query
@@ -33,7 +34,8 @@ class OSPlacesSearchServiceTests: XCTestCase {
         }
 
         func nearest(location: OSGridPoint, completion: (Result<Response> -> Void)) {
-
+            self.location = location
+            self.completionHandler = completion
         }
     }
 
@@ -43,6 +45,15 @@ class OSPlacesSearchServiceTests: XCTestCase {
         osPlacesService.searchService = mockService
         osPlacesService.find("testQuery", completion: { (result) in })
         expect(mockService.query).to(equal("testQuery"))
+        expect(mockService.completionHandler).notTo(beNil())
+    }
+
+    func testNearestCallsTheUnderlyingService() {
+        let mockService = MockSearchService()
+        let osPlacesService = OSPlacesSearchService(apiKey: "test")
+        osPlacesService.searchService = mockService
+        osPlacesService.nearest(OSGridPoint(easting: 1234, northing: 5678), completion: { _ in })
+        expect(OSGridPointEqualToPoint(mockService.location!, OSGridPoint(easting: 1234, northing: 5678))).to(beTrue())
         expect(mockService.completionHandler).notTo(beNil())
     }
 
