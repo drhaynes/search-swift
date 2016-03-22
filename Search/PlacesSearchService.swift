@@ -7,6 +7,7 @@
 //
 
 import Fetch
+import OSTransformation
 
 /**
  */
@@ -55,6 +56,8 @@ public enum SearchError: ErrorType {
 public class PlacesSearchService: Searchable {
     let apiKey: String
 
+    let numberFormatter: NSNumberFormatter
+
     /**
      Constructor
 
@@ -62,6 +65,10 @@ public class PlacesSearchService: Searchable {
      */
     public init(apiKey: String) {
         self.apiKey = apiKey
+        numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .NoStyle
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumFractionDigits = 0
     }
 
     /**
@@ -78,16 +85,30 @@ public class PlacesSearchService: Searchable {
         }
     }
 
-    private func urlForQuery(query: String) -> NSURL {
+    public func nearest(location: OSGridPoint, completion: (Result<Response> -> Void)) {
+        guard let easting = numberFormatter.stringFromNumber(location.easting),
+            northing = numberFormatter.stringFromNumber(location.northing) else {
+                fatalError("Couldn't convert grid point to string")
+        }
+        let request = Request(url: urlForPath("nearest", items: [NSURLQueryItem(name: "point", value: "\(easting) \(northing)")]))
+        get(request) { result in
+            completion(result)
+        }
+    }
+
+    private func urlForPath(path: String, items: [NSURLQueryItem]) -> NSURL {
         let components = NSURLComponents()
         components.scheme = "https"
         components.host = "api.ordnancesurvey.co.uk"
-        components.path = "/places/v1/addresses/find"
+        components.path = "/places/v1/addresses/\(path)"
         let queryItems = [
-            NSURLQueryItem(name: "key", value: apiKey),
-            NSURLQueryItem(name: "query", value: query)
-        ]
+            NSURLQueryItem(name: "key", value: apiKey)
+        ] + items
         components.queryItems = queryItems
         return components.URL!
+    }
+
+    private func urlForQuery(query: String) -> NSURL {
+        return urlForPath("find", items: [NSURLQueryItem(name: "query", value: query)])
     }
 }

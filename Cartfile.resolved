@@ -1,4 +1,5 @@
 github "dhardiman/Fetch" "1.0.0"
-github "Quick/Nimble" "v3.1.0"
-github "AliSoftware/OHHTTPStubs" "4.7.1"
-github "OrdnanceSurvey/osjson-ios" "1.1.0"
+github "Quick/Nimble" "v3.2.0"
+github "AliSoftware/OHHTTPStubs" "4.8.0"
+github "OrdnanceSurvey/osjson-ios" "1.1.4"
+github "OrdnanceSurvey/ostransformation-ios" "1.4.0"

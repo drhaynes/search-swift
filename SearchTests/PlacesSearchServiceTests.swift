@@ -10,6 +10,7 @@ import XCTest
 import Nimble
 import Fetch
 import OHHTTPStubs
+import OSTransformation
 @testable import Search
 
 class PlacesSearchServiceTests: XCTestCase {
@@ -47,6 +48,25 @@ class PlacesSearchServiceTests: XCTestCase {
         OHHTTPStubs.removeAllStubs()
     }
 
+    func testItSendsANearestRequestCorrectly() {
+        let testApiKey = "test-key"
+        let testLocation = NSURLQueryItem(name: "point", value: "437293 115515")
+        let service = PlacesSearchService(apiKey: testApiKey)
+
+        let expectation = expectationWithDescription("Request received")
+
+        stub(stubPlacesHttpBlock(testApiKey, path: "nearest", queryItems: [testLocation])) { (request) -> OHHTTPStubsResponse in
+            return OHHTTPStubsResponse(error: stubError())
+        }
+
+        service.nearest(OSGridPoint(easting: 437293, northing: 115515)) { (result) -> Void in
+            expectation.fulfill()
+        }
+
+        waitForExpectationsWithTimeout(1.0, handler: nil)
+        OHHTTPStubs.removeAllStubs()
+    }
+
     func stubFindHttpBlock(apiKey: String, query: String) -> OHHTTPStubsTestBlock {
         let match = isScheme("https") &&
             isHost("api.ordnancesurvey.co.uk") &&
@@ -55,6 +75,15 @@ class PlacesSearchServiceTests: XCTestCase {
                 NSURLQueryItem(name: "key", value: apiKey),
                 NSURLQueryItem(name: "query", value: query)
             ])
+        return match
+    }
+
+    func stubPlacesHttpBlock(apiKey: String, path: String, queryItems: [NSURLQueryItem]) -> OHHTTPStubsTestBlock {
+        let query = [NSURLQueryItem(name: "key", value: apiKey)] + queryItems
+        let match = isScheme("https") &&
+            isHost("api.ordnancesurvey.co.uk") &&
+            isPath("/places/v1/addresses/\(path)") &&
+            containsQueryItems(query)
         return match
     }
 

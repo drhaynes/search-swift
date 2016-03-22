@@ -7,6 +7,7 @@
 //
 
 import Fetch
+import OSTransformation
 
 /**
 *  Objective-C compatible wrapper for PlacesSearchService
@@ -25,16 +26,26 @@ import Fetch
         super.init()
     }
 
+    private func callCompletion(result: Result<Response>, completion: (Response?, NSError?) -> Void) {
+        switch result {
+        case .Success(let response):
+            completion(response, nil)
+        case .Failure(let error as SearchError):
+            completion(nil, nsErrorFromSearchError(error))
+        case.Failure(let error):
+            completion(nil, error as NSError)
+        }
+    }
+
     public func find(query: String, completion: (Response?, NSError?) -> Void) {
         searchService.find(query) { result in
-            switch result {
-            case .Success(let response):
-                completion(response, nil)
-            case .Failure(let error as SearchError):
-                completion(nil, nsErrorFromSearchError(error))
-            case.Failure(let error):
-                completion(nil, error as NSError)
-            }
+            self.callCompletion(result, completion: completion)
+        }
+    }
+
+    public func nearest(location: OSGridPoint, completion: (Response?, NSError?) -> Void) {
+        searchService.nearest(location) { result in
+            self.callCompletion(result, completion: completion)
         }
     }
 

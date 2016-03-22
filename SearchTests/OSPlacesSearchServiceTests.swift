@@ -9,6 +9,7 @@
 import XCTest
 import Nimble
 import Fetch
+import OSTransformation
 @testable import Search
 
 class OSPlacesSearchServiceTests: XCTestCase {
@@ -25,9 +26,15 @@ class OSPlacesSearchServiceTests: XCTestCase {
     class MockSearchService: Searchable {
         var query: String?
         var completionHandler: (Result<Response> -> Void)?
+        var location: OSGridPoint?
 
         func find(query: String, completion: (Result<Response> -> Void)) {
             self.query = query
+            self.completionHandler = completion
+        }
+
+        func nearest(location: OSGridPoint, completion: (Result<Response> -> Void)) {
+            self.location = location
             self.completionHandler = completion
         }
     }
@@ -38,6 +45,15 @@ class OSPlacesSearchServiceTests: XCTestCase {
         osPlacesService.searchService = mockService
         osPlacesService.find("testQuery", completion: { (result) in })
         expect(mockService.query).to(equal("testQuery"))
+        expect(mockService.completionHandler).notTo(beNil())
+    }
+
+    func testNearestCallsTheUnderlyingService() {
+        let mockService = MockSearchService()
+        let osPlacesService = OSPlacesSearchService(apiKey: "test")
+        osPlacesService.searchService = mockService
+        osPlacesService.nearest(OSGridPoint(easting: 1234, northing: 5678), completion: { _ in })
+        expect(OSGridPointEqualToPoint(mockService.location!, OSGridPoint(easting: 1234, northing: 5678))).to(beTrue())
         expect(mockService.completionHandler).notTo(beNil())
     }
 
@@ -60,6 +76,22 @@ class OSPlacesSearchServiceTests: XCTestCase {
         let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
         let response = Result<Response>.Failure(expectedError)
         performErrorTestScenario(response, expectedError: expectedError)
+    }
+
+    func testAnNSErrorIsReturnedForNearest() {
+        let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
+        let result = Result<Response>.Failure(expectedError)
+
+        let mockService = MockSearchService()
+        let osPlacesService = OSPlacesSearchService(apiKey: "test")
+        osPlacesService.searchService = mockService
+        var receivedError: NSError?
+
+        osPlacesService.nearest(OSGridPoint(easting: 1234, northing: 5678)) { (results, error) in
+            receivedError = error
+        }
+        mockService.completionHandler?(result)
+        expect(receivedError).to(equal(expectedError))
     }
 
     func testSearchServiceErrorsAreTranslatedCorrectly() {
