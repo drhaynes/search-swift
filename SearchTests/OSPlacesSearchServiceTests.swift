@@ -78,6 +78,22 @@ class OSPlacesSearchServiceTests: XCTestCase {
         performErrorTestScenario(response, expectedError: expectedError)
     }
 
+    func testAnNSErrorIsReturnedForNearest() {
+        let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
+        let result = Result<Response>.Failure(expectedError)
+
+        let mockService = MockSearchService()
+        let osPlacesService = OSPlacesSearchService(apiKey: "test")
+        osPlacesService.searchService = mockService
+        var receivedError: NSError?
+
+        osPlacesService.nearest(OSGridPoint(easting: 1234, northing: 5678)) { (results, error) in
+            receivedError = error
+        }
+        mockService.completionHandler?(result)
+        expect(receivedError).to(equal(expectedError))
+    }
+
     func testSearchServiceErrorsAreTranslatedCorrectly() {
         let errorCases = [
             SearchError.FailedToDeserialiseJSON,
