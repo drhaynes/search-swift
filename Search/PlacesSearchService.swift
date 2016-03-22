@@ -56,6 +56,8 @@ public enum SearchError: ErrorType {
 public class PlacesSearchService: Searchable {
     let apiKey: String
 
+    let numberFormatter: NSNumberFormatter
+
     /**
      Constructor
 
@@ -63,6 +65,10 @@ public class PlacesSearchService: Searchable {
      */
     public init(apiKey: String) {
         self.apiKey = apiKey
+        numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .NoStyle
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumFractionDigits = 0
     }
 
     /**
@@ -80,7 +86,11 @@ public class PlacesSearchService: Searchable {
     }
 
     public func nearest(location: OSGridPoint, completion: (Result<Response> -> Void)) {
-        let request = Request(url: urlForPath("nearest", items: [NSURLQueryItem(name: "point", value: "\(location.easting) \(location.northing)")]))
+        guard let easting = numberFormatter.stringFromNumber(location.easting),
+            northing = numberFormatter.stringFromNumber(location.northing) else {
+                fatalError("Couldn't convert grid point to string")
+        }
+        let request = Request(url: urlForPath("nearest", items: [NSURLQueryItem(name: "point", value: "\(easting) \(northing)")]))
         get(request) { result in
             completion(result)
         }

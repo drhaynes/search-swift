@@ -50,7 +50,7 @@ class PlacesSearchServiceTests: XCTestCase {
 
     func testItSendsANearestRequestCorrectly() {
         let testApiKey = "test-key"
-        let testLocation = NSURLQueryItem(name: "point", value: "437293%20115515")
+        let testLocation = NSURLQueryItem(name: "point", value: "437293 115515")
         let service = PlacesSearchService(apiKey: testApiKey)
 
         let expectation = expectationWithDescription("Request received")
