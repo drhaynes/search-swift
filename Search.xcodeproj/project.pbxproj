@@ -72,6 +72,8 @@
 		3DEAC4BA1CA2F88A0055E4C6 /* OSTransformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1251CA2F38A0080707D /* OSTransformation.framework */; };
 		3DEAC4BB1CA2F88C0055E4C6 /* OSAPIResponse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1241CA2F38A0080707D /* OSAPIResponse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DEAC4BC1CA2F88C0055E4C6 /* OSTransformation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1251CA2F38A0080707D /* OSTransformation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DF2D2FC1CA31C70009A216D /* OSTransformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1251CA2F38A0080707D /* OSTransformation.framework */; };
+		3DF2D2FD1CA31C72009A216D /* OSTransformation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1251CA2F38A0080707D /* OSTransformation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DF7DA0C1CA30C90008101C8 /* OSAPIResponse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1241CA2F38A0080707D /* OSAPIResponse.framework */; };
 		3DF7DA0D1CA30C94008101C8 /* OSAPIResponse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1241CA2F38A0080707D /* OSAPIResponse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -111,6 +113,7 @@
 				3D69EF291C931B3B004080EA /* OSJSON.framework in Embed Frameworks */,
 				3D0ADE2E1C87096600D4FD37 /* OHHTTPStubs.framework in Embed Frameworks */,
 				3D0ADE321C870A1000D4FD37 /* Fetch.framework in Embed Frameworks */,
+				3DF2D2FD1CA31C72009A216D /* OSTransformation.framework in Embed Frameworks */,
 				3DF7DA0D1CA30C94008101C8 /* OSAPIResponse.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -220,6 +223,7 @@
 				3D0ADE301C870A0100D4FD37 /* Nimble.framework in Frameworks */,
 				3D69EF281C931B36004080EA /* OSJSON.framework in Frameworks */,
 				3D0ADE311C870A0300D4FD37 /* OHHTTPStubs.framework in Frameworks */,
+				3DF2D2FC1CA31C70009A216D /* OSTransformation.framework in Frameworks */,
 				3DF7DA0C1CA30C90008101C8 /* OSAPIResponse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

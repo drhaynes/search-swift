@@ -21,7 +21,6 @@ public final class SearchResponse: Response, Parsable {
 
     public init(results: [SearchResult], header: Header) {
         self.results = results
-        print("init mofo")
         super.init(header: header)
     }
 }
