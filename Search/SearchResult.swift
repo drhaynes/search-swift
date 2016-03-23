@@ -10,7 +10,7 @@ import Foundation
 import OSJSON
 
 @objc(OSSearchResult)
-public class SearchResult: NSObject {
+public class SearchResult: NSObject, Decodable {
 
     // MARK: Properties
     public let language: String
@@ -81,7 +81,7 @@ public class SearchResult: NSObject {
 
 
     //MARK: JSON initialiser
-    convenience init?(json: JSON) {
+    convenience required public init?(json: JSON) {
         guard let language = json.stringValueForKey(SearchResult.LanguageKey),
             rpc = json.stringValueForKey(SearchResult.RpcKey),
             postcode = json.stringValueForKey(SearchResult.PostcodeKey),

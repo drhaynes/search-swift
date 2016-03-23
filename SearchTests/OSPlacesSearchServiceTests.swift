@@ -25,15 +25,15 @@ class OSPlacesSearchServiceTests: XCTestCase {
 
     class MockSearchService: Searchable {
         var query: String?
-        var completionHandler: (Result<Response> -> Void)?
+        var completionHandler: (Result<SearchResponse> -> Void)?
         var location: OSGridPoint?
 
-        func find(query: String, completion: (Result<Response> -> Void)) {
+        func find(query: String, completion: (Result<SearchResponse> -> Void)) {
             self.query = query
             self.completionHandler = completion
         }
 
-        func nearest(location: OSGridPoint, completion: (Result<Response> -> Void)) {
+        func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void)) {
             self.location = location
             self.completionHandler = completion
         }
@@ -57,30 +57,30 @@ class OSPlacesSearchServiceTests: XCTestCase {
         expect(mockService.completionHandler).notTo(beNil())
     }
 
-    func testASuccesfulResponseIsReturned() {
+    func testASuccesfulSearchResponseIsReturned() {
         let data = NSData(contentsOfURL: Bundle().URLForResource("test-response", withExtension: "json")!)!
-        let result = Response.parse(fromData: data, withStatus: 200)
+        let result = SearchResponse.parse(fromData: data, withStatus: 200)
         let mockService = MockSearchService()
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
-        var receivedResponse: Response?
+        var receivedSearchResponse: SearchResponse?
 
         osPlacesService.find("test") { (response, error) in
-            receivedResponse = response
+            receivedSearchResponse = response
         }
         mockService.completionHandler?(result)
-        expect(receivedResponse).notTo(beNil())
+        expect(receivedSearchResponse).notTo(beNil())
     }
 
     func testAnNSErrorIsReturned() {
         let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
-        let response = Result<Response>.Failure(expectedError)
+        let response = Result<SearchResponse>.Failure(expectedError)
         performErrorTestScenario(response, expectedError: expectedError)
     }
 
     func testAnNSErrorIsReturnedForNearest() {
         let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
-        let result = Result<Response>.Failure(expectedError)
+        let result = Result<SearchResponse>.Failure(expectedError)
 
         let mockService = MockSearchService()
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
@@ -104,7 +104,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
         ]
         errorCases.forEach { error in
             let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: nil)
-            let result = Result<Response>.Failure(error)
+            let result = Result<SearchResponse>.Failure(error)
             performErrorTestScenario(result, expectedError: expectedError)
         }
     }
@@ -116,12 +116,12 @@ class OSPlacesSearchServiceTests: XCTestCase {
         ]
         errorCases.forEach { error in
             let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: [ NSLocalizedDescriptionKey: "test description" ])
-            let result = Result<Response>.Failure(error)
+            let result = Result<SearchResponse>.Failure(error)
             performErrorTestScenario(result, expectedError: expectedError)
         }
     }
 
-    func performErrorTestScenario(result: Result<Response>, expectedError: NSError) {
+    func performErrorTestScenario(result: Result<SearchResponse>, expectedError: NSError) {
         let mockService = MockSearchService()
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
