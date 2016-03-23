@@ -90,7 +90,7 @@ public class PlacesSearchService: Searchable {
             northing = numberFormatter.stringFromNumber(location.northing) else {
                 fatalError("Couldn't convert grid point to string")
         }
-        let request = Request(url: urlForPath("nearest", items: [NSURLQueryItem(name: "point", value: "\(easting) \(northing)")]))
+        let request = Request(url: urlForPath("nearest", items: [NSURLQueryItem(name: "point", value: "\(easting),\(northing)")]))
         get(request) { result in
             completion(result)
         }
