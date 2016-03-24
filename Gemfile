@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'slather', "2.0.0"
+gem 'slather', :git => 'https://github.com/SlatherOrg/slather.git', :branch => 'master'
