@@ -1,6 +1,6 @@
 machine:
   xcode:
-    version: "7.2"
+    version: "7.3"
 test:
   override:
     - carthage update --platform iOS --no-use-binaries
@@ -10,4 +10,3 @@ test:
       xcpretty --report html --output $CIRCLE_TEST_REPORTS/results.html --report junit --output $CIRCLE_TEST_REPORTS/results.xml
   post:
     - bundle exec slather
-
