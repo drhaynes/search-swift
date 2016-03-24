@@ -19,7 +19,7 @@ public protocol Searchable {
      - parameter query:      The text to find
      - parameter completion: Completion block to call
      */
-    func find(query: String, completion: (Result<Response> -> Void))
+    func find(query: String, completion: (Result<SearchResponse> -> Void))
 
     /**
      Find the nearest address to the provided grid point. Will find a result
@@ -28,5 +28,5 @@ public protocol Searchable {
      - parameter location:   The location to query
      - parameter completion: Completion block to call
      */
-    func nearest(location: OSGridPoint, completion: (Result<Response> -> Void))
+    func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void))
 }

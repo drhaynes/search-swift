@@ -8,13 +8,14 @@
 
 import XCTest
 import Nimble
+import OSAPIResponse
 @testable import Search
 
 class ResponseParsingTests: XCTestCase {
 
     func testItIsPossibleToParseAResponse() {
         let data = NSData(contentsOfURL: Bundle().URLForResource("test-response", withExtension: "json")!)!
-        let result = Response.parse(fromData: data, withStatus: 200)
+        let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
         case .Success(let response):
             validateResponse(response)
@@ -23,23 +24,8 @@ class ResponseParsingTests: XCTestCase {
         }
     }
 
-    private func validateResponse(response: Response) {
-        validateHeader(response.header)
+    private func validateResponse(response: SearchResponse) {
         validateResults(response.results)
-    }
-
-    private func validateHeader(header: Header) {
-        expect(header.uri).to(equal("https://api.ordnancesurvey.co.uk/places/v1/addresses/find?query=Ordnance%20Survey%2C%20Adanac%20Drive%2C%20SO16&maxresults=1"))
-        expect(header.query).to(equal("query=Ordnance Survey, Adanac Drive, SO16"))
-        expect(header.offset).to(equal(0))
-        expect(header.totalresults).to(equal(1646227))
-        expect(header.format).to(equal("JSON"))
-        expect(header.dataset).to(equal("DPA"))
-        expect(header.lr).to(equal("EN,CY"))
-        expect(header.maxresults).to(equal(1))
-        expect(header.matchprecision).to(equal(1))
-        expect(header.epoch).to(equal("37"))
-        expect(header.outputSrs).to(equal("EPSG:27700"))
     }
 
     private func validateResults(results: [SearchResult]) {
@@ -78,9 +64,9 @@ class ResponseParsingTests: XCTestCase {
 
     func testNoDataReturnsCorrectError() {
         let data: NSData? = nil
-        let result = Response.parse(fromData: data, withStatus: 200)
+        let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
             case .NoDataReceived:
                 break
@@ -94,11 +80,11 @@ class ResponseParsingTests: XCTestCase {
 
     func testNon200HttpResponseReturnsCorrectError() {
         let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response", withExtension: "json")!)!
-        let result = Response.parse(fromData: data, withStatus: 404)
+        let result = SearchResponse.parse(fromData: data, withStatus: 404)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
-            case .UnknownError:
+            case .NotFound:
                 break
             default:
                 fail("Non 200 response should raise correct error.")
@@ -110,9 +96,9 @@ class ResponseParsingTests: XCTestCase {
 
     func testInvalidHeaderJsonReturnsDeserialiseError() {
         let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response-bad-header", withExtension: "json")!)!
-        let result = Response.parse(fromData: data, withStatus: 200)
+        let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
             case .FailedToDeserialiseJSON:
                 break
@@ -126,9 +112,9 @@ class ResponseParsingTests: XCTestCase {
 
     func testInvalidResultsJsonReturnsDeserialiseError() {
         let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response-bad-results", withExtension: "json")!)!
-        let result = Response.parse(fromData: data, withStatus: 200)
+        let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
             case .FailedToDeserialiseJSON:
                 break
@@ -142,9 +128,9 @@ class ResponseParsingTests: XCTestCase {
 
     func testInvalidJsonReturnsParseError() {
         let data: NSData? = NSData(base64EncodedString: "<!:@", options: .IgnoreUnknownCharacters)
-        let result = Response.parse(fromData: data, withStatus: 200)
+        let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
             case .FailedToParseJSON:
                 break
@@ -158,7 +144,7 @@ class ResponseParsingTests: XCTestCase {
 
     func testResponseWithOptionalFieldsParsesCorrectly() {
         let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response-optional-fields", withExtension: "json")!)!
-        let result = Response.parse(fromData: data, withStatus: 200)
+        let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
         case .Success(let response):
             expect(response.results.count).to(equal(3))

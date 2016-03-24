@@ -78,14 +78,14 @@ public class PlacesSearchService: Searchable {
      - parameter query:      The query text to find
      - parameter completion: Completion closure to execute
      */
-    public func find(query: String, completion: (Result<Response> -> Void)) {
+    public func find(query: String, completion: (Result<SearchResponse> -> Void)) {
         let request = Request(url: urlForQuery(query))
         get(request) { (result) in
             completion(result)
         }
     }
 
-    public func nearest(location: OSGridPoint, completion: (Result<Response> -> Void)) {
+    public func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void)) {
         guard let easting = numberFormatter.stringFromNumber(location.easting),
             northing = numberFormatter.stringFromNumber(location.northing) else {
                 fatalError("Couldn't convert grid point to string")

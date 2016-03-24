@@ -26,7 +26,7 @@ import OSTransformation
         super.init()
     }
 
-    private func callCompletion(result: Result<Response>, completion: (Response?, NSError?) -> Void) {
+    private func callCompletion(result: Result<SearchResponse>, completion: (SearchResponse?, NSError?) -> Void) {
         switch result {
         case .Success(let response):
             completion(response, nil)
@@ -37,13 +37,13 @@ import OSTransformation
         }
     }
 
-    public func find(query: String, completion: (Response?, NSError?) -> Void) {
+    public func find(query: String, completion: (SearchResponse?, NSError?) -> Void) {
         searchService.find(query) { result in
             self.callCompletion(result, completion: completion)
         }
     }
 
-    public func nearest(location: OSGridPoint, completion: (Response?, NSError?) -> Void) {
+    public func nearest(location: OSGridPoint, completion: (SearchResponse?, NSError?) -> Void) {
         searchService.nearest(location) { result in
             self.callCompletion(result, completion: completion)
         }

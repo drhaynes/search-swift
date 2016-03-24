@@ -10,7 +10,7 @@ import Foundation
 import OSJSON
 
 @objc(OSSearchResult)
-public class SearchResult: NSObject {
+public class SearchResult: NSObject, Decodable {
 
     // MARK: Properties
     public let language: String
@@ -74,45 +74,40 @@ public class SearchResult: NSObject {
         self.blpuStateDate = blpuStateDate
     }
 
-
-
-
-
-
-
     //MARK: JSON initialiser
-    convenience init?(json: JSON) {
-        guard let language = json.stringValueForKey(SearchResult.LanguageKey),
-            rpc = json.stringValueForKey(SearchResult.RpcKey),
-            postcode = json.stringValueForKey(SearchResult.PostcodeKey),
-            uprn = json.stringValueForKey(SearchResult.UprnKey),
-            matchDescription = json.stringValueForKey(SearchResult.MatchDescriptionKey),
-            status = json.stringValueForKey(SearchResult.StatusKey),
-            blpuStateCodeDescription = json.stringValueForKey(SearchResult.BlpuStateCodeDescriptionKey),
-            address = json.stringValueForKey(SearchResult.AddressKey),
-            postTown = json.stringValueForKey(SearchResult.PostTownKey)
-        else {
-            return nil
+    convenience required public init?(json: JSON) {
+        guard let dpa = json.jsonForKey("DPA"),
+            language = dpa.stringValueForKey(SearchResult.LanguageKey),
+            rpc = dpa.stringValueForKey(SearchResult.RpcKey),
+            postcode = dpa.stringValueForKey(SearchResult.PostcodeKey),
+            uprn = dpa.stringValueForKey(SearchResult.UprnKey),
+            matchDescription = dpa.stringValueForKey(SearchResult.MatchDescriptionKey),
+            status = dpa.stringValueForKey(SearchResult.StatusKey),
+            blpuStateCodeDescription = dpa.stringValueForKey(SearchResult.BlpuStateCodeDescriptionKey),
+            address = dpa.stringValueForKey(SearchResult.AddressKey),
+            postTown = dpa.stringValueForKey(SearchResult.PostTownKey)
+            else {
+                return nil
         }
-        let logicalStatusCode = json.stringValueForKey(SearchResult.LogicalStatusCodeKey)
-        let classificationCodeDescription = json.stringValueForKey(SearchResult.ClassificationCodeDescriptionKey)
-        let classificationCode = json.stringValueForKey(SearchResult.ClassificationCodeKey)
-        let localCustodianCodeDescription = json.stringValueForKey(SearchResult.LocalCustodianCodeDescriptionKey)
-        let postalAddressCode = json.stringValueForKey(SearchResult.PostalAddressCodeKey)
-        let postalAddressCodeDescription = json.stringValueForKey(SearchResult.PostalAddressCodeDescriptionKey)
-        let entryDate = json.stringValueForKey(SearchResult.EntryDateKey)
-        let lastUpdateDate = json.stringValueForKey(SearchResult.LastUpdateDateKey)
-        let topographyLayerToid = json.stringValueForKey(SearchResult.TopographyLayerToidKey)
-        let blpuStateCode = json.stringValueForKey(SearchResult.BlpuStateCodeKey)
-        let blpuStateDate = json.stringValueForKey(SearchResult.BlpuStateDateKey)
-        let organisationName = json.stringValueForKey(SearchResult.OrganisationNameKey)
-        let localCustodianCode = json.intValueForKey(SearchResult.LocalCustodianCodeKey)
-        let xCoordinate = json.floatValueForKey(SearchResult.XCoordinateKey)
-        let match = json.doubleValueForKey(SearchResult.MatchKey)
-        let yCoordinate = json.floatValueForKey(SearchResult.YCoordinateKey)
-        let buildingNumber = json.stringValueForKey(SearchResult.BuildingNumberKey)
-        let dependentLocality = json.stringValueForKey(SearchResult.DependentLocalityKey)
-        let thoroughfareName = json.stringValueForKey(SearchResult.ThoroughfareNameKey)
+        let logicalStatusCode = dpa.stringValueForKey(SearchResult.LogicalStatusCodeKey)
+        let classificationCodeDescription = dpa.stringValueForKey(SearchResult.ClassificationCodeDescriptionKey)
+        let classificationCode = dpa.stringValueForKey(SearchResult.ClassificationCodeKey)
+        let localCustodianCodeDescription = dpa.stringValueForKey(SearchResult.LocalCustodianCodeDescriptionKey)
+        let postalAddressCode = dpa.stringValueForKey(SearchResult.PostalAddressCodeKey)
+        let postalAddressCodeDescription = dpa.stringValueForKey(SearchResult.PostalAddressCodeDescriptionKey)
+        let entryDate = dpa.stringValueForKey(SearchResult.EntryDateKey)
+        let lastUpdateDate = dpa.stringValueForKey(SearchResult.LastUpdateDateKey)
+        let topographyLayerToid = dpa.stringValueForKey(SearchResult.TopographyLayerToidKey)
+        let blpuStateCode = dpa.stringValueForKey(SearchResult.BlpuStateCodeKey)
+        let blpuStateDate = dpa.stringValueForKey(SearchResult.BlpuStateDateKey)
+        let organisationName = dpa.stringValueForKey(SearchResult.OrganisationNameKey)
+        let localCustodianCode = dpa.intValueForKey(SearchResult.LocalCustodianCodeKey)
+        let xCoordinate = dpa.floatValueForKey(SearchResult.XCoordinateKey)
+        let match = dpa.doubleValueForKey(SearchResult.MatchKey)
+        let yCoordinate = dpa.floatValueForKey(SearchResult.YCoordinateKey)
+        let buildingNumber = dpa.stringValueForKey(SearchResult.BuildingNumberKey)
+        let dependentLocality = dpa.stringValueForKey(SearchResult.DependentLocalityKey)
+        let thoroughfareName = dpa.stringValueForKey(SearchResult.ThoroughfareNameKey)
 
         self.init(
             language: language,

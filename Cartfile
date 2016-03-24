@@ -1,3 +1,5 @@
 github "dhardiman/Fetch"
 github "OrdnanceSurvey/osjson-ios"
 github "OrdnanceSurvey/ostransformation-ios"
+github "OrdnanceSurvey/osapiresponse-swift"
+
