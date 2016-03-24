@@ -1,4 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'slather'
-
+gem 'slather', "2.0.0"
