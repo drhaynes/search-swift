@@ -8,6 +8,7 @@
 
 import XCTest
 import Nimble
+import OSAPIResponse
 @testable import Search
 
 class ResponseParsingTests: XCTestCase {
@@ -65,7 +66,7 @@ class ResponseParsingTests: XCTestCase {
         let data: NSData? = nil
         let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
             case .NoDataReceived:
                 break
@@ -81,9 +82,9 @@ class ResponseParsingTests: XCTestCase {
         let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response", withExtension: "json")!)!
         let result = SearchResponse.parse(fromData: data, withStatus: 404)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
-            case .UnknownError:
+            case .NotFound:
                 break
             default:
                 fail("Non 200 response should raise correct error.")
@@ -97,7 +98,7 @@ class ResponseParsingTests: XCTestCase {
         let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response-bad-header", withExtension: "json")!)!
         let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
             case .FailedToDeserialiseJSON:
                 break
@@ -113,7 +114,7 @@ class ResponseParsingTests: XCTestCase {
         let data: NSData? = NSData(contentsOfURL: Bundle().URLForResource("test-response-bad-results", withExtension: "json")!)!
         let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
             case .FailedToDeserialiseJSON:
                 break
@@ -129,7 +130,7 @@ class ResponseParsingTests: XCTestCase {
         let data: NSData? = NSData(base64EncodedString: "<!:@", options: .IgnoreUnknownCharacters)
         let result = SearchResponse.parse(fromData: data, withStatus: 200)
         switch result {
-        case .Failure(let error as SearchError):
+        case .Failure(let error as ResponseError):
             switch error {
             case .FailedToParseJSON:
                 break

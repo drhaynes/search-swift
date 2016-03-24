@@ -3,7 +3,6 @@
         "uri" : "https://api.ordnancesurvey.co.uk/places/v1/addresses/find?query=Ordnance%20Survey%2C%20Adanac%20Drive%2C%20SO16&maxresults=1",
         "offset" : 0,
         "totalresults" : 1646227,
-        "format" : "JSON",
         "dataset" : "DPA",
         "lr" : "EN,CY",
         "maxresults" : 1,
