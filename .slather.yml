@@ -1,6 +1,7 @@
 coverage_service: coveralls
 ci_service: circleci
 xcodeproj: Search.xcodeproj
+scheme: Search
 ignore:
   - Carthage/*
   - SearchExampleSwift/*
