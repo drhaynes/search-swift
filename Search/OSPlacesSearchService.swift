@@ -10,12 +10,20 @@ import Fetch
 import OSTransformation
 import OSAPIResponse
 
+protocol PlacesService {
+    func find(query: String, completion: (Result<SearchResponse> -> Void))
+
+    func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void))
+}
+
+extension PlacesSearchService: PlacesService {}
+
 /**
 *  Objective-C compatible wrapper for PlacesSearchService
 */
 @objc public class OSPlacesSearchService: NSObject {
 
-    var searchService: PlacesSearchService
+    var searchService: PlacesService
 
     /**
      Initialiser
