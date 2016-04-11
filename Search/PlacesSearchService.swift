@@ -13,8 +13,6 @@ import OSTransformation
 public class PlacesSearchService: Searchable {
     let apiKey: String
 
-    let numberFormatter: NSNumberFormatter
-
     /**
      Constructor
 
@@ -22,10 +20,6 @@ public class PlacesSearchService: Searchable {
      */
     public init(apiKey: String) {
         self.apiKey = apiKey
-        numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .NoStyle
-        numberFormatter.maximumFractionDigits = 2
-        numberFormatter.minimumFractionDigits = 0
     }
 
     /**
@@ -43,8 +37,8 @@ public class PlacesSearchService: Searchable {
     }
 
     public func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void)) {
-        guard let easting = numberFormatter.stringFromNumber(location.easting),
-            northing = numberFormatter.stringFromNumber(location.northing) else {
+        guard let easting = NumberFormatter.stringFromNumber(location.easting),
+            northing = NumberFormatter.stringFromNumber(location.northing) else {
                 fatalError("Couldn't convert grid point to string")
         }
         let request = Request(url: urlForPath("nearest", items: [NSURLQueryItem(name: "point", value: "\(easting),\(northing)")]))

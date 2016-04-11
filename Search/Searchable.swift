@@ -45,5 +45,5 @@ public protocol BoundingBoxSearchable: Searchable {
      - parameter boundingBox: The bounding box to search within
      - parameter completion:  Completion block to call
      */
-    func find(query: String, boundingBox: OSBoundingBox, completion: (Result<ResponseType> -> Void))
+    func find(query: String, boundingBox: OSGridRect, completion: (Result<ResponseType> -> Void))
 }

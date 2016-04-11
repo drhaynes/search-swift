@@ -78,6 +78,9 @@
 		45316D5A1CBBA189002B7126 /* GazetteerEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D591CBBA189002B7126 /* GazetteerEntry.swift */; };
 		45316D5C1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D5B1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift */; };
 		45316D5E1CBBC5C0002B7126 /* opennamesresponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 45316D5D1CBBC5C0002B7126 /* opennamesresponse.json */; };
+		45316D601CBBCB3B002B7126 /* OpenNamesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D5F1CBBCB3B002B7126 /* OpenNamesSearchService.swift */; };
+		45316D621CBBDBBE002B7126 /* OpenNamesSearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D611CBBDBBE002B7126 /* OpenNamesSearchServiceTests.swift */; };
+		45316D641CBBE17A002B7126 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D631CBBE17A002B7126 /* NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +208,9 @@
 		45316D591CBBA189002B7126 /* GazetteerEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GazetteerEntry.swift; sourceTree = "<group>"; };
 		45316D5B1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OpenNamesResponse+Parsing.swift"; sourceTree = "<group>"; };
 		45316D5D1CBBC5C0002B7126 /* opennamesresponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = opennamesresponse.json; sourceTree = "<group>"; };
+		45316D5F1CBBCB3B002B7126 /* OpenNamesSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenNamesSearchService.swift; sourceTree = "<group>"; };
+		45316D611CBBDBBE002B7126 /* OpenNamesSearchServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenNamesSearchServiceTests.swift; sourceTree = "<group>"; };
+		45316D631CBBE17A002B7126 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,8 +315,10 @@
 			isa = PBXGroup;
 			children = (
 				3D5929D31C7F41E900B3CECC /* Search.h */,
+				45316D631CBBE17A002B7126 /* NumberFormatter.swift */,
 				3D69EEF01C91849D004080EA /* PlacesSearchService.swift */,
 				3D7964AA1C99B1B10081C6B4 /* OSPlacesSearchService.swift */,
+				45316D5F1CBBCB3B002B7126 /* OpenNamesSearchService.swift */,
 				3D0ADE111C85C95F00D4FD37 /* Response Model */,
 				3D7964AC1C99B35C0081C6B4 /* Searchable.swift */,
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
@@ -324,6 +332,7 @@
 			children = (
 				3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */,
 				3D69EEF21C918595004080EA /* PlacesSearchServiceTests.swift */,
+				45316D611CBBDBBE002B7126 /* OpenNamesSearchServiceTests.swift */,
 				3D7964A71C99B0F50081C6B4 /* OSPlacesSearchServiceTests.swift */,
 				3D7964A91C99B1000081C6B4 /* Fixtures */,
 				3D5929E11C7F41E900B3CECC /* Info.plist */,
@@ -576,7 +585,9 @@
 				3D69EEF11C91849D004080EA /* PlacesSearchService.swift in Sources */,
 				45316D5C1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift in Sources */,
 				45316D5A1CBBA189002B7126 /* GazetteerEntry.swift in Sources */,
+				45316D601CBBCB3B002B7126 /* OpenNamesSearchService.swift in Sources */,
 				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
+				45316D641CBBE17A002B7126 /* NumberFormatter.swift in Sources */,
 				3D7964AD1C99B35C0081C6B4 /* Searchable.swift in Sources */,
 				45316D581CBBA17C002B7126 /* OpenNamesResponse.swift in Sources */,
 				3D69EF201C93199E004080EA /* SearchResult.swift in Sources */,
@@ -591,6 +602,7 @@
 				3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */,
 				3D69EEF31C918595004080EA /* PlacesSearchServiceTests.swift in Sources */,
 				3D7964A81C99B0F50081C6B4 /* OSPlacesSearchServiceTests.swift in Sources */,
+				45316D621CBBDBBE002B7126 /* OpenNamesSearchServiceTests.swift in Sources */,
 				3D0ADE361C873F6A00D4FD37 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
