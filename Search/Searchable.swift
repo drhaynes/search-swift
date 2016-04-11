@@ -15,6 +15,12 @@ import OSTransformation
  */
 public protocol Searchable {
     associatedtype ResponseType: Response
+
+    /// The API key to use
+    var apiKey: String { get }
+    /// The path to use within the API
+    var apiPath: String { get }
+
     /**
      Find the text specified
 

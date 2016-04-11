@@ -81,6 +81,7 @@
 		45316D601CBBCB3B002B7126 /* OpenNamesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D5F1CBBCB3B002B7126 /* OpenNamesSearchService.swift */; };
 		45316D621CBBDBBE002B7126 /* OpenNamesSearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D611CBBDBBE002B7126 /* OpenNamesSearchServiceTests.swift */; };
 		45316D641CBBE17A002B7126 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D631CBBE17A002B7126 /* NumberFormatter.swift */; };
+		45316D661CBBF04F002B7126 /* Searchable+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D651CBBF04F002B7126 /* Searchable+Implementation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		45316D5F1CBBCB3B002B7126 /* OpenNamesSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenNamesSearchService.swift; sourceTree = "<group>"; };
 		45316D611CBBDBBE002B7126 /* OpenNamesSearchServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenNamesSearchServiceTests.swift; sourceTree = "<group>"; };
 		45316D631CBBE17A002B7126 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		45316D651CBBF04F002B7126 /* Searchable+Implementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Searchable+Implementation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +323,7 @@
 				45316D5F1CBBCB3B002B7126 /* OpenNamesSearchService.swift */,
 				3D0ADE111C85C95F00D4FD37 /* Response Model */,
 				3D7964AC1C99B35C0081C6B4 /* Searchable.swift */,
+				45316D651CBBF04F002B7126 /* Searchable+Implementation.swift */,
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
 				3D53F1281CA2F38F0080707D /* Frameworks */,
 			);
@@ -586,6 +589,7 @@
 				45316D5C1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift in Sources */,
 				45316D5A1CBBA189002B7126 /* GazetteerEntry.swift in Sources */,
 				45316D601CBBCB3B002B7126 /* OpenNamesSearchService.swift in Sources */,
+				45316D661CBBF04F002B7126 /* Searchable+Implementation.swift in Sources */,
 				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
 				45316D641CBBE17A002B7126 /* NumberFormatter.swift in Sources */,
 				3D7964AD1C99B35C0081C6B4 /* Searchable.swift in Sources */,

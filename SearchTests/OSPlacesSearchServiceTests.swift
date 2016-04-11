@@ -26,12 +26,12 @@ class OSPlacesSearchServiceTests: XCTestCase {
         var completionHandler: (Result<SearchResponse> -> Void)?
         var location: OSGridPoint?
 
-        override func find(query: String, completion: (Result<SearchResponse> -> Void)) {
+        func find(query: String, completion: (Result<SearchResponse> -> Void)) {
             self.query = query
             self.completionHandler = completion
         }
 
-        override func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void)) {
+        func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void)) {
             self.location = location
             self.completionHandler = completion
         }

@@ -11,7 +11,10 @@ import OSTransformation
 
 /// Service for consuming the OS Places API
 public class PlacesSearchService: Searchable {
-    let apiKey: String
+    public let apiKey: String
+    public let apiPath: String = "places/v1/addresses"
+
+    public typealias ResponseType = SearchResponse
 
     /**
      Constructor
@@ -22,44 +25,4 @@ public class PlacesSearchService: Searchable {
         self.apiKey = apiKey
     }
 
-    /**
-     Find using the free text specificed.
-     Documentation can be found at: https://apidocs.os.uk/docs/os-places-find
-
-     - parameter query:      The query text to find
-     - parameter completion: Completion closure to execute
-     */
-    public func find(query: String, completion: (Result<SearchResponse> -> Void)) {
-        let request = Request(url: urlForQuery(query))
-        get(request) { (result) in
-            completion(result)
-        }
-    }
-
-    public func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void)) {
-        guard let easting = NumberFormatter.stringFromNumber(location.easting),
-            northing = NumberFormatter.stringFromNumber(location.northing) else {
-                fatalError("Couldn't convert grid point to string")
-        }
-        let request = Request(url: urlForPath("nearest", items: [NSURLQueryItem(name: "point", value: "\(easting),\(northing)")]))
-        get(request) { result in
-            completion(result)
-        }
-    }
-
-    private func urlForPath(path: String, items: [NSURLQueryItem]) -> NSURL {
-        let components = NSURLComponents()
-        components.scheme = "https"
-        components.host = "api.ordnancesurvey.co.uk"
-        components.path = "/places/v1/addresses/\(path)"
-        let queryItems = [
-            NSURLQueryItem(name: "key", value: apiKey)
-        ] + items
-        components.queryItems = queryItems
-        return components.URL!
-    }
-
-    private func urlForQuery(query: String) -> NSURL {
-        return urlForPath("find", items: [NSURLQueryItem(name: "query", value: query)])
-    }
 }
