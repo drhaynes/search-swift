@@ -76,6 +76,10 @@
 		3DF2D2FD1CA31C72009A216D /* OSTransformation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1251CA2F38A0080707D /* OSTransformation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DF7DA0C1CA30C90008101C8 /* OSAPIResponse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1241CA2F38A0080707D /* OSAPIResponse.framework */; };
 		3DF7DA0D1CA30C94008101C8 /* OSAPIResponse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1241CA2F38A0080707D /* OSAPIResponse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45316D581CBBA17C002B7126 /* OpenNamesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D571CBBA17C002B7126 /* OpenNamesResponse.swift */; };
+		45316D5A1CBBA189002B7126 /* GazetteerEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D591CBBA189002B7126 /* GazetteerEntry.swift */; };
+		45316D5C1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45316D5B1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift */; };
+		45316D5E1CBBC5C0002B7126 /* opennamesresponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 45316D5D1CBBC5C0002B7126 /* opennamesresponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +205,10 @@
 		3DC343F71C9AD649003D7F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DC343FB1C9AD92F003D7F09 /* OSResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSResultsViewController.h; sourceTree = "<group>"; };
 		3DC343FC1C9AD92F003D7F09 /* OSResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSResultsViewController.m; sourceTree = "<group>"; };
+		45316D571CBBA17C002B7126 /* OpenNamesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenNamesResponse.swift; sourceTree = "<group>"; };
+		45316D591CBBA189002B7126 /* GazetteerEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GazetteerEntry.swift; sourceTree = "<group>"; };
+		45316D5B1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OpenNamesResponse+Parsing.swift"; sourceTree = "<group>"; };
+		45316D5D1CBBC5C0002B7126 /* opennamesresponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = opennamesresponse.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +269,9 @@
 				3D69EF1C1C93199E004080EA /* SearchResult.swift */,
 				3D69EF1E1C93199E004080EA /* SearchResponse.swift */,
 				3D0ADE331C873E3400D4FD37 /* Response+Parsing.swift */,
+				45316D571CBBA17C002B7126 /* OpenNamesResponse.swift */,
+				45316D591CBBA189002B7126 /* GazetteerEntry.swift */,
+				45316D5B1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift */,
 			);
 			name = "Response Model";
 			sourceTree = "<group>";
@@ -352,6 +363,7 @@
 				3D7964A51C9970CB0081C6B4 /* test-response-optional-fields.json */,
 				3DB367021C8F182C000C2C7B /* 100-results.json */,
 				3D0ADE351C873F6A00D4FD37 /* TestHelpers.swift */,
+				45316D5D1CBBC5C0002B7126 /* opennamesresponse.json */,
 			);
 			name = Fixtures;
 			sourceTree = "<group>";
@@ -534,6 +546,7 @@
 				3DB366FF1C8F103E000C2C7B /* test-response-bad-header.json in Resources */,
 				3DB367011C8F1089000C2C7B /* test-response-bad-results.json in Resources */,
 				3D7964A61C9970CB0081C6B4 /* test-response-optional-fields.json in Resources */,
+				45316D5E1CBBC5C0002B7126 /* opennamesresponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,9 +581,12 @@
 			files = (
 				3D7964AB1C99B1B10081C6B4 /* OSPlacesSearchService.swift in Sources */,
 				3D69EEF11C91849D004080EA /* PlacesSearchService.swift in Sources */,
+				45316D5C1CBBA1D9002B7126 /* OpenNamesResponse+Parsing.swift in Sources */,
+				45316D5A1CBBA189002B7126 /* GazetteerEntry.swift in Sources */,
 				3D0ADE341C873E3400D4FD37 /* Response+Parsing.swift in Sources */,
 				3DC343DF1C9AAFE5003D7F09 /* OSSearchError.m in Sources */,
 				3D7964AD1C99B35C0081C6B4 /* Searchable.swift in Sources */,
+				45316D581CBBA17C002B7126 /* OpenNamesResponse.swift in Sources */,
 				3D69EF201C93199E004080EA /* SearchResult.swift in Sources */,
 				3D69EF221C93199E004080EA /* SearchResponse.swift in Sources */,
 			);

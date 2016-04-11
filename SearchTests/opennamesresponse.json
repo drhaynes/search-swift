@@ -1,0 +1,43 @@
+{
+  "header": {
+    "uri": "https://api.ordnancesurvey.co.uk/opennames/v1/nearest?point=437283.53%2C115391.88",
+    "query": "point=437283.53,115391.88 radius=100",
+    "format": "JSON",
+    "maxresults": 1,
+    "offset": 0,
+    "totalresults": 1
+  },
+  "results": [
+    {
+      "GAZETTEER_ENTRY": {
+        "ID": "osgb4000000023852685",
+        "NAMES_URI": "http://data.ordnancesurvey.co.uk/id/osgb4000000023852685",
+        "NAME1": "Adanac Drive",
+        "TYPE": "transportNetwork",
+        "LOCAL_TYPE": "Named Road",
+        "GEOMETRY_X": 437283.534,
+        "GEOMETRY_Y": 115391.881,
+        "MOST_DETAIL_VIEW_RES": 4000,
+        "LEAST_DETAIL_VIEW_RES": 20000,
+        "MBR_XMIN": 437157.31,
+        "MBR_YMIN": 115103.252,
+        "MBR_XMAX": 437400.826,
+        "MBR_YMAX": 115647.684,
+        "POSTCODE_DISTRICT": "SO16",
+        "POSTCODE_DISTRICT_URI": "http://data.ordnancesurvey.co.uk/id/postcodedistrict/SO16",
+        "POPULATED_PLACE": "Nursling",
+        "POPULATED_PLACE_URI": "http://data.ordnancesurvey.co.uk/id/4000000074566646",
+        "DISTRICT_BOROUGH": "Test Valley",
+        "DISTRICT_BOROUGH_URI": "http://data.ordnancesurvey.co.uk/id/7000000000043511",
+        "DISTRICT_BOROUGH_TYPE": "http://data.ordnancesurvey.co.uk/ontology/admingeo/District",
+        "COUNTY_UNITARY": "Hampshire",
+        "COUNTY_UNITARY_URI": "http://data.ordnancesurvey.co.uk/id/7000000000017765",
+        "COUNTY_UNITARY_TYPE": "http://data.ordnancesurvey.co.uk/ontology/admingeo/County",
+        "REGION": "South East",
+        "REGION_URI": "http://data.ordnancesurvey.co.uk/id/7000000000041421",
+        "COUNTRY": "England",
+        "COUNTRY_URI": "http://data.ordnancesurvey.co.uk/id/country/england"
+      }
+    }
+  ]
+}
