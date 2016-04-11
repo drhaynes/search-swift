@@ -10,8 +10,8 @@ import Fetch
 import OSTransformation
 
 /**
-*  Searchable protocol
-*/
+ *  Searchable protocol
+ */
 public protocol Searchable {
     /**
      Find the text specified
@@ -29,4 +29,19 @@ public protocol Searchable {
      - parameter completion: Completion block to call
      */
     func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void))
+}
+
+/**
+ *  Extension to the searchable protocol that allows for a find query that 
+ *  prioritises results within the specified bounding box
+ */
+public protocol BoundingBoxSearchable: Searchable {
+    /**
+     Find the specified text, prioritising results within the bounding box
+
+     - parameter query:       The text to find
+     - parameter boundingBox: The bounding box to search within
+     - parameter completion:  Completion block to call
+     */
+    func find(query: String, boundingBox: OSBoundingBox, completion: (Result<SearchResponse> -> Void))
 }
