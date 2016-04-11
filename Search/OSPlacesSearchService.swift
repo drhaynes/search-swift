@@ -8,6 +8,7 @@
 
 import Fetch
 import OSTransformation
+import OSAPIResponse
 
 /**
 *  Objective-C compatible wrapper for PlacesSearchService
@@ -30,8 +31,8 @@ import OSTransformation
         switch result {
         case .Success(let response):
             completion(response, nil)
-        case .Failure(let error as SearchError):
-            completion(nil, nsErrorFromSearchError(error))
+        case .Failure(let error as ResponseError):
+            completion(nil, error.toNSError())
         case.Failure(let error):
             completion(nil, error as NSError)
         }
@@ -49,17 +50,4 @@ import OSTransformation
         }
     }
 
-}
-
-private func nsErrorFromSearchError(error: SearchError) -> NSError {
-    let info: [String : String]?
-    switch error {
-    case .BadRequest(let description):
-        info = [NSLocalizedDescriptionKey: description]
-    case .ServerError(let description):
-        info = [NSLocalizedDescriptionKey: description]
-    default:
-        info = nil
-    }
-    return NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: info)
 }

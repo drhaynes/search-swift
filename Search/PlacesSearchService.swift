@@ -9,49 +9,6 @@
 import Fetch
 import OSTransformation
 
-/**
- */
-
- /**
- Errors returned when executing a search
-
- - NoDataReceived:          No data received from the server.
- - Unauthorised:            Unauthorised request for this API key.
- - BadRequest:              Request was not properly formed, see localised desctription for detail.
- - ServerError:             The server has returned an error. See localised desctription for detail.
- - FailedToParseJSON:       JSON parsing has failed, likely due to invalid JSON.
- - FailedToDeserialiseJSON: JSON was valid, but cannot be deserialised.
- - UnknownError:            An error has occured which is none of the above.
- */
-public enum SearchError: ErrorType {
-    case NoDataReceived
-    case Unauthorised
-    case BadRequest(String)
-    case ServerError(String)
-    case FailedToParseJSON
-    case FailedToDeserialiseJSON
-    case UnknownError
-
-    public func rawValue() -> Int {
-        switch self {
-        case .NoDataReceived:
-            return OSSearchErrorNoDataReceived
-        case .Unauthorised:
-            return OSSearchErrorUnauthorised
-        case .BadRequest:
-            return OSSearchErrorBadRequest
-        case .ServerError:
-            return OSSearchErrorServerError
-        case .FailedToDeserialiseJSON:
-            return OSSearchErrorFailedToDeserialiseJSON
-        case .FailedToParseJSON:
-            return OSSearchErrorFailedToParseJSON
-        case .UnknownError:
-            return OSSearchErrorUnknownError
-        }
-    }
-}
-
 /// Service for consuming the OS Places API
 public class PlacesSearchService: Searchable {
     let apiKey: String
