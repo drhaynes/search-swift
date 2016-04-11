@@ -15,7 +15,7 @@ import OSAPIResponse
 */
 @objc public class OSPlacesSearchService: NSObject {
 
-    var searchService: Searchable
+    var searchService: PlacesSearchService
 
     /**
      Initialiser

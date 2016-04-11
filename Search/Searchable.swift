@@ -7,19 +7,21 @@
 //
 
 import Fetch
+import OSAPIResponse
 import OSTransformation
 
 /**
  *  Searchable protocol
  */
 public protocol Searchable {
+    associatedtype ResponseType: Response
     /**
      Find the text specified
 
      - parameter query:      The text to find
      - parameter completion: Completion block to call
      */
-    func find(query: String, completion: (Result<SearchResponse> -> Void))
+    func find(query: String, completion: (Result<ResponseType> -> Void))
 
     /**
      Find the nearest address to the provided grid point. Will find a result
@@ -28,7 +30,7 @@ public protocol Searchable {
      - parameter location:   The location to query
      - parameter completion: Completion block to call
      */
-    func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void))
+    func nearest(location: OSGridPoint, completion: (Result<ResponseType> -> Void))
 }
 
 /**
@@ -43,5 +45,5 @@ public protocol BoundingBoxSearchable: Searchable {
      - parameter boundingBox: The bounding box to search within
      - parameter completion:  Completion block to call
      */
-    func find(query: String, boundingBox: OSBoundingBox, completion: (Result<SearchResponse> -> Void))
+    func find(query: String, boundingBox: OSBoundingBox, completion: (Result<ResponseType> -> Void))
 }

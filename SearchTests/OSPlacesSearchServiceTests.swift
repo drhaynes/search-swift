@@ -17,31 +17,28 @@ class OSPlacesSearchServiceTests: XCTestCase {
 
     func testItHasABackingSearchService() {
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
-        guard let searchService = osPlacesService.searchService as? PlacesSearchService else {
-            fail("Incorrect search service type")
-            return
-        }
+        let searchService = osPlacesService.searchService
         expect(searchService.apiKey).to(equal("test"))
     }
 
-    class MockSearchService: Searchable {
+    class MockSearchService: PlacesSearchService {
         var query: String?
         var completionHandler: (Result<SearchResponse> -> Void)?
         var location: OSGridPoint?
 
-        func find(query: String, completion: (Result<SearchResponse> -> Void)) {
+        override func find(query: String, completion: (Result<SearchResponse> -> Void)) {
             self.query = query
             self.completionHandler = completion
         }
 
-        func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void)) {
+        override func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void)) {
             self.location = location
             self.completionHandler = completion
         }
     }
 
     func testTheServiceCallsTheUnderlyingService() {
-        let mockService = MockSearchService()
+        let mockService = MockSearchService(apiKey: "test")
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
         osPlacesService.find("testQuery", completion: { (result) in })
@@ -50,7 +47,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
     }
 
     func testNearestCallsTheUnderlyingService() {
-        let mockService = MockSearchService()
+        let mockService = MockSearchService(apiKey: "test")
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
         osPlacesService.nearest(OSGridPoint(easting: 1234, northing: 5678), completion: { _ in })
@@ -61,7 +58,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
     func testASuccesfulSearchResponseIsReturned() {
         let data = NSData(contentsOfURL: Bundle().URLForResource("test-response", withExtension: "json")!)!
         let result = SearchResponse.parse(fromData: data, withStatus: 200)
-        let mockService = MockSearchService()
+        let mockService = MockSearchService(apiKey: "test")
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
         var receivedSearchResponse: SearchResponse?
@@ -83,7 +80,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
         let expectedError = NSError(domain: "test.domain", code: 123, userInfo: nil)
         let result = Result<SearchResponse>.Failure(expectedError)
 
-        let mockService = MockSearchService()
+        let mockService = MockSearchService(apiKey: "test")
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
         var receivedError: NSError?
@@ -123,7 +120,7 @@ class OSPlacesSearchServiceTests: XCTestCase {
     }
 
     func performErrorTestScenario(result: Result<SearchResponse>, expectedError: NSError) {
-        let mockService = MockSearchService()
+        let mockService = MockSearchService(apiKey: "test")
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         osPlacesService.searchService = mockService
         var receivedError: NSError?
