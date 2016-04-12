@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, OSSearchResultsScope) {
+    OSSearchResultsScopePlaces,
+    OSSearchResultsScopeOpenNames
+};
+
 @interface OSResultsViewController : UITableViewController
 
-- (void)search:(NSString *)text;
+- (void)search:(NSString *)text scope:(OSSearchResultsScope)scope;
 
 @end

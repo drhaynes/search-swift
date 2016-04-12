@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "OSResultsViewController.h"
 
-@interface ViewController() <UISearchResultsUpdating>
+@interface ViewController ()<UISearchResultsUpdating>
 
 @property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) OSResultsViewController *resultsViewController;
@@ -24,6 +24,7 @@
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsViewController];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = YES;
+    self.searchController.searchBar.scopeButtonTitles = @[ @"OS Places", @"OS Open Names" ];
     [self.view addSubview:self.searchController.searchBar];
 }
 
@@ -32,7 +33,7 @@
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    [self.resultsViewController search:searchController.searchBar.text];
+    [self.resultsViewController search:searchController.searchBar.text scope:searchController.searchBar.selectedScopeButtonIndex];
 }
 
 - (BOOL)prefersStatusBarHidden {
