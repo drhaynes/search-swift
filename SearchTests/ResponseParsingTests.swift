@@ -154,4 +154,43 @@ class ResponseParsingTests: XCTestCase {
 
     }
 
+    func testItIsPossibleToParseAnOpenNamesResponse() {
+        let data = NSData(contentsOfURL: Bundle().URLForResource("opennamesresponse", withExtension: "json")!)!
+        let result = OpenNamesResponse.parse(fromData: data, withStatus: 200)
+        switch result {
+        case .Success(let response):
+            expect(response.results).to(haveCount(1))
+            let result = response.results.first!
+            expect(result.id).to(equal("osgb4000000023852685"))
+            expect(result.namesUri).to(equal("http://data.ordnancesurvey.co.uk/id/osgb4000000023852685"))
+            expect(result.name1).to(equal("Adanac Drive"))
+            expect(result.type).to(equal("transportNetwork"))
+            expect(result.localType).to(equal("Named Road"))
+            expect(result.geometryX).to(equal(437283.534))
+            expect(result.geometryY).to(equal(115391.881))
+            expect(result.mostDetailViewRes).to(equal(4000))
+            expect(result.leastDetailViewRes).to(equal(20000))
+            expect(result.mbrXmin).to(equal(437157.31))
+            expect(result.mbrYmin).to(equal(115103.252))
+            expect(result.mbrXmax).to(equal(437400.826))
+            expect(result.mbrYmax).to(equal(115647.684))
+            expect(result.postcodeDistrict).to(equal("SO16"))
+            expect(result.postcodeDistrictUri).to(equal("http://data.ordnancesurvey.co.uk/id/postcodedistrict/SO16"))
+            expect(result.populatedPlace).to(equal("Nursling"))
+            expect(result.populatedPlaceUri).to(equal("http://data.ordnancesurvey.co.uk/id/4000000074566646"))
+            expect(result.districtBorough).to(equal("Test Valley"))
+            expect(result.districtBoroughUri).to(equal("http://data.ordnancesurvey.co.uk/id/7000000000043511"))
+            expect(result.districtBoroughType).to(equal("http://data.ordnancesurvey.co.uk/ontology/admingeo/District"))
+            expect(result.countyUnitary).to(equal("Hampshire"))
+            expect(result.countyUnitaryUri).to(equal("http://data.ordnancesurvey.co.uk/id/7000000000017765"))
+            expect(result.countyUnitaryType).to(equal("http://data.ordnancesurvey.co.uk/ontology/admingeo/County"))
+            expect(result.region).to(equal("South East"))
+            expect(result.regionUri).to(equal("http://data.ordnancesurvey.co.uk/id/7000000000041421"))
+            expect(result.country).to(equal("England"))
+            expect(result.countryUri).to(equal("http://data.ordnancesurvey.co.uk/id/country/england"))
+        default:
+            fail("Unexpected result")
+        }
+
+    }
 }

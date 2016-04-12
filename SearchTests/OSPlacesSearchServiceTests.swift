@@ -10,6 +10,7 @@ import XCTest
 import Nimble
 import Fetch
 import OSTransformation
+import OSAPIResponse
 @testable import Search
 
 class OSPlacesSearchServiceTests: XCTestCase {
@@ -17,13 +18,13 @@ class OSPlacesSearchServiceTests: XCTestCase {
     func testItHasABackingSearchService() {
         let osPlacesService = OSPlacesSearchService(apiKey: "test")
         guard let searchService = osPlacesService.searchService as? PlacesSearchService else {
-            fail("Incorrect search service type")
+            fail("Expected a search service")
             return
         }
         expect(searchService.apiKey).to(equal("test"))
     }
 
-    class MockSearchService: Searchable {
+    class MockSearchService: PlacesService {
         var query: String?
         var completionHandler: (Result<SearchResponse> -> Void)?
         var location: OSGridPoint?
@@ -96,14 +97,13 @@ class OSPlacesSearchServiceTests: XCTestCase {
 
     func testSearchServiceErrorsAreTranslatedCorrectly() {
         let errorCases = [
-            SearchError.FailedToDeserialiseJSON,
-            SearchError.FailedToParseJSON,
-            SearchError.NoDataReceived,
-            SearchError.Unauthorised,
-            SearchError.UnknownError
+            ResponseError.FailedToDeserialiseJSON,
+            ResponseError.FailedToParseJSON,
+            ResponseError.NoDataReceived,
+            ResponseError.UnknownError
         ]
         errorCases.forEach { error in
-            let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: nil)
+            let expectedError = error.toNSError()
             let result = Result<SearchResponse>.Failure(error)
             performErrorTestScenario(result, expectedError: expectedError)
         }
@@ -111,11 +111,12 @@ class OSPlacesSearchServiceTests: XCTestCase {
 
     func testSearchServiceErrorsWithMessagesAreTranslatedCorrectly() {
         let errorCases = [
-            SearchError.BadRequest("test description"),
-            SearchError.ServerError("test description")
+            ResponseError.BadRequest("test description"),
+            ResponseError.ServerError("test description"),
+            ResponseError.Unauthorised("unauthorised"),
         ]
         errorCases.forEach { error in
-            let expectedError = NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: [ NSLocalizedDescriptionKey: "test description" ])
+            let expectedError = error.toNSError()
             let result = Result<SearchResponse>.Failure(error)
             performErrorTestScenario(result, expectedError: expectedError)
         }

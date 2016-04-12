@@ -8,13 +8,22 @@
 
 import Fetch
 import OSTransformation
+import OSAPIResponse
+
+protocol PlacesService {
+    func find(query: String, completion: (Result<SearchResponse> -> Void))
+
+    func nearest(location: OSGridPoint, completion: (Result<SearchResponse> -> Void))
+}
+
+extension PlacesSearchService: PlacesService {}
 
 /**
 *  Objective-C compatible wrapper for PlacesSearchService
 */
 @objc public class OSPlacesSearchService: NSObject {
 
-    var searchService: Searchable
+    var searchService: PlacesService
 
     /**
      Initialiser
@@ -30,8 +39,8 @@ import OSTransformation
         switch result {
         case .Success(let response):
             completion(response, nil)
-        case .Failure(let error as SearchError):
-            completion(nil, nsErrorFromSearchError(error))
+        case .Failure(let error as ResponseError):
+            completion(nil, error.toNSError())
         case.Failure(let error):
             completion(nil, error as NSError)
         }
@@ -49,17 +58,4 @@ import OSTransformation
         }
     }
 
-}
-
-private func nsErrorFromSearchError(error: SearchError) -> NSError {
-    let info: [String : String]?
-    switch error {
-    case .BadRequest(let description):
-        info = [NSLocalizedDescriptionKey: description]
-    case .ServerError(let description):
-        info = [NSLocalizedDescriptionKey: description]
-    default:
-        info = nil
-    }
-    return NSError(domain: OSSearchErrorDomain, code: error.rawValue(), userInfo: info)
 }

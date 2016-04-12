@@ -1,20 +1,21 @@
 //
-//  SearchService.swift
+//  OpenNamesSearchService.swift
 //  Search
 //
-//  Created by David Haynes on 10/03/2016.
+//  Created by Dave Hardiman on 11/04/2016.
 //  Copyright © 2016 Ordnance Survey. All rights reserved.
 //
 
-import Fetch
 import OSTransformation
+import Foundation
+import Fetch
 
-/// Service for consuming the OS Places API
-public class PlacesSearchService: Searchable {
+public class OpenNamesSearchService: BoundingBoxSearchable {
     public let apiKey: String
-    public let apiPath: String = "places/v1/addresses"
 
-    public typealias ResponseType = SearchResponse
+    public let apiPath: String = "opennames/v1"
+
+    public typealias ResponseType = OpenNamesResponse
 
     /**
      Constructor
