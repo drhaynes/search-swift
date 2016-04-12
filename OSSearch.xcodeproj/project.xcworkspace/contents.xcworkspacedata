@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Search.xcodeproj">
+      location = "self:/Users/dhardiman/Projects/search-swift/OSSearch.xcodeproj">
    </FileRef>
 </Workspace>

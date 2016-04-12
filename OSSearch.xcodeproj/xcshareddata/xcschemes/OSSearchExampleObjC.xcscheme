@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3DC343E31C9AD648003D7F09"
-               BuildableName = "SearchExampleObjC.app"
-               BlueprintName = "SearchExampleObjC"
-               ReferencedContainer = "container:Search.xcodeproj">
+               BuildableName = "OSSearch.app"
+               BlueprintName = "OSSearchExampleObjC"
+               ReferencedContainer = "container:OSSearch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DC343E31C9AD648003D7F09"
-            BuildableName = "SearchExampleObjC.app"
-            BlueprintName = "SearchExampleObjC"
-            ReferencedContainer = "container:Search.xcodeproj">
+            BuildableName = "OSSearch.app"
+            BlueprintName = "OSSearchExampleObjC"
+            ReferencedContainer = "container:OSSearch.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DC343E31C9AD648003D7F09"
-            BuildableName = "SearchExampleObjC.app"
-            BlueprintName = "SearchExampleObjC"
-            ReferencedContainer = "container:Search.xcodeproj">
+            BuildableName = "OSSearch.app"
+            BlueprintName = "OSSearchExampleObjC"
+            ReferencedContainer = "container:OSSearch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DC343E31C9AD648003D7F09"
-            BuildableName = "SearchExampleObjC.app"
-            BlueprintName = "SearchExampleObjC"
-            ReferencedContainer = "container:Search.xcodeproj">
+            BuildableName = "OSSearch.app"
+            BlueprintName = "OSSearchExampleObjC"
+            ReferencedContainer = "container:OSSearch.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -18,8 +18,8 @@
 		3D0ADE381C87404000D4FD37 /* test-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D0ADE371C87404000D4FD37 /* test-response.json */; };
 		3D53F1261CA2F38A0080707D /* OSAPIResponse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1241CA2F38A0080707D /* OSAPIResponse.framework */; };
 		3D53F1271CA2F38A0080707D /* OSTransformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1251CA2F38A0080707D /* OSTransformation.framework */; };
-		3D5929D41C7F41E900B3CECC /* Search.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5929D31C7F41E900B3CECC /* Search.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D5929DB1C7F41E900B3CECC /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
+		3D5929D41C7F41E900B3CECC /* OSSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5929D31C7F41E900B3CECC /* OSSearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D5929DB1C7F41E900B3CECC /* OSSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* OSSearch.framework */; };
 		3D5929E01C7F41E900B3CECC /* ResponseParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */; };
 		3D69EEF11C91849D004080EA /* PlacesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEF01C91849D004080EA /* PlacesSearchService.swift */; };
 		3D69EEF31C918595004080EA /* PlacesSearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EEF21C918595004080EA /* PlacesSearchServiceTests.swift */; };
@@ -32,8 +32,8 @@
 		3D69EF0C1C919ED7004080EA /* Fetch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; };
 		3D69EF0E1C919EFD004080EA /* Fetch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D69EF111C919FFA004080EA /* APIKEY in Resources */ = {isa = PBXBuildFile; fileRef = 3D69EF101C919FFA004080EA /* APIKEY */; };
-		3D69EF121C91A044004080EA /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
-		3D69EF131C91A044004080EA /* Search.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D69EF121C91A044004080EA /* OSSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* OSSearch.framework */; };
+		3D69EF131C91A044004080EA /* OSSearch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* OSSearch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D69EF201C93199E004080EA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EF1C1C93199E004080EA /* SearchResult.swift */; };
 		3D69EF221C93199E004080EA /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69EF1E1C93199E004080EA /* SearchResponse.swift */; };
 		3D69EF251C931B18004080EA /* OSJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; };
@@ -58,8 +58,8 @@
 		3DC343FE1C9ADA9D003D7F09 /* APIKEY in Resources */ = {isa = PBXBuildFile; fileRef = 3D69EF101C919FFA004080EA /* APIKEY */; };
 		3DC343FF1C9ADAAF003D7F09 /* OSJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; };
 		3DC344001C9ADAB2003D7F09 /* Fetch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; };
-		3DC344011C9ADABF003D7F09 /* Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; };
-		3DC344051C9ADAF2003D7F09 /* Search.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* Search.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DC344011C9ADABF003D7F09 /* OSSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* OSSearch.framework */; };
+		3DC344051C9ADAF2003D7F09 /* OSSearch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5929D01C7F41E900B3CECC /* OSSearch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DC344061C9ADAF6003D7F09 /* OSJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D69EF241C931B18004080EA /* OSJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DC344071C9ADAF9003D7F09 /* Fetch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0ADE221C87090900D4FD37 /* Fetch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DEAC4B51CA2F8840055E4C6 /* OSAPIResponse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D53F1241CA2F38A0080707D /* OSAPIResponse.framework */; };
@@ -133,7 +133,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3D69EF131C91A044004080EA /* Search.framework in Embed Frameworks */,
+				3D69EF131C91A044004080EA /* OSSearch.framework in Embed Frameworks */,
 				3D69EF0E1C919EFD004080EA /* Fetch.framework in Embed Frameworks */,
 				3DEAC4B71CA2F8870055E4C6 /* OSAPIResponse.framework in Embed Frameworks */,
 				3DEAC4B81CA2F8870055E4C6 /* OSTransformation.framework in Embed Frameworks */,
@@ -148,7 +148,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3DC344051C9ADAF2003D7F09 /* Search.framework in Embed Frameworks */,
+				3DC344051C9ADAF2003D7F09 /* OSSearch.framework in Embed Frameworks */,
 				3DEAC4BB1CA2F88C0055E4C6 /* OSAPIResponse.framework in Embed Frameworks */,
 				3DEAC4BC1CA2F88C0055E4C6 /* OSTransformation.framework in Embed Frameworks */,
 				3DC344071C9ADAF9003D7F09 /* Fetch.framework in Embed Frameworks */,
@@ -168,15 +168,15 @@
 		3D0ADE371C87404000D4FD37 /* test-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response.json"; sourceTree = "<group>"; };
 		3D53F1241CA2F38A0080707D /* OSAPIResponse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSAPIResponse.framework; path = Carthage/Build/iOS/OSAPIResponse.framework; sourceTree = SOURCE_ROOT; };
 		3D53F1251CA2F38A0080707D /* OSTransformation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSTransformation.framework; path = Carthage/Build/iOS/OSTransformation.framework; sourceTree = SOURCE_ROOT; };
-		3D5929D01C7F41E900B3CECC /* Search.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Search.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D5929D31C7F41E900B3CECC /* Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
+		3D5929D01C7F41E900B3CECC /* OSSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D5929D31C7F41E900B3CECC /* OSSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSearch.h; sourceTree = "<group>"; };
 		3D5929D51C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D5929DA1C7F41E900B3CECC /* SearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D5929DA1C7F41E900B3CECC /* OSSearch.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OSSearch.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParsingTests.swift; sourceTree = "<group>"; };
 		3D5929E11C7F41E900B3CECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D69EEF01C91849D004080EA /* PlacesSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesSearchService.swift; sourceTree = "<group>"; };
 		3D69EEF21C918595004080EA /* PlacesSearchServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesSearchServiceTests.swift; sourceTree = "<group>"; };
-		3D69EEF81C91985A004080EA /* SearchExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D69EEF81C91985A004080EA /* OSSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D69EEFA1C91985A004080EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D69EEFC1C91985A004080EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3D69EEFF1C91985A004080EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 		3DB366FE1C8F103E000C2C7B /* test-response-bad-header.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-bad-header.json"; sourceTree = "<group>"; };
 		3DB367001C8F1089000C2C7B /* test-response-bad-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "test-response-bad-results.json"; sourceTree = "<group>"; };
 		3DB367021C8F182C000C2C7B /* 100-results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "100-results.json"; sourceTree = "<group>"; };
-		3DC343E41C9AD648003D7F09 /* SearchExampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchExampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC343E41C9AD648003D7F09 /* OSSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC343E71C9AD649003D7F09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC343E91C9AD649003D7F09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3DC343EA1C9AD649003D7F09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D5929DB1C7F41E900B3CECC /* Search.framework in Frameworks */,
+				3D5929DB1C7F41E900B3CECC /* OSSearch.framework in Frameworks */,
 				3D0ADE301C870A0100D4FD37 /* Nimble.framework in Frameworks */,
 				3D69EF281C931B36004080EA /* OSJSON.framework in Frameworks */,
 				3D0ADE311C870A0300D4FD37 /* OHHTTPStubs.framework in Frameworks */,
@@ -248,7 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D69EF121C91A044004080EA /* Search.framework in Frameworks */,
+				3D69EF121C91A044004080EA /* OSSearch.framework in Frameworks */,
 				3D69EF0C1C919ED7004080EA /* Fetch.framework in Frameworks */,
 				3DEAC4B51CA2F8840055E4C6 /* OSAPIResponse.framework in Frameworks */,
 				3DEAC4B61CA2F8840055E4C6 /* OSTransformation.framework in Frameworks */,
@@ -264,7 +264,7 @@
 				3DC344001C9ADAB2003D7F09 /* Fetch.framework in Frameworks */,
 				3DEAC4B91CA2F88A0055E4C6 /* OSAPIResponse.framework in Frameworks */,
 				3DEAC4BA1CA2F88A0055E4C6 /* OSTransformation.framework in Frameworks */,
-				3DC344011C9ADABF003D7F09 /* Search.framework in Frameworks */,
+				3DC344011C9ADABF003D7F09 /* OSSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,10 +298,10 @@
 		3D5929C61C7F41E900B3CECC = {
 			isa = PBXGroup;
 			children = (
-				3D5929D21C7F41E900B3CECC /* Search */,
-				3D5929DE1C7F41E900B3CECC /* SearchTests */,
-				3D69EEF91C91985A004080EA /* SearchExampleSwift */,
-				3DC343E51C9AD649003D7F09 /* SearchExampleObjC */,
+				3D5929D21C7F41E900B3CECC /* OSSearch */,
+				3D5929DE1C7F41E900B3CECC /* OSSearchTests */,
+				3D69EEF91C91985A004080EA /* OSSearchExampleSwift */,
+				3DC343E51C9AD649003D7F09 /* OSSearchExampleObjC */,
 				3D5929D11C7F41E900B3CECC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -309,18 +309,18 @@
 		3D5929D11C7F41E900B3CECC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3D5929D01C7F41E900B3CECC /* Search.framework */,
-				3D5929DA1C7F41E900B3CECC /* SearchTests.xctest */,
-				3D69EEF81C91985A004080EA /* SearchExampleSwift.app */,
-				3DC343E41C9AD648003D7F09 /* SearchExampleObjC.app */,
+				3D5929D01C7F41E900B3CECC /* OSSearch.framework */,
+				3D5929DA1C7F41E900B3CECC /* OSSearch.xctest */,
+				3D69EEF81C91985A004080EA /* OSSearch.app */,
+				3DC343E41C9AD648003D7F09 /* OSSearch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3D5929D21C7F41E900B3CECC /* Search */ = {
+		3D5929D21C7F41E900B3CECC /* OSSearch */ = {
 			isa = PBXGroup;
 			children = (
-				3D5929D31C7F41E900B3CECC /* Search.h */,
+				3D5929D31C7F41E900B3CECC /* OSSearch.h */,
 				45316D631CBBE17A002B7126 /* NumberFormatter.swift */,
 				3D69EEF01C91849D004080EA /* PlacesSearchService.swift */,
 				3D7964AA1C99B1B10081C6B4 /* OSPlacesSearchService.swift */,
@@ -332,10 +332,10 @@
 				3D5929D51C7F41E900B3CECC /* Info.plist */,
 				3D53F1281CA2F38F0080707D /* Frameworks */,
 			);
-			path = Search;
+			path = OSSearch;
 			sourceTree = "<group>";
 		};
-		3D5929DE1C7F41E900B3CECC /* SearchTests */ = {
+		3D5929DE1C7F41E900B3CECC /* OSSearchTests */ = {
 			isa = PBXGroup;
 			children = (
 				3D5929DF1C7F41E900B3CECC /* ResponseParsingTests.swift */,
@@ -348,10 +348,10 @@
 				3D0ADE2A1C87096600D4FD37 /* Nimble.framework */,
 				3D0ADE2B1C87096600D4FD37 /* OHHTTPStubs.framework */,
 			);
-			path = SearchTests;
+			path = OSSearchTests;
 			sourceTree = "<group>";
 		};
-		3D69EEF91C91985A004080EA /* SearchExampleSwift */ = {
+		3D69EEF91C91985A004080EA /* OSSearchExampleSwift */ = {
 			isa = PBXGroup;
 			children = (
 				3D69EEFA1C91985A004080EA /* AppDelegate.swift */,
@@ -363,7 +363,7 @@
 				3D69EF061C91985B004080EA /* Info.plist */,
 				3D69EF101C919FFA004080EA /* APIKEY */,
 			);
-			path = SearchExampleSwift;
+			path = OSSearchExampleSwift;
 			sourceTree = "<group>";
 		};
 		3D7964A91C99B1000081C6B4 /* Fixtures */ = {
@@ -380,7 +380,7 @@
 			name = Fixtures;
 			sourceTree = "<group>";
 		};
-		3DC343E51C9AD649003D7F09 /* SearchExampleObjC */ = {
+		3DC343E51C9AD649003D7F09 /* OSSearchExampleObjC */ = {
 			isa = PBXGroup;
 			children = (
 				3DC343E91C9AD649003D7F09 /* AppDelegate.h */,
@@ -395,7 +395,7 @@
 				3DC343F71C9AD649003D7F09 /* Info.plist */,
 				3DC343E61C9AD649003D7F09 /* Supporting Files */,
 			);
-			path = SearchExampleObjC;
+			path = OSSearchExampleObjC;
 			sourceTree = "<group>";
 		};
 		3DC343E61C9AD649003D7F09 /* Supporting Files */ = {
@@ -413,16 +413,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D5929D41C7F41E900B3CECC /* Search.h in Headers */,
+				3D5929D41C7F41E900B3CECC /* OSSearch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3D5929CF1C7F41E900B3CECC /* Search */ = {
+		3D5929CF1C7F41E900B3CECC /* OSSearch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D5929E41C7F41E900B3CECC /* Build configuration list for PBXNativeTarget "Search" */;
+			buildConfigurationList = 3D5929E41C7F41E900B3CECC /* Build configuration list for PBXNativeTarget "OSSearch" */;
 			buildPhases = (
 				3D5929CB1C7F41E900B3CECC /* Sources */,
 				3D5929CC1C7F41E900B3CECC /* Frameworks */,
@@ -433,14 +433,14 @@
 			);
 			dependencies = (
 			);
-			name = Search;
+			name = OSSearch;
 			productName = Search;
-			productReference = 3D5929D01C7F41E900B3CECC /* Search.framework */;
+			productReference = 3D5929D01C7F41E900B3CECC /* OSSearch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3D5929D91C7F41E900B3CECC /* SearchTests */ = {
+		3D5929D91C7F41E900B3CECC /* OSSearchTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D5929E71C7F41E900B3CECC /* Build configuration list for PBXNativeTarget "SearchTests" */;
+			buildConfigurationList = 3D5929E71C7F41E900B3CECC /* Build configuration list for PBXNativeTarget "OSSearchTests" */;
 			buildPhases = (
 				3D5929D61C7F41E900B3CECC /* Sources */,
 				3D5929D71C7F41E900B3CECC /* Frameworks */,
@@ -452,14 +452,14 @@
 			dependencies = (
 				3D5929DD1C7F41E900B3CECC /* PBXTargetDependency */,
 			);
-			name = SearchTests;
+			name = OSSearchTests;
 			productName = SearchTests;
-			productReference = 3D5929DA1C7F41E900B3CECC /* SearchTests.xctest */;
+			productReference = 3D5929DA1C7F41E900B3CECC /* OSSearch.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3D69EEF71C91985A004080EA /* SearchExampleSwift */ = {
+		3D69EEF71C91985A004080EA /* OSSearchExampleSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D69EF071C91985B004080EA /* Build configuration list for PBXNativeTarget "SearchExampleSwift" */;
+			buildConfigurationList = 3D69EF071C91985B004080EA /* Build configuration list for PBXNativeTarget "OSSearchExampleSwift" */;
 			buildPhases = (
 				3D69EEF41C91985A004080EA /* Sources */,
 				3D69EEF51C91985A004080EA /* Frameworks */,
@@ -471,14 +471,14 @@
 			dependencies = (
 				3D69EF151C91A044004080EA /* PBXTargetDependency */,
 			);
-			name = SearchExampleSwift;
+			name = OSSearchExampleSwift;
 			productName = SearchExampleSwift;
-			productReference = 3D69EEF81C91985A004080EA /* SearchExampleSwift.app */;
+			productReference = 3D69EEF81C91985A004080EA /* OSSearch.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3DC343E31C9AD648003D7F09 /* SearchExampleObjC */ = {
+		3DC343E31C9AD648003D7F09 /* OSSearchExampleObjC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3DC343FA1C9AD649003D7F09 /* Build configuration list for PBXNativeTarget "SearchExampleObjC" */;
+			buildConfigurationList = 3DC343FA1C9AD649003D7F09 /* Build configuration list for PBXNativeTarget "OSSearchExampleObjC" */;
 			buildPhases = (
 				3DC343E01C9AD648003D7F09 /* Sources */,
 				3DC343E11C9AD648003D7F09 /* Frameworks */,
@@ -490,9 +490,9 @@
 			dependencies = (
 				3DC344031C9ADAC4003D7F09 /* PBXTargetDependency */,
 			);
-			name = SearchExampleObjC;
+			name = OSSearchExampleObjC;
 			productName = SearchExampleObjC;
-			productReference = 3DC343E41C9AD648003D7F09 /* SearchExampleObjC.app */;
+			productReference = 3DC343E41C9AD648003D7F09 /* OSSearch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -519,7 +519,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3D5929CA1C7F41E900B3CECC /* Build configuration list for PBXProject "Search" */;
+			buildConfigurationList = 3D5929CA1C7F41E900B3CECC /* Build configuration list for PBXProject "OSSearch" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -532,10 +532,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3D5929CF1C7F41E900B3CECC /* Search */,
-				3D5929D91C7F41E900B3CECC /* SearchTests */,
-				3D69EEF71C91985A004080EA /* SearchExampleSwift */,
-				3DC343E31C9AD648003D7F09 /* SearchExampleObjC */,
+				3D5929CF1C7F41E900B3CECC /* OSSearch */,
+				3D5929D91C7F41E900B3CECC /* OSSearchTests */,
+				3D69EEF71C91985A004080EA /* OSSearchExampleSwift */,
+				3DC343E31C9AD648003D7F09 /* OSSearchExampleObjC */,
 			);
 		};
 /* End PBXProject section */
@@ -645,17 +645,17 @@
 /* Begin PBXTargetDependency section */
 		3D5929DD1C7F41E900B3CECC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D5929CF1C7F41E900B3CECC /* Search */;
+			target = 3D5929CF1C7F41E900B3CECC /* OSSearch */;
 			targetProxy = 3D5929DC1C7F41E900B3CECC /* PBXContainerItemProxy */;
 		};
 		3D69EF151C91A044004080EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D5929CF1C7F41E900B3CECC /* Search */;
+			target = 3D5929CF1C7F41E900B3CECC /* OSSearch */;
 			targetProxy = 3D69EF141C91A044004080EA /* PBXContainerItemProxy */;
 		};
 		3DC344031C9ADAC4003D7F09 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3D5929CF1C7F41E900B3CECC /* Search */;
+			target = 3D5929CF1C7F41E900B3CECC /* OSSearch */;
 			targetProxy = 3DC344021C9ADAC4003D7F09 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -789,6 +789,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -798,12 +799,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Search/Info.plist;
+				INFOPLIST_FILE = OSSearch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.os.Search;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.OSSearch;
+				PRODUCT_NAME = OSSearch;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -813,6 +814,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -822,12 +824,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Search/Info.plist;
+				INFOPLIST_FILE = OSSearch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.os.Search;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.OSSearch;
+				PRODUCT_NAME = OSSearch;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -839,10 +841,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SearchTests/Info.plist;
+				INFOPLIST_FILE = OSSearchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.OSSearchTests;
+				PRODUCT_NAME = OSSearch;
 			};
 			name = Debug;
 		};
@@ -853,10 +855,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SearchTests/Info.plist;
+				INFOPLIST_FILE = OSSearchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.OSSearchTests;
+				PRODUCT_NAME = OSSearch;
 			};
 			name = Release;
 		};
@@ -870,10 +872,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SearchExampleSwift/Info.plist;
+				INFOPLIST_FILE = OSSearchExampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.OSSearchExampleSwift;
+				PRODUCT_NAME = OSSearch;
 			};
 			name = Debug;
 		};
@@ -887,10 +889,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SearchExampleSwift/Info.plist;
+				INFOPLIST_FILE = OSSearchExampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.OSSearchExampleSwift;
+				PRODUCT_NAME = OSSearch;
 			};
 			name = Release;
 		};
@@ -903,10 +905,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SearchExampleObjC/Info.plist;
+				INFOPLIST_FILE = OSSearchExampleObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleObjC;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.OSSearchExampleObjC;
+				PRODUCT_NAME = OSSearch;
 			};
 			name = Debug;
 		};
@@ -919,17 +921,17 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SearchExampleObjC/Info.plist;
+				INFOPLIST_FILE = OSSearchExampleObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.os.SearchExampleObjC;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.os.OSSearchExampleObjC;
+				PRODUCT_NAME = OSSearch;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3D5929CA1C7F41E900B3CECC /* Build configuration list for PBXProject "Search" */ = {
+		3D5929CA1C7F41E900B3CECC /* Build configuration list for PBXProject "OSSearch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D5929E21C7F41E900B3CECC /* Debug */,
@@ -938,7 +940,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D5929E41C7F41E900B3CECC /* Build configuration list for PBXNativeTarget "Search" */ = {
+		3D5929E41C7F41E900B3CECC /* Build configuration list for PBXNativeTarget "OSSearch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D5929E51C7F41E900B3CECC /* Debug */,
@@ -947,7 +949,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D5929E71C7F41E900B3CECC /* Build configuration list for PBXNativeTarget "SearchTests" */ = {
+		3D5929E71C7F41E900B3CECC /* Build configuration list for PBXNativeTarget "OSSearchTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D5929E81C7F41E900B3CECC /* Debug */,
@@ -956,7 +958,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D69EF071C91985B004080EA /* Build configuration list for PBXNativeTarget "SearchExampleSwift" */ = {
+		3D69EF071C91985B004080EA /* Build configuration list for PBXNativeTarget "OSSearchExampleSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D69EF081C91985B004080EA /* Debug */,
@@ -965,7 +967,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3DC343FA1C9AD649003D7F09 /* Build configuration list for PBXNativeTarget "SearchExampleObjC" */ = {
+		3DC343FA1C9AD649003D7F09 /* Build configuration list for PBXNativeTarget "OSSearchExampleObjC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DC343F81C9AD649003D7F09 /* Debug */,
