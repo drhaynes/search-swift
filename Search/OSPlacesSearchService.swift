@@ -46,12 +46,25 @@ extension PlacesSearchService: PlacesService {}
         }
     }
 
+    /**
+     Find the text specified
+
+     - parameter query:      The text to find
+     - parameter completion: Completion block to call
+     */
     public func find(query: String, completion: (SearchResponse?, NSError?) -> Void) {
         searchService.find(query) { result in
             self.callCompletion(result, completion: completion)
         }
     }
 
+    /**
+     Find the nearest address to the provided grid point. Will find a result
+     within 100 metres.
+
+     - parameter location:   The location to query
+     - parameter completion: Completion block to call
+     */
     public func nearest(location: OSGridPoint, completion: (SearchResponse?, NSError?) -> Void) {
         searchService.nearest(location) { result in
             self.callCompletion(result, completion: completion)
