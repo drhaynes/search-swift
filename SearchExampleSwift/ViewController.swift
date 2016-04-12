@@ -24,6 +24,7 @@ class ViewController: UIViewController, UISearchResultsUpdating {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+        searchController.searchBar.scopeButtonTitles = ["OS Places", "OS Open Names"]
         self.view.addSubview(searchController.searchBar)
     }
 
@@ -32,8 +33,8 @@ class ViewController: UIViewController, UISearchResultsUpdating {
     }
 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        if let text = searchController.searchBar.text {
-            resultsController.search(text)
+        if let text = searchController.searchBar.text, scope = SearchScope(rawValue: searchController.searchBar.selectedScopeButtonIndex) {
+            resultsController.search(text, scope: scope)
         }
     }
 
